@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +69,51 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+=======
+# 🌾 Sooraj Crop Sciences
+
+**Advancing crop protection and agricultural innovation in Pakistan through science and sustainability.**
+
+---
+
+## 🏢 About the Project
+
+Sooraj Crop Sciences is committed to delivering innovative and sustainable crop protection solutions.  
+This website highlights our products, research, and mission to empower farmers across Pakistan with advanced agricultural practices.
+
+---
+
+## 🌱 Mission
+
+To provide modern crop protection technologies that increase productivity and promote environmental health.
+
+---
+
+## 💡 Vision
+
+A greener, healthier, and more resilient agricultural future for Pakistan.
+
+---
+
+## 🧩 Tech Stack
+
+- **HTML5** – Website structure  
+- **CSS3** – Styling and layout  
+- **JavaScript (ES6)** – Interactive content  
+- **GitHub Pages** – Hosting platform
+
+---
+
+## 👥 Collaborators
+
+| Name | Role | GitHub |
+|------|------|--------|
+| Amna Imran | Developer | [@iamna122](https://github.com/iamna122) |
+| Bilal Tarar| Developer | [@username](https://github.com/bilaltarar008) |
+| Kainat Naveed| Developer | [@username](https://github.com/Kainatnvd) |
+
+---
+
+## 📁 Project Structure
+
+>>>>>>> 6125bd48673aa1a958cbcdc6a3c3ee1df59d872d
