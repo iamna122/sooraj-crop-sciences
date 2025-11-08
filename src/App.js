@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
-// import Contact from "./pages/Contact";
-import "./App.css"; // (we’ll add some simple styles here)
+import Contact from "./pages/Contact";
+import FAQs from "./pages/Faqs";
+import Products from "./pages/Products";
+import "./App.css"; 
 
 function App() {
   return (
@@ -21,14 +23,19 @@ function App() {
         <nav className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>
-          {/* <Link to="/contact" className="nav-link">Contact</Link> */}
+          <Link to="/Products" className="nav-link">Products</Link>
+          <Link to="/contact" className="nav-link">Contact</Link>
+          <Link to="/FAQs" className="nav-link">FAQs</Link>
+          
         </nav>
       </header>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/Products" element={<Products />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/FAQs" element={<FAQs />} />
       </Routes>
     </Router>
   );
