@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQs from "./pages/Faqs";
 import Products from "./pages/Products";
-import "./App.css"; 
+import "./App.css";
 
 function App() {
   return (
@@ -21,12 +21,21 @@ function App() {
         </div>
 
         <nav className="nav-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/Products" className="nav-link">Products</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/FAQs" className="nav-link">FAQs</Link>
-          
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+          <Link to="/about" className="nav-link">
+            About
+          </Link>
+          <Link to="/Products" className="nav-link">
+            Products
+          </Link>
+          <Link to="/contact" className="nav-link">
+            Contact
+          </Link>
+          <Link to="/FAQs" className="nav-link">
+            FAQs
+          </Link>
         </nav>
       </header>
 
