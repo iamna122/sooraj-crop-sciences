@@ -1,11 +1,116 @@
-.header {
+/* .header {
   background-color: #44a86a;
   color: rgb(255, 255, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 40px;
+} */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+
+  /* Glass + Gradient look */
+  background: linear-gradient(
+    135deg,
+    rgba(31, 131, 79, 0.85),
+    rgba(68, 168, 106, 0.75)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:  rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
 }
+
+/* --- Company Logo / Brand Text --- */
+.header .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff !important; /* Force white */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
+}
+
+.header .logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 3px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* --- Navigation Links --- */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #ffffff;
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #e6ffe6;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- CTA Button --- */
+.header .btn {
+  background: linear-gradient(135deg, #ffffff, #e6ffe6);
+  color: #127a3a;
+  font-weight: 600;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.header .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+
 
 .logo-section {
   display: flex;
