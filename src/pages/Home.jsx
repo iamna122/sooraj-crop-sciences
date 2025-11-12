@@ -6,9 +6,9 @@ import products from "../data/products";
 export default function Home({ search, setSearch }) {
   // Select only the first 8 featured products
   const featuredProducts = products.slice(0, 8);
-  const filtered = products.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
+  // const filtered = products.filter((p) =>
+  //   p.name.toLowerCase().includes(search.toLowerCase())
+  // );
 
   return (
     <div>

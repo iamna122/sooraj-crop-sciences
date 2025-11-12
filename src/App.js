@@ -9,9 +9,9 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import FAQs from "./pages/Faqs";
 import Products from "./pages/Products";
+import "./App.css";
 import Footer from "./components/Footer";
 import products from "./data/products"; // ✅ Import product data
-import "./App.css";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ function App() {
   return (
     <Router>
       <Header isOpen={isOpen} setIsOpen={setIsOpen} search={search} setSearch={setSearch} />
-      
+
       {/* Show search results dynamically */}
       {isOpen && search && <SearchResults search={search} />}
 
