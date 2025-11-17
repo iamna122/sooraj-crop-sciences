@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import logo from "./assets/sooraj-logo.PNG";
 import "./i18n";
@@ -19,17 +26,25 @@ function App() {
 
   return (
     <Router>
-      <Header isOpen={isOpen} setIsOpen={setIsOpen} search={search} setSearch={setSearch} />
+      <Header
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        search={search}
+        setSearch={setSearch}
+      />
 
       {/* Show search results dynamically */}
       {isOpen && search && <SearchResults search={search} />}
 
       <Routes>
-        <Route path="/" element={<Home search={search} setSearch={setSearch} />} />
+        <Route
+          path="/"
+          element={<Home search={search} setSearch={setSearch} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/FAQs" element={<FAQs />} />
+        <Route path="/faqs" element={<FAQs />} />
       </Routes>
 
       <Footer />
@@ -85,7 +100,9 @@ function Header({ isOpen, setIsOpen, search, setSearch }) {
                 textDecoration: "none",
                 color: active ? "#127a3a" : "#444",
                 paddingBottom: "4px",
-                borderBottom: active ? "2px solid #127a3a" : "2px solid transparent",
+                borderBottom: active
+                  ? "2px solid #127a3a"
+                  : "2px solid transparent",
                 transition: "all 0.3s ease",
               }}
             >
@@ -95,7 +112,13 @@ function Header({ isOpen, setIsOpen, search, setSearch }) {
         })}
 
         {/* 🔍 Search Button */}
-        <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
           <div
             onClick={() => setIsOpen((prev) => !prev)}
             style={{
