@@ -19,31 +19,32 @@ export default function ProductCard({ product }) {
         alt={product.name}
         style={{ width: "100%", borderRadius: 8, marginBottom: 10 }}
       />
-      <h3 style={{ color: "#127a3a", marginBottom: 4 }}>{product.name}</h3>
+
+      <h3
+        style={{
+          color: "#127a3a",
+          marginBottom: 4,
+          fontSize: "1.15rem",
+          lineHeight: 1.6,
+          fontWeight: "normal",
+        }}
+      >
+        {product.name}
+      </h3>
+
       <p style={{ color: "#666", fontSize: 14, marginBottom: 10 }}>
         {product.short}
       </p>
 
-      {/* 👇 More Details Button */}
       <button
         onClick={() => setShowDetails((prev) => !prev)}
-        style={{
-          background: "#2e7c4cff",
-          color: "white",
-          padding: "8px 14px",
-          border: "none",
-          borderRadius: 6,
-          cursor: "pointer",
-          fontSize: "14px",
-          transition: "background 0.3s ease",
-        }}
+        style={btnStyle}
         onMouseEnter={(e) => (e.currentTarget.style.background = "#1d5633")}
         onMouseLeave={(e) => (e.currentTarget.style.background = "#2e7c4cff")}
       >
         {showDetails ? "Hide Details" : "More Details"}
       </button>
 
-      {/* 👇 Expanding Text */}
       <div
         style={{
           maxHeight: showDetails ? "150px" : "0px",
@@ -63,9 +64,20 @@ export default function ProductCard({ product }) {
         >
           {product.details
             ? product.details
-            : "This product enhances crop growth and improves soil fertility with essential nutrients. Ideal for various field conditions."}
+            : "This product enhances crop growth and improves soil fertility."}
         </p>
       </div>
     </article>
   );
 }
+
+const btnStyle = {
+  background: "#2e7c4cff",
+  color: "white",
+  padding: "8px 14px",
+  border: "none",
+  borderRadius: 6,
+  cursor: "pointer",
+  fontSize: "14px",
+  transition: "background 0.3s ease",
+};

@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import FAQs from "./pages/Faqs";
 import Products from "./pages/Products";
 import "./App.css";
+import TopHeader from "./components/TopHeader";
 import Footer from "./components/Footer";
 import products from "./data/products"; // ✅ Import product data
 
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <Router>
+      <TopHeader />
       <Header
         isOpen={isOpen}
         setIsOpen={setIsOpen}
