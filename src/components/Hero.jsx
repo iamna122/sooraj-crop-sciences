@@ -1,9 +1,28 @@
-import React from "react";
-import productImg from "../assets/NIPA.jpg";
+import React, { useEffect, useState } from "react";
+import img1 from "../assets/NIPA.jpg";
+import img2 from "../assets/NIPA2.jpg";
+import img3 from "../assets/NIPA3.jpg";
 
-const HeroClassic = () => {
+const Hero = () => {
+  const images = [img1, img2, img3];
+  const [index, setIndex] = useState(0);
+
+  // ⬇️ Change 4000 to test faster/slower slide for testing
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4500); // 4 seconds per slide
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextSlide = () => {
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
   return (
     <section style={styles.heroContainer}>
+      {/* LEFT TEXT BLOCK */}
       <div style={styles.textContainer}>
         <h1 style={styles.title}>Welcome to Sooraj Crop Science</h1>
         <p style={styles.subtitle}>
@@ -16,18 +35,35 @@ const HeroClassic = () => {
           diseases, pests, and nutritional deficiencies while promoting optimal
           growth and yield.
         </p>
-
-        <p style={styles.subtitle}>
-          Crops face constant threats from insects, fungi, and nutrient
+        <p style={styles.subtitle}>Crops face constant threats from insects, fungi, and nutrient
           imbalances, as well as unpredictable weather conditions such as heat,
           cold, drought, and floods. We partner with farmers to tackle these
           challenges, ensuring a reliable supply of safe, nutritious, and
           high-quality produce while supporting efficient use of agricultural
-          resources and fostering sustainable farming practices.
-        </p>
+          resources and fostering sustainable farming practices.</p>
       </div>
-      <div style={styles.imageContainer}>
-        <img src={productImg} alt="Hero" style={styles.image} />
+
+      {/* CAROUSEL */}
+      <div style={styles.carouselWrapper}>
+        {images.map((img, i) => {
+          const position = (i - index + images.length) % images.length;
+
+          return (
+            <div
+              key={i}
+              style={{
+                ...styles.slide,
+                ...(position === 0
+                  ? styles.centerSlide
+                  : position === 1
+                  ? styles.rightSlide
+                  : styles.leftSlide),
+              }}
+            >
+              <img src={img} alt="" style={styles.image} />
+            </div>
+          );
+        })}
       </div>
     </section>
   );
@@ -36,25 +72,74 @@ const HeroClassic = () => {
 const styles = {
   heroContainer: {
     display: "flex",
-    alignItems: "center",
     justifyContent: "space-between",
-    padding: "3rem 5rem",
-    backgroundColor: "#c6e7caff",
-    minHeight: "55vh",
+    alignItems: "center",
+    padding: "2rem 3rem",
+    background: "#c6e7ca",
     flexWrap: "wrap",
+    gap: "1.5rem",
   },
-  textContainer: { flex: 1, paddingRight: "2rem", color: "#080808ff" },
-  title: { fontSize: "2.5rem", marginBottom: "1rem", fontWeight: 700 },
-  subtitle: { fontSize: "1.15rem", lineHeight: 1.6, color: "#494747ff" },
-  imageContainer: { flex: 1, display: "flex", justifyContent: "center" },
+
+  textContainer: { flex: 1, color: "#080808" },
+
+  title: {
+    fontSize: "2rem",
+    marginBottom: "0.7rem",
+    fontWeight: 700,
+  },
+
+  subtitle: {
+    fontSize: "1rem",
+    lineHeight: 1.55,
+    color: "#494747",
+    marginBottom: "0.7rem",
+  },
+
+  carouselWrapper: {
+    flex: 1,
+    position: "relative",
+    height: "280px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "visible", // show side slides
+  },
+
+  slide: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transition: "all 0.9s ease",
+  },
+
+  centerSlide: {
+    transform: "translate(-50%, -50%) scale(1)",
+    zIndex: 3,
+    opacity: 1,
+  },
+
+  rightSlide: {
+  transform: "translate(200px, -50%) scale(0.75)",
+  filter: "blur(5px) brightness(100%)",
+  opacity: 0.5,
+  zIndex: 1,
+},
+leftSlide: {
+  transform: "translate(-200px, -50%) scale(0.75)",
+  filter: "blur(5px) brightness(70%)",
+  opacity: 0.5,
+  zIndex: 1,
+},
+
+
   image: {
     width: "100%",
-    maxWidth: "500px",
-    borderRadius: "20px",
-    boxShadow: "0 8px 20px rgba(124, 206, 48, 0.12)",
-    objectFit: "cover",
-    transition: "transform 0.3s",
+    maxWidth: "380px",
+    height: "auto", // keep full image visible
+    borderRadius: "16px",
+    objectFit: "contain",
+    boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
   },
 };
 
-export default HeroClassic;
+export default Hero;

@@ -20,15 +20,23 @@ import "./App.css";
 import TopHeader from "./components/TopHeader";
 import Footer from "./components/Footer";
 import products from "./data/products"; // ✅ Import product data
+import Navbar from "./components/Navbar";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [search, setSearch] = useState("");
 
+  let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+window.addEventListener('resize', () => {
+  vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
   return (
     <Router>
       <TopHeader />
-      <Header
+      <Navbar
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         search={search}
@@ -54,7 +62,7 @@ function App() {
   );
 }
 
-// ✅ Header component
+// ✅ Navbar component
 function Header({ isOpen, setIsOpen, search, setSearch }) {
   const location = useLocation();
 
