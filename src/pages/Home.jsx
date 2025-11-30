@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import StatsSection from "../components/StatsSection";
 import mainBanner from "../assets/main-banner.jpg";
+import VideoSection from "../components/VideoSection";
+// import "../styles/Home.css";
 
 import products from "../data/products";
 
@@ -35,6 +37,8 @@ export default function Home({ search, setSearch }) {
 
       <Hero search={search} setSearch={setSearch} />
 
+      <VideoSection/>
+
       <StatsSection />
 
       {/* FEATURED PRODUCTS */}
@@ -55,7 +59,7 @@ export default function Home({ search, setSearch }) {
             letterSpacing: "0.5px",
           }}
         >
-          🌿 Featured Products
+          Featured Products
         </h2>
 
         <div
