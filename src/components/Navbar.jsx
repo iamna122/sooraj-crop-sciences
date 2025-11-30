@@ -1,4 +1,5 @@
-// this is navbar
+
+// this is navabr
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
