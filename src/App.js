@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ProductDetails from "./pages/ProductDetails";
 import {
   BrowserRouter as Router,
   Routes,
@@ -45,6 +46,7 @@ function App() {
         <Route path="/Products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faqs" element={<FAQs />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
 
       <Footer />
