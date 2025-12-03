@@ -14,7 +14,7 @@ import "./i18n";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import FAQs from "./pages/Faqs";
+import Career from "./pages/Career";
 import Products from "./pages/Products";
 import "./App.css";
 import TopHeader from "./components/TopHeader";
@@ -54,7 +54,7 @@ window.addEventListener('resize', () => {
         <Route path="/about" element={<About />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/Career" element={<Career />} />
       </Routes>
 
       <Footer />

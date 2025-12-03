@@ -8,7 +8,7 @@ import "./Navbar.css";
 
 export default function Navbar({ search, setSearch }) {
   const location = useLocation();
-  const pages = ["Home", "About", "Products", "Contact", "FAQs"];
+  const pages = ["Home", "About", "Products", "Contact", "Career"];
 
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
