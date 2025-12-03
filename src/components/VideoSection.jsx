@@ -102,7 +102,7 @@ export default function VideoSection() {
   return (
     <section style={styles.container}>
       <div style={styles.headerRow}>
-        <h2 style={styles.heading}>Latest Videos</h2>
+        <h2 style={styles.heading}>Latest Videos from Sooraj Crops</h2>
 
         <a
           href="https://www.youtube.com/@soorajcropsciences5322"

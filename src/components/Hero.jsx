@@ -10,15 +10,15 @@ const Hero = () => {
   // ⬇️ Change 4000 to test faster/slower slide for testing
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide();
+      setIndex((prev) => (prev + 1) % images.length);
     }, 4500); // 4 seconds per slide
 
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
+  // const nextSlide = () => {
+    
+  // };
 
   return (
     <section style={styles.heroContainer}>
