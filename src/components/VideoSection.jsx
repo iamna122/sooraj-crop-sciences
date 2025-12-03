@@ -90,7 +90,7 @@ export default function VideoSection() {
       title: "Sooraj Crop Sciences – Official Documentary",
     },
     {
-      link: "https://www.youtube.com/watch?v=8JMXdA1X-HM&list=RD8JMXdA1X-HM&start_radio=1",
+      link: "https://www.youtube.com/watch?v=ljrDiz5ExKI",
       title: "Farmer Training Session – 2025",
     },
     {
