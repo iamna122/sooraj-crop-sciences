@@ -90,7 +90,7 @@ export default function VideoSection() {
       title: "Sooraj Crop Sciences – Official Documentary",
     },
     {
-      link: "https://www.youtube.com/watch?v=8JMXdA1X-HM&list=RD8JMXdA1X-HM&start_radio=1",
+      link: "https://www.youtube.com/watch?v=ljrDiz5ExKI",
       title: "Farmer Training Session – 2025",
     },
     {
@@ -101,8 +101,9 @@ export default function VideoSection() {
 
   return (
     <section style={styles.container}>
+      
       <div style={styles.headerRow}>
-        <h2 style={styles.heading}>Latest Videos</h2>
+        <h2 style={styles.heading}>Latest Videos from Sooraj Crops</h2>
 
         <a
           href="https://www.youtube.com/@soorajcropsciences5322"
