@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import products from "../data/products";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "../styles/products.css";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [expandedProduct, setExpandedProduct] = useState(null);
+  const navigate = useNavigate();
 
   const categories = ["All", ...new Set(products.map((p) => p.category))];
   const filteredProducts =
@@ -13,8 +15,8 @@ export default function Products() {
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
-  const toggleDetails = (id) => {
-    setExpandedProduct(expandedProduct === id ? null : id);
+  const openProductPage = (id) => {
+    navigate(`/products/${id}`);
   };
 
   return (
@@ -36,64 +38,32 @@ export default function Products() {
 
       {/* Product Grid */}
       <div className="product-grid">
-        {filteredProducts.map((p) => {
-          const isExpanded = expandedProduct === p.id;
-
-          return (
-            <motion.div
-              key={p.id}
-              className="product-card"
-              layout // only on the card itself
-              transition={{ layout: { duration: 0.4, type: "spring" } }}
-            >
-              <motion.img
-                src={p.image}
-                alt={p.name}
-                className="product-image"
-                layout
-              />
-
-              <h3 className="product-name">{p.name}</h3>
-
-              <div className="product-info">
-                <p className="product-brand">
-                  <strong>Brand:</strong> {p.brand}
-                </p>
-                <p className="product-pack">
-                  <strong>Pack Size:</strong> {p.packSize}
-                </p>
-              </div>
-
-              <button
-                className="read-more-btn"
-                onClick={() => toggleDetails(p.id)}
-              >
-                {isExpanded ? "Hide Details" : "Read More"}
-              </button>
-
-              {/* Only this card expands */}
-              <AnimatePresence>
-                {isExpanded && (
-                  <motion.ul
-                    className="product-details"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: "easeInOut" }}
-                  >
-                    {p.details && p.details.length > 0 ? (
-                      p.details.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))
-                    ) : (
-                      <li>No additional details available.</li>
-                    )}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          );
-        })}
+        {filteredProducts.map((p) => (
+          <motion.div
+            key={p.id}
+            className="product-card"
+            layout
+            transition={{ layout: { duration: 0.4, type: "spring" } }}
+            onClick={() => openProductPage(p.id)}
+            style={{ cursor: "pointer" }}
+          >
+            <motion.img
+              src={p.image}
+              alt={p.name}
+              className="product-image"
+              layout
+            />
+            <h3 className="product-name">{p.name}</h3>
+            <div className="product-info">
+              <p className="product-brand">
+                <strong>Brand:</strong> {p.brand}
+              </p>
+              <p className="product-pack">
+                <strong>Pack Size:</strong> {p.packSize}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );

@@ -1,0 +1,104 @@
+/* === Main Layout === */
+.product-detail-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 20px;
+  color: #1a4d2e;
+  text-align: left;
+}
+
+/* === Back Button === */
+.product-detail-container button {
+  background-color: #1a4d2e;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.product-detail-container button:hover {
+  background-color: #2c7a4b;
+  transform: translateY(-2px);
+}
+
+/* === TITLE === */
+.product-detail-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+/* === TOP SECTION — IMAGE LEFT, INFO RIGHT === */
+.product-top-section {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+/* === Image styling === */
+.product-detail-image {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* === Info Box === */
+.product-basic-info {
+  flex: 1;
+}
+
+.product-basic-info p,
+.product-basic-info li {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.product-basic-info strong {
+  color: #1a4d2e;
+  font-weight: 700;
+}
+
+.product-basic-info ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+/* === LOWER SECTION (HEADINGS & PARAGRAPHS) === */
+.product-detail-container h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a4d2e;
+}
+
+/* Paragraphs & list text */
+.product-detail-container p,
+.product-detail-container ul li {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* === Responsive === */
+@media (max-width: 850px) {
+  .product-top-section {
+    flex-direction: column;
+  }
+
+  .product-detail-image {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+  }
+}
