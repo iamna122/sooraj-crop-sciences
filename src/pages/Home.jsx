@@ -5,6 +5,7 @@ import StatsSection from "../components/StatsSection";
 // import mainBanner from "../assets/main-banner.jpg";
 import VideoSection from "../components/VideoSection";
 import ProjectBanner from "../components/ProjectBanner";
+import CropGallery from "../components/CropGallery";
 // import "../styles/Home.css";
 
 import products from "../data/products";
@@ -41,6 +42,8 @@ export default function Home({ search, setSearch }) {
       <Hero search={search} setSearch={setSearch} />
 
       <VideoSection/>
+
+      <CropGallery/>
 
       <StatsSection />
 
