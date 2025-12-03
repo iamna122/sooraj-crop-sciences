@@ -16,6 +16,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Career from "./pages/Career";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 import "./App.css";
 import TopHeader from "./components/TopHeader";
 import Footer from "./components/Footer";
@@ -55,6 +56,8 @@ window.addEventListener('resize', () => {
         <Route path="/Products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/Career" element={<Career />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="*" element={<Products />} />
       </Routes>
 
       <Footer />
