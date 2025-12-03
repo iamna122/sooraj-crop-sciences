@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import {
   motion,
-  useMotionValue,
+  useMotionValue,   
   useTransform,
   animate,
   useInView,

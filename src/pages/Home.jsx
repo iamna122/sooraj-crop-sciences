@@ -2,8 +2,9 @@ import React from "react";
 import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import StatsSection from "../components/StatsSection";
-import mainBanner from "../assets/main-banner.jpg";
+// import mainBanner from "../assets/main-banner.jpg";
 import VideoSection from "../components/VideoSection";
+import ProjectBanner from "../components/ProjectBanner";
 // import "../styles/Home.css";
 
 import products from "../data/products";
@@ -14,7 +15,7 @@ export default function Home({ search, setSearch }) {
 
   return (
     <div>
-      <div
+      {/* <div
         style={{
           width: "100%",
           height: "100vh",
@@ -33,7 +34,9 @@ export default function Home({ search, setSearch }) {
             filter: "brightness(100%)", // cinematic dark overlay
           }}
         />
-      </div>
+      </div> */}
+
+      <ProjectBanner/>
 
       <Hero search={search} setSearch={setSearch} />
 

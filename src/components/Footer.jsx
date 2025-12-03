@@ -135,7 +135,7 @@ const styles = {
   footer: {
     background: "linear-gradient(135deg, #0b5a27, #0d6a2f)",
     color: "white",
-    padding: "60px 20px 30px",
+    padding: "30px 20px 20px",
     fontFamily: "Inter, Arial, sans-serif",
     marginTop: "80px",
     boxShadow: "0 -5px 15px rgba(0,0,0,0.2)",
