@@ -1,0 +1,59 @@
+{
+  "Home": "Home",
+  "About": "About",
+  "Products": "Products",
+  "Contact": "Contact",
+  "Career": "Career",
+
+  "heroTitle1": "Sooraj Crop Sciences",
+  "heroDesc": "Growing a better future for farmers",
+
+  "videoTitle": "Our Process",
+  "footerText": "All Rights Reserved",
+
+  "search": "Search products...",
+
+  "heroTitle": "Welcome to Sooraj Crop Science",
+
+  "heroPara1": "At Sooraj Crop Science, we are dedicated to delivering high-quality crop protection and nutrition solutions to farmers across Pakistan. As a trusted supplier of fungicides, insecticides, and micronutrients, we provide advanced and sustainable methods to ensure the health and productivity of crops from planting to harvest.",
+
+  "heroPara2": "Crops face constant threats from insects, fungi, and nutrient imbalances, as well as unpredictable weather conditions such as heat, cold, drought, and floods. We partner with farmers to tackle these challenges, ensuring safe, nutritious, and high-quality produce.",
+
+  "videoHeading": "Latest Videos from Sooraj Crops",
+  "visitChannel": "Visit Channel",
+
+  "video1Title": "Sooraj Crop Sciences – Official Documentary",
+  "video2Title": "Farmer Training Session – 2025",
+  "video3Title": "Product Demo – Crop Booster Technology",
+
+  "stats": {
+    "title": "Our Growth in Numbers",
+    "members": "Active Members",
+    "projects": "Projects Completed",
+    "clients": "Happy Clients",
+    "awards": "Awards Won"
+  },
+
+  "products": {
+    "featured": "Featured Products",
+    "viewAll": "View All Products",
+    "moreDetails": "More Details",
+    "hideDetails": "Hide Details"
+  },
+
+  "productsPage": {
+    "title": "Our Products"
+  },
+
+  "product": {
+    "notFound": "Product not found",
+    "back": "Back to Products",
+    "brand": "Brand",
+    "pack": "Pack Size",
+    "composition": "Composition / Ingredients",
+    "crops": "Crops / Targeted Plants",
+    "usage": "Usage Instructions",
+    "season": "Season / Timing",
+    "problems": "Pest / Problem Control"
+  }
+}
