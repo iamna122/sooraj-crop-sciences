@@ -3,17 +3,25 @@ import products from "../data/products";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../styles/products.css";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
+  const { i18n, t } = useTranslation();
 
-  const categories = ["All", ...new Set(products.map((p) => p.category))];
+  const lang = i18n.language; // ✅ current language (en / ur)
+
+  // ✅ Categories must also be language-safe
+  const categories = [
+    "All",
+    ...new Set(products.map((p) => p.category[lang])),
+  ];
+
   const filteredProducts =
     selectedCategory === "All"
       ? products
-      : products.filter((p) => p.category === selectedCategory);
+      : products.filter((p) => p.category[lang] === selectedCategory);
 
   const openProductPage = (id) => {
     navigate(`/products/${id}`);
@@ -21,9 +29,10 @@ export default function Products() {
 
   return (
     <div className="products-container">
-      <h1 className="page-title">Our Products</h1>
+      {/* ✅ Page Title Translated */}
+      <h1 className="page-title">{t("products.title")}</h1>
 
-      {/* Category Buttons */}
+      {/* ✅ Category Buttons */}
       <div className="category-buttons">
         {categories.map((category) => (
           <button
@@ -36,7 +45,7 @@ export default function Products() {
         ))}
       </div>
 
-      {/* Product Grid */}
+      {/* ✅ Product Grid */}
       <div className="product-grid">
         {filteredProducts.map((p) => (
           <motion.div
@@ -49,17 +58,21 @@ export default function Products() {
           >
             <motion.img
               src={p.image}
-              alt={p.name}
+              alt={p.name[lang]}   // ✅ FIXED
               className="product-image"
               layout
             />
-            <h3 className="product-name">{p.name}</h3>
+
+            {/* ✅ FIXED BILINGUAL NAME */}
+            <h3 className="product-name">{p.name[lang]}</h3>
+
             <div className="product-info">
               <p className="product-brand">
-                <strong>Brand:</strong> {p.brand}
+                <strong>{t("product.brand")}:</strong> {p.brand[lang]}
               </p>
+
               <p className="product-pack">
-                <strong>Pack Size:</strong> {p.packSize}
+                <strong>{t("product.pack")}:</strong> {p.packSize[lang]}
               </p>
             </div>
           </motion.div>
