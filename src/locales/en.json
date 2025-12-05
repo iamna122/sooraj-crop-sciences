@@ -130,8 +130,13 @@
       "type2": "Full-time"
     }
   }
+},
+  "cropGallery": {
+  "title": "Crops That We Protect",
+  "subtitle": "Our specialized solutions safeguard a variety of essential crops."
+
+}
 }
 
 
 
-}

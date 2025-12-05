@@ -2,16 +2,24 @@
 import React, { useState } from "react";
 import { crops } from "../data/cropData";
 import "./CropGallery.css";
+import { useTranslation } from "react-i18next";
+
 
 const CropGallery = () => {
   const [selectedCrop, setSelectedCrop] = useState(null);
+  const { i18n, t } = useTranslation(); // get language
+  
 
   return (
     <div className="crop-section">
-      <h2 className="crop-title">Crops That We Protect</h2>
-      <p className="crop-subtitle">
-        Our specialized solutions safeguard a variety of essential crops.
-      </p>
+      <h2 className="crop-title">
+  {t("cropGallery.title")}
+</h2>
+
+<p className="crop-subtitle">
+  {t("cropGallery.subtitle")}
+</p>
+
 
       {/* GRID */}
       <div className="crop-grid">
