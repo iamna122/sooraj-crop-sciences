@@ -2,7 +2,7 @@ import React from "react";
 import {
   FaFacebookF,
   FaInstagram,
-  FaTwitter,
+  FaWhatsapp,
   FaLinkedinIn,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -72,9 +72,9 @@ export default function TopHeader() {
           </button>
           <button
             style={iconButtonStyle}
-            onClick={() => window.open("https://twitter.com", "_blank")}
+            onClick={() => window.open("https://wa.me/04235111003", "_blank")}
           >
-            <FaTwitter size={16} />
+            <FaWhatsapp size={16} />
           </button>
           <button
             style={iconButtonStyle}
