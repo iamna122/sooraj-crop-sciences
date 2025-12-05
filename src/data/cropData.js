@@ -35,5 +35,5 @@ export const crops = [
     name: "Potato",
     image: potato,
     description: "Potatoes are rich, filling, and versatile."
-  }
+  },
 ];

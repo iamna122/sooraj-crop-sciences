@@ -23,33 +23,18 @@ const Hero = () => {
       {/* LEFT TEXT BLOCK */}
       <div style={styles.textContainer}>
         <h1 style={styles.title}>{t("heroTitle")}</h1>
-
         <p style={styles.subtitle}>{t("heroPara1")}</p>
-
         <p style={styles.subtitle}>{t("heroPara2")}</p>
       </div>
 
-      {/* CAROUSEL */}
+      {/* ✅ PROFESSIONAL FADE SLIDER */}
       <div style={styles.carouselWrapper}>
-        {images.map((img, i) => {
-          const position = (i - index + images.length) % images.length;
-
-          return (
-            <div
-              key={i}
-              style={{
-                ...styles.slide,
-                ...(position === 0
-                  ? styles.centerSlide
-                  : position === 1
-                  ? styles.rightSlide
-                  : styles.leftSlide),
-              }}
-            >
-              <img src={img} alt="" style={styles.image} />
-            </div>
-          );
-        })}
+        <img
+          key={index}
+          src={images[index]}
+          alt="Hero"
+          style={styles.image}
+        />
       </div>
     </section>
   );
@@ -84,47 +69,22 @@ const styles = {
   carouselWrapper: {
     flex: 1,
     position: "relative",
-    height: "280px",
+    height: "400px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    overflow: "visible",
+    overflow: "hidden",
   },
 
-  slide: {
-    position: "center",
-    top: "50%",
-    left: "50%",
-    transition: "all 0.9s ease",
-  },
-
-  centerSlide: {
-    transform: "translate(-50%, -50%) scale(1.5)",
-    zIndex: 3,
-    opacity: 1,
-  },
-
-  // rightSlide: {
-  //   transform: "translate(200px, -50%) scale(0.75)",
-  //   filter: "blur(5px) brightness(100%)",
-  //   opacity: 0.5,
-  //   zIndex: 1,
-  // },
-
-  // leftSlide: {
-  //   transform: "translate(-200px, -50%) scale(0.75)",
-  //   filter: "blur(5px) brightness(70%)",
-  //   opacity: 0.5,
-  //   zIndex: 1,
-  // },
-
+  /* ✅ CLEAN PROFESSIONAL ANIMATION */
   image: {
-    width: "400%",
-    maxWidth: "380px",
+    width: "100%",
+    maxWidth: "500px",
     height: "auto",
     borderRadius: "20px",
     objectFit: "contain",
     boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
+    animation: "fadeSlide 1s ease-in-out",
   },
 };
 
