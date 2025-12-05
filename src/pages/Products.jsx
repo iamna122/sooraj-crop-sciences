@@ -30,7 +30,7 @@ export default function Products() {
   return (
     <div className="products-container">
       {/* ✅ Page Title Translated */}
-      <h1 className="page-title">{t("products.title")}</h1>
+      <h1 className="page-title">{t("productsPage.title")}</h1>
 
       {/* ✅ Category Buttons */}
       <div className="category-buttons">
