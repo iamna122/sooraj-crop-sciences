@@ -32,7 +32,7 @@ const CropGallery = () => {
         <div className="popup-overlay" onClick={() => setSelectedCrop(null)}>
           <div
             className="popup-box"
-            onClick={(e) => e.stopPropagation()} /* prevent closing when clicking inside */
+            onClick={(e) => e.stopPropagation()}
           >
             <button className="close-btn" onClick={() => setSelectedCrop(null)}>
               ✕

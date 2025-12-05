@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import img1 from "../assets/main-solgan.jpeg";
-import img2 from "../assets/main-solgan1.jpeg";
-import img3 from "../assets/main-solgan2.jpeg";
+import img1 from "../assets/main-banner.jpg";
+import img2 from "../assets/main-banner2.jpg";
+import img3 from "../assets/main-banner3.jpg";
 import { useTranslation } from "react-i18next";
 
 const Hero = () => {
@@ -75,7 +75,7 @@ const styles = {
   },
 
   subtitle: {
-    fontSize: "1rem",
+    fontSize: "1.2rem",
     lineHeight: 1.55,
     color: "#494747",
     marginBottom: "0.7rem",
@@ -92,37 +92,37 @@ const styles = {
   },
 
   slide: {
-    position: "absolute",
+    position: "center",
     top: "50%",
     left: "50%",
     transition: "all 0.9s ease",
   },
 
   centerSlide: {
-    transform: "translate(-50%, -50%) scale(1)",
+    transform: "translate(-50%, -50%) scale(1.5)",
     zIndex: 3,
     opacity: 1,
   },
 
-  rightSlide: {
-    transform: "translate(200px, -50%) scale(0.75)",
-    filter: "blur(5px) brightness(100%)",
-    opacity: 0.5,
-    zIndex: 1,
-  },
+  // rightSlide: {
+  //   transform: "translate(200px, -50%) scale(0.75)",
+  //   filter: "blur(5px) brightness(100%)",
+  //   opacity: 0.5,
+  //   zIndex: 1,
+  // },
 
-  leftSlide: {
-    transform: "translate(-200px, -50%) scale(0.75)",
-    filter: "blur(5px) brightness(70%)",
-    opacity: 0.5,
-    zIndex: 1,
-  },
+  // leftSlide: {
+  //   transform: "translate(-200px, -50%) scale(0.75)",
+  //   filter: "blur(5px) brightness(70%)",
+  //   opacity: 0.5,
+  //   zIndex: 1,
+  // },
 
   image: {
-    width: "100%",
+    width: "400%",
     maxWidth: "380px",
     height: "auto",
-    borderRadius: "16px",
+    borderRadius: "20px",
     objectFit: "contain",
     boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
   },

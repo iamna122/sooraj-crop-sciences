@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 
 // ====================== YOUTUBE ID EXTRACTOR ======================
 const getYouTubeId = (url) => {
   if (!url) return "";
-
   if (url.length === 11) return url;
 
   const regex = /(?:youtube\.com\/.*v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -16,7 +16,6 @@ const getYouTubeId = (url) => {
 const YouTubeCard = ({ link, title, large }) => {
   const videoId = useMemo(() => getYouTubeId(link), [link]);
 
-  // Hooks MUST come first ALWAYS
   const [play, setPlay] = useState(false);
   const [thumbUrl, setThumbUrl] = useState(
     videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : ""
@@ -30,9 +29,7 @@ const YouTubeCard = ({ link, title, large }) => {
     }
   };
 
-  if (!videoId) {
-    return <div style={{ display: "none" }} />;
-  }
+  if (!videoId) return null;
 
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
@@ -70,10 +67,7 @@ const YouTubeCard = ({ link, title, large }) => {
           />
 
           <div style={styles.overlay}></div>
-
-          <div style={styles.playBtn} className="pulse">
-            ▶
-          </div>
+          <div style={styles.playBtn} className="pulse">▶</div>
 
           <h3 style={styles.videoTitle}>{title}</h3>
         </div>
@@ -84,26 +78,27 @@ const YouTubeCard = ({ link, title, large }) => {
 
 // ====================== MAIN VIDEO SECTION ======================
 export default function VideoSection() {
+  const { t } = useTranslation();
+
   const videos = [
     {
       link: "https://www.youtube.com/watch?v=B8CJZX55D9s",
-      title: "Sooraj Crop Sciences – Official Documentary",
+      title: t("video1Title"),
     },
     {
       link: "https://www.youtube.com/watch?v=ljrDiz5ExKI",
-      title: "Farmer Training Session – 2025",
+      title: t("video2Title"),
     },
     {
       link: "https://www.youtube.com/watch?v=G7JEmNY1Rss",
-      title: "Product Demo – Crop Booster Technology",
+      title: t("video3Title"),
     },
   ];
 
   return (
     <section style={styles.container}>
-      
       <div style={styles.headerRow}>
-        <h2 style={styles.heading}>Latest Videos from Sooraj Crops</h2>
+        <h2 style={styles.heading}>{t("videoHeading")}</h2>
 
         <a
           href="https://www.youtube.com/@soorajcropsciences5322"
@@ -111,7 +106,7 @@ export default function VideoSection() {
           rel="noopener noreferrer"
           style={styles.channelBtn}
         >
-          Visit Channel
+          {t("visitChannel")}
         </a>
       </div>
 
@@ -123,47 +118,6 @@ export default function VideoSection() {
           <YouTubeCard link={videos[2].link} title={videos[2].title} />
         </div>
       </div>
-
-      {/* Animations */}
-      <style>
-        {`
-          .hover-card { transition: transform 0.35s ease; }
-          .hover-card:hover { transform: scale(1.03); }
-
-          .pulse { animation: pulseAnim 1.6s infinite ease-in-out; }
-
-          @keyframes pulseAnim {
-            0% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.18); }
-            100% { transform: translate(-50%, -50%) scale(1); }
-          }
-
-          .fade-in {
-            animation: fadeIn 0.5s ease-out;
-          }
-
-          @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.97); }
-            to { opacity: 1; transform: scale(1); }
-          }
-
-          .video-card {
-            animation: appearCard 0.6s ease forwards;
-            opacity: 0;
-          }
-
-          @keyframes appearCard {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-
-          @media (max-width: 850px) {
-            .video-card {
-              width: 100% !important;
-            }
-          }
-        `}
-      </style>
     </section>
   );
 }
@@ -270,6 +224,6 @@ const styles = {
     width: "100%",
     height: "100%",
     border: "none",
-    objectFit: "cover", // FIX BLACK BORDERS
+    objectFit: "cover",
   },
 };
