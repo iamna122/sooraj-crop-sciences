@@ -54,5 +54,35 @@
     "usage": "Usage Instructions",
     "season": "Season / Timing",
     "problems": "Pest / Problem Control"
-  }
+  },
+
+  "about": {
+  "heroTitle": "About Our Company",
+  "whoTitle": "Who We Are",
+  "whoDesc": "Sooraj Crop Sciences is an agricultural solutions company dedicated to delivering reliable, research-driven products that empower farmers to achieve healthier crops, stronger yields, and long-term sustainability.",
+  
+  "missionTitle": "Our Mission",
+  "missionDesc": "To provide innovative and effective agricultural solutions that improve crop health and maximize yield.",
+  
+  "visionTitle": "Our Vision",
+  "visionDesc": "To become a trusted leader in crop sciences by offering science-backed products.",
+  
+  "commitmentTitle": "Our Commitment",
+  "commitmentDesc": "We are committed to delivering high-quality, environment-friendly crop solutions that farmers trust.",
+  
+  "stats": {
+    "exp": "Years of Experience",
+    "products": "Premium Products",
+    "dealers": "Dealers Nationwide",
+    "farmers": "Farmers Served"
+  },
+
+  "whyTitle": "Why Farmers Trust Sooraj Crop Sciences",
+  "why1": "Scientific research-based formulations",
+  "why2": "Complete crop protection & nutrition",
+  "why3": "Reliable products trusted by farmers",
+  "why4": "Dealer network across agricultural regions",
+  "why5": "Focus on sustainable modern farming"
+}
+
 }
