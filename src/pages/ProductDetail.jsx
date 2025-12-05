@@ -2,63 +2,80 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 import "../styles/productDetail.css";
+import { useTranslation } from "react-i18next";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { i18n, t } = useTranslation();
+
+  const lang = i18n.language;
   const product = products.find((p) => p.id === parseInt(id));
 
-  if (!product) {
-    return <p>Product not found.</p>;
-  }
+  if (!product) return <p>{t("product.notFound")}</p>;
 
   return (
     <div className="product-detail-container">
-      <button onClick={() => navigate(-1)}>Back to Products</button>
+      <button onClick={() => navigate(-1)}>{t("product.back")}</button>
 
-      <h1>{product.name}</h1>
+      <h1>{product.name[lang]}</h1>
 
-      {/* === TOP SECTION: IMAGE LEFT + INFO RIGHT === */}
+      {/* Top Section */}
       <div className="product-top-section">
-        {/* LEFT: PRODUCT IMAGE */}
         <img
           src={product.image}
-          alt={product.name}
+          alt={product.name[lang]}
           className="product-detail-image"
         />
 
-        {/* RIGHT: BASIC INFO */}
         <div className="product-basic-info">
           <p>
-            <strong>Brand:</strong> {product.brand}
+            <strong>{t("product.brand")}:</strong> {product.brand[lang]}
           </p>
-
           <p>
-            <strong>Pack Size:</strong> {product.packSize}
+            <strong>{t("product.pack")}:</strong> {product.packSize[lang]}
           </p>
 
-          <h2>Composition / Ingredients</h2>
-          <ul>
-            {product.composition?.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+          {product.composition && (
+            <>
+              <h2>{t("product.composition")}</h2>
+              <ul>
+                {product.composition.map((item, index) => (
+                  <li key={index}>{item[lang]}</li>
+                ))}
+              </ul>
+            </>
+          )}
 
-          <h2>Crops / Targeted Plants</h2>
-          <p>{product.crops}</p>
+          {product.crops && (
+            <>
+              <h2>{t("product.crops")}</h2>
+              <p>{product.crops[lang]}</p>
+            </>
+          )}
         </div>
       </div>
 
-      {/* === REST OF THE DETAILS BELOW === */}
+      {product.usage && (
+        <>
+          <h2>{t("product.usage")}</h2>
+          <p>{product.usage[lang]}</p>
+        </>
+      )}
 
-      <h2>Usage Instructions</h2>
-      <p>{product.usage}</p>
+      {product.season && (
+        <>
+          <h2>{t("product.season")}</h2>
+          <p>{product.season[lang]}</p>
+        </>
+      )}
 
-      <h2>Season / Timing</h2>
-      <p>{product.season}</p>
-
-      <h2>Pest / Problem Control</h2>
-      <p>{product.problems}</p>
+      {product.problems && (
+        <>
+          <h2>{t("product.problems")}</h2>
+          <p>{product.problems[lang]}</p>
+        </>
+      )}
     </div>
   );
 }
