@@ -93,7 +93,45 @@
   "send": "Send Message",
   "location": "Our Office Location",
   "thankYou": "Thank you, {{name}}! Your message has been sent."
+},
+"career": {
+  "heroTitle": "Be part of our mission",
+  "heroText": "At Sooraj Crop Sciences, we empower farmers with innovation. Join our mission to improve agriculture with sustainable crop solutions.",
+
+  "apply": "Apply",
+
+  "tags": {
+    "all": "View all",
+    "agriculture": "Agriculture",
+    "field": "Field Operations",
+    "research": "Research",
+    "crop": "Crop Science",
+    "production": "Production",
+    "management": "Management"
+  },
+
+  "jobs": {
+    "1": {
+      "title": "Field Agronomist",
+      "desc": "We’re looking for an agronomist to support farmers with crop guidance and field visits.",
+      "type1": "On-field",
+      "type2": "Full-time"
+    },
+    "2": {
+      "title": "Crop Protection Specialist",
+      "desc": "Help farmers diagnose crop diseases and recommend biological & chemical solutions.",
+      "type1": "On-field",
+      "type2": "Full-time"
+    },
+    "3": {
+      "title": "Farm Outreach Coordinator",
+      "desc": "Connect with farmers, organize events, and spread awareness about our products.",
+      "type1": "Hybrid",
+      "type2": "Full-time"
+    }
+  }
 }
+
 
 
 }

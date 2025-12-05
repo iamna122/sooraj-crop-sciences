@@ -108,6 +108,7 @@ export default function VideoSection() {
         >
           {t("visitChannel")}
         </a>
+        
       </div>
 
       <div style={styles.grid}>
