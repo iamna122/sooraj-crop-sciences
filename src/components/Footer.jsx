@@ -49,7 +49,7 @@ export default function Footer() {
             <FooterLink label="About" to="/about" />
             <FooterLink label="Products" to="/products" />
             <FooterLink label="Contact" to="/contact" />
-            <FooterLink label="FAQs" to="/faqs" />
+            <FooterLink label="Career" to="/Career" />
           </div>
         </div>
 

@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body[dir="rtl"] {
+  direction: rtl;
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+body[dir="ltr"] {
+  direction: ltr;
+  font-family: Arial, sans-serif;
+}
+

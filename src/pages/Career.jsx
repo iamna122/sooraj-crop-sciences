@@ -173,9 +173,9 @@ export default function CareerPage() {
           {jobs.map((job) => (
             <div className="job-card" key={job.title}>
               <div className="job-header">
-                <h2 className="job-title">{job.title}</h2>
+                <h2 className="job-title">{job.title}</h2>  
                 <a
-                  href="https://www.linkedin.com"
+                  href="https://www.linkedin.com/company/sooraj-crop-sciences/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="apply"

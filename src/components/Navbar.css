@@ -1,4 +1,6 @@
-/* NAVBAR */
+/* =========================
+   NAVBAR BASE
+========================= */
 .navbar {
   width: 100%;
   background: #fff;
@@ -19,8 +21,9 @@
   overflow: hidden;
 }
 
-
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 .nav-left {
   display: flex;
   align-items: center;
@@ -38,11 +41,14 @@
   font-weight: 800;
 }
 
-/* NAV LINKS */
+/* =========================
+   NAV LINKS (DESKTOP)
+========================= */
 .nav-links {
   display: flex;
   gap: 25px;
   margin-left: auto;
+  align-items: center;
 }
 
 .nav-link {
@@ -57,7 +63,9 @@
   border-bottom: 2px solid #127a3a;
 }
 
-/* SEARCH */
+/* =========================
+   SEARCH (DESKTOP)
+========================= */
 .nav-search {
   display: flex;
   align-items: center;
@@ -90,27 +98,52 @@
   border: 1px solid #bbb;
 }
 
-/* MOBILE */
+/* =========================
+   HAMBURGER & TOGGLES
+========================= */
 .hamburger {
   display: none;
-  margin-left: auto;
+  margin-left: 0;
   cursor: pointer;
   color: #127a3a;
 }
 
+/* ✅ MOBILE LANGUAGE TOGGLE (TOP BAR ONLY) */
+.mobile-lang {
+  display: none;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+/* =========================
+   MOBILE MENU STYLES
+========================= */
 .mobile-search {
   display: none;
 }
 
-/* BREAKPOINT 900px */
+/* =========================
+   RESPONSIVE BREAKPOINT
+========================= */
+/* BREAKPOINT 1100px — MOBILE LAYOUT FIX */
 @media (max-width: 1100px) {
+
   .hamburger {
     display: block;
+    order: 3;              /* PUSH TO VERY RIGHT */
+    margin-left: 8px;
   }
 
-  .nav-container {
-    padding: 10px 12px;
-    gap: 10px;
+  /* Language toggle beside hamburger */
+  .desktop-lang {
+    display: block;       /* SHOW ON MOBILE */
+    order: 2;
+    margin-left: auto;   /* PUSH TO RIGHT SIDE */
+  }
+
+  /* Hide mobile duplicate language toggle */
+  .mobile-lang {
+    display: none !important;
   }
 
   .nav-links {
@@ -130,10 +163,6 @@
     gap: 20px;
   }
 
-  .nav-search {
-    display: none;
-  }
-
   .mobile-search {
     display: block;
     padding: 0 20px;
@@ -145,14 +174,33 @@
     border-radius: 8px;
     border: 1px solid #ccc;
   }
+
+  .nav-search {
+    display: none;
+  }
 }
 
-/* SMALL PHONES */
+
+/* =========================
+   DESKTOP LANGUAGE TOGGLE
+========================= */
+@media(min-width: 1025px) {
+  .desktop-lang {
+    display: block;
+    margin-left: 12px;
+  }
+
+  .mobile-lang {
+    display: none !important;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
 @media (max-width: 480px) {
   .nav-title {
     display: none;
-        font-size: 1.25rem;
-
   }
 
   .nav-logo {
@@ -160,7 +208,9 @@
   }
 }
 
-/* FIX HORIZONTAL SCROLLING */
+/* =========================
+   FIX HORIZONTAL SCROLL
+========================= */
 * {
   box-sizing: border-box;
 }
@@ -169,33 +219,4 @@ body, html {
   margin: 0;
   padding: 0;
   overflow-x: hidden !important;
-}
-
-/* FIX NAVBAR WIDTH ISSUE */
-.nav-container {
-  width: 100%;
-  max-width: 1150px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  gap: 15px;
-  overflow: hidden;
-}
-
-/* PREVENT SEARCH OVERFLOW */
-.nav-search {
-  max-width: 260px;
-  overflow: hidden;
-}
-
-@media (max-width: 1100px) {
-  .nav-title {
-    font-size: 1.25rem;
-  }
-
-  .nav-container {
-    padding: 10px 12px;
-    gap: 10px;
-  }
 }
