@@ -135,7 +135,31 @@
   "cropGallery": {
   "title": "وہ فصلیں جن کی ہم حفاظت کرتے ہیں",
   "subtitle": "ہماری خصوصی زرعی مصنوعات مختلف اہم فصلوں کی حفاظت کرتی ہیں۔"
+},
+"footer": {
+  "brand": "سورج کراپ سائنسز",
+  "address": "اپارٹمنٹ 01 فلور 02 المیزان آرکیڈ، 24-CCA، خیابانِ امین، لاہور 54770",
+  "phone": "04235111003",
+  "email": "info@soorajcropsciences.com",
+  "quickLinks": "اہم لنکس",
+  "categories": "اقسام",
+  "findUs": "ہمیں تلاش کریں",
+  "copyright": "سورج کراپ سائنسز — جملہ حقوق محفوظ ہیں"
+},
+"nav": {
+  "home": "ہوم",
+  "about": "ہمارے بارے میں",
+  "productPage": "پروڈکٹس",
+  "contact": "رابطہ",
+  "career": "کریئر"
+},
+"categories": {
+  "all": "تمام",
+  "fungicide": "فنگس کش",
+  "insecticide": "کیڑے مار",
+  "micronutrients": "مایکرونیوٹرینٹس"
 }
+
 
 
 

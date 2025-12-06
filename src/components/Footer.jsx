@@ -1,4 +1,4 @@
-// add comment in foter
+// add comment in footer
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -8,21 +8,23 @@ import {
   FaYoutube,
   FaWhatsapp,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer style={styles.footer}>
       <div style={styles.container}>
         {/* LEFT — COMPANY INFO */}
-        <div style={{ ...styles.column, gap: "4px" }}>
-          <h2 style={styles.brand}>Sooraj Crop Sciences</h2>
+        <div style={{ ...styles.column }}>
+          <h2 style={styles.brand}>{t("footer.brand")}</h2>
 
           <p style={styles.text}>
-            📍 Apartment 01 Floor 02 Almeezan Arcade 24-CCA, Khayaban E Ameen,
-            Lahore, 54770
+            📍 {t("footer.address")}
           </p>
-          <p style={styles.text}>📞 04235111003</p>
-          <p style={styles.text}>✉️ info@soorajcropsciences.com</p>
+          <p style={styles.text}>📞 {t("footer.phone")}</p>
+          <p style={styles.text}>✉️ {t("footer.email")}</p>
 
           {/* SOCIAL ICONS */}
           <div style={styles.socialRow}>
@@ -42,38 +44,41 @@ export default function Footer() {
 
         {/* CENTER — NAVIGATION */}
         <div style={{ ...styles.column, textAlign: "center" }}>
-          <h3 style={styles.heading}>Quick Links</h3>
+          <h3 style={styles.heading}>{t("footer.quickLinks")}</h3>
 
-          <div style={{ ...styles.links, gap: "20px" }}>
-            <FooterLink label="Home" to="/" />
-            <FooterLink label="About" to="/about" />
-            <FooterLink label="Products" to="/products" />
-            <FooterLink label="Contact" to="/contact" />
-            <FooterLink label="Career" to="/Career" />
+          <div style={styles.links}>
+            <FooterLink label={t("nav.home")} to="/" />
+            <FooterLink label={t("nav.about")} to="/about" />
+            <FooterLink label={t("nav.productPage")} to="/products" />
+            <FooterLink label={t("nav.contact")} to="/contact" />
+            <FooterLink label={t("nav.career")} to="/career" />
           </div>
         </div>
 
         {/* CATEGORY LINKS */}
         <div style={{ ...styles.column, textAlign: "center" }}>
-          <h3 style={styles.heading}>Categories</h3>
+          <h3 style={styles.heading}>{t("footer.categories")}</h3>
 
-          <div style={{ ...styles.links, gap: "20px" }}>
-            <FooterLink label="All" to="/products?category=All" />
-            <FooterLink label="Fungicide" to="/products?category=Fungicide" />
+          <div style={styles.links}>
+            <FooterLink label={t("categories.all")} to="/products?category=All" />
             <FooterLink
-              label="Insecticide"
+              label={t("categories.fungicide")}
+              to="/products?category=Fungicide"
+            />
+            <FooterLink
+              label={t("categories.insecticide")}
               to="/products?category=Insecticide"
             />
             <FooterLink
-              label="Micronutrients"
+              label={t("categories.micronutrients")}
               to="/products?category=Micronutrients"
             />
           </div>
         </div>
 
         {/* RIGHT — MAP */}
-        <div style={{ ...styles.column, textAlign: "right" }}>
-          <h3 style={styles.heading}>Find Us</h3>
+        <div style={{ ...styles.column, textAlign: "center" }}>
+          <h3 style={styles.heading}>{t("footer.findUs")}</h3>
 
           <iframe
             title="office-map-footer"
@@ -88,7 +93,7 @@ export default function Footer() {
 
       {/* FOOTER BOTTOM */}
       <div style={styles.bottom}>
-        © {new Date().getFullYear()} Sooraj Crop Sciences — All Rights Reserved.
+        © {new Date().getFullYear()} {t("footer.copyright")}
       </div>
     </footer>
   );
@@ -130,7 +135,7 @@ function SocialIcon({ url, icon }) {
   );
 }
 
-/* 🎨 INLINE STYLES */
+/* ✅ RESPONSIVE INLINE STYLES */
 const styles = {
   footer: {
     background: "linear-gradient(135deg, #0b5a27, #0d6a2f)",
@@ -138,13 +143,12 @@ const styles = {
     padding: "30px 20px 20px",
     fontFamily: "Inter, Arial, sans-serif",
     marginTop: "80px",
-    boxShadow: "0 -5px 15px rgba(0,0,0,0.2)",
   },
 
   container: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-    gap: "20px",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "22px",
     maxWidth: "1300px",
     margin: "0 auto",
   },
@@ -153,45 +157,49 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "12px",
+    alignItems: "center",
   },
 
   brand: {
-    fontSize: "26px",
+    fontSize: "24px",
     fontWeight: "800",
-    marginBottom: "12px",
+    marginBottom: "10px",
+    textAlign: "center",
   },
 
   heading: {
-    fontSize: "20px",
+    fontSize: "18px",
     fontWeight: "700",
     marginBottom: "10px",
     color: "#c8ffcc",
   },
 
   text: {
-    fontSize: "15px",
+    fontSize: "14px",
     fontWeight: "500",
     opacity: 0.9,
+    textAlign: "center",
   },
 
   links: {
     display: "flex",
     flexDirection: "column",
     gap: "8px",
+    alignItems: "center",
   },
 
   link: {
     color: "white",
-    fontSize: "16px",
+    fontSize: "15px",
     fontWeight: "600",
     textDecoration: "none",
-    transition: "0.3s",
   },
 
   socialRow: {
     display: "flex",
     gap: "12px",
     marginTop: "10px",
+    justifyContent: "center",
   },
 
   socialIcon: {
@@ -204,8 +212,6 @@ const styles = {
     backgroundColor: "#ffffff15",
     fontSize: "20px",
     color: "white",
-    cursor: "pointer",
-    transition: "0.3s ease",
   },
 
   map: {
@@ -214,12 +220,10 @@ const styles = {
   },
 
   bottom: {
-    marginTop: "35px",
-    paddingTop: "18px",
+    marginTop: "30px",
+    paddingTop: "15px",
     borderTop: "1px solid rgba(255,255,255,0.3)",
     textAlign: "center",
     fontSize: "14px",
-    opacity: 0.85,
-    fontWeight: "600",
   },
 };

@@ -135,7 +135,31 @@
   "title": "Crops That We Protect",
   "subtitle": "Our specialized solutions safeguard a variety of essential crops."
 
+},
+"footer": {
+  "brand": "Sooraj Crop Sciences",
+  "address": "Apartment 01 Floor 02 Almeezan Arcade 24-CCA, Khayaban-e-Ameen, Lahore 54770",
+  "phone": "04235111003",
+  "email": "info@soorajcropsciences.com",
+  "quickLinks": "Quick Links",
+  "categories": "Categories",
+  "findUs": "Find Us",
+  "copyright": "Sooraj Crop Sciences — All Rights Reserved"
+},
+"nav": {
+  "home": "Home",
+  "about": "About",
+  "productPage": "Products",
+  "contact": "Contact",
+  "career": "Career"
+},
+"categories": {
+  "all": "All",
+  "fungicide": "Fungicide",
+  "insecticide": "Insecticide",
+  "micronutrients": "Micronutrients"
 }
+
 }
 
 

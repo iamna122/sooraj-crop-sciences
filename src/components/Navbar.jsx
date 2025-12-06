@@ -9,7 +9,6 @@ import "./Navbar.css";
 
 export default function Navbar({ search, setSearch }) {
   const location = useLocation();
-
   const { t } = useTranslation();
 
   const pages = [
@@ -20,17 +19,32 @@ export default function Navbar({ search, setSearch }) {
     { key: "Career", path: "/career" },
   ];
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // search input toggle
+  const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [results, setResults] = useState([]);
 
   const handleSearchChange = (value) => {
     setSearch(value);
-    if (value.trim() === "") return setResults([]);
 
-    const filtered = products.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-    );
+    if (!value || value.trim() === "") {
+      setResults([]);
+      return;
+    }
+
+    const q = value.toLowerCase();
+    const filtered = products.filter((item) => {
+      const enName = item?.name?.en?.toLowerCase?.() || "";
+      const urName = item?.name?.ur?.toLowerCase?.() || "";
+      const brandEn = item?.brand?.en?.toLowerCase?.() || "";
+      const brandUr = item?.brand?.ur?.toLowerCase?.() || "";
+
+      return (
+        enName.includes(q) ||
+        urName.includes(q) ||
+        brandEn.includes(q) ||
+        brandUr.includes(q)
+      );
+    });
 
     setResults(filtered);
   };
@@ -38,19 +52,18 @@ export default function Navbar({ search, setSearch }) {
   return (
     <header className="navbar">
       <div className="nav-container">
-
-        {/* Logo */}
+        {/* LEFT — Logo */}
         <div className="nav-left">
           <img src={logo} alt="Sooraj Logo" className="nav-logo" />
           <h1 className="nav-title">Sooraj Crop Sciences</h1>
         </div>
 
-        {/* Hamburger */}
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes size={23} /> : <FaBars size={23} />}
+        {/* HAMBURGER */}
+        <div className="hamburger" onClick={() => setMenuOpen((s) => !s)}>
+          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
         </div>
 
-        {/* Nav Links */}
+        {/* LINKS */}
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
           {pages.map((page) => {
             const active = location.pathname === page.path;
@@ -66,7 +79,7 @@ export default function Navbar({ search, setSearch }) {
             );
           })}
 
-          {/* Mobile Search */}
+          {/* Mobile search (inside mobile menu) */}
           <div className="mobile-search">
             <input
               type="text"
@@ -76,15 +89,19 @@ export default function Navbar({ search, setSearch }) {
             />
           </div>
 
-          {/* Mobile Language Toggle */}
+          {/* Mobile language toggle */}
           <div className="mobile-lang">
             <LanguageToggle />
           </div>
         </nav>
 
-        {/* Desktop Search */}
-        <div className="nav-search">
-          <div className="search-icon" onClick={() => setIsOpen(!isOpen)}>
+        {/* SEARCH (desktop) */}
+        <div className="nav-search" role="search">
+          <div
+            className="search-icon"
+            onClick={() => setIsOpen((s) => !s)}
+            title={t("search")}
+          >
             <FaSearch size={15} />
           </div>
 
@@ -94,24 +111,33 @@ export default function Navbar({ search, setSearch }) {
             placeholder={t("search")}
             onChange={(e) => handleSearchChange(e.target.value)}
             className={`search-input ${isOpen ? "open" : ""}`}
+            aria-label={t("search")}
           />
 
-          {isOpen && results.length > 0 && (
-            <div className="search-results">
-              {results.map((item) => (
+          {/* search results panel — absolute so it won't resize the navbar */}
+          {results.length > 0 && (
+            <div className="search-results" role="listbox">
+              {results.slice(0, 8).map((item) => (
                 <Link
                   key={item.id}
                   to={`/products/${item.id}`}
                   className="search-result-item"
+                  onClick={() => setResults([])}
                 >
-                  {item.name}
+                  {/* Prefer english name when available otherwise urdu */}
+                  {item?.name?.en ? item.name.en : item?.name?.ur}
+                  {/* optionally show brand short: */}
+                  <span className="search-result-sub">
+                    {" "}
+                    — {item?.brand?.en ? item.brand.en : item?.brand?.ur}
+                  </span>
                 </Link>
               ))}
             </div>
           )}
         </div>
 
-        {/* Desktop Language Toggle */}
+        {/* Language toggle (desktop) */}
         <div className="desktop-lang">
           <LanguageToggle />
         </div>

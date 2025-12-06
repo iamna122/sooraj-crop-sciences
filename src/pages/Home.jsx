@@ -6,6 +6,7 @@ import StatsSection from "../components/StatsSection";
 import VideoSection from "../components/VideoSection";
 import ProjectBanner from "../components/ProjectBanner";
 import CropGallery from "../components/CropGallery";
+import TopHeader from "../components/TopHeader";
 import i18n from "../i18n";
 import { useTranslation } from "react-i18next";
 
