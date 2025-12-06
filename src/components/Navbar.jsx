@@ -53,10 +53,10 @@ export default function Navbar({ search, setSearch }) {
     <header className="navbar">
       <div className="nav-container">
         {/* LEFT — Logo */}
-        <div className="nav-left">
-          <img src={logo} alt="Sooraj Logo" className="nav-logo" />
-          <h1 className="nav-title">Sooraj Crop Sciences</h1>
-        </div>
+        <Link to="/" className="nav-left" style={{ textDecoration: "none" }}>
+  <img src={logo} alt="Sooraj Logo" className="nav-logo" />
+  <h1 className="nav-title">Sooraj Crop Sciences</h1>
+</Link>
 
         {/* MOBILE LEFT CONTROLS */}
 <div className="mobile-left-controls">

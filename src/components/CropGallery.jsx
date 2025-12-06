@@ -51,6 +51,12 @@ const CropGallery = () => {
               alt={selectedCrop.name}
               className="popup-img"
             />
+{/* 
+            <img
+  src={selectedCrop.popupImage}
+  alt={selectedCrop.name}
+  className="popup-img"
+/> */}
 
             <h2 className="popup-title">{selectedCrop.name}</h2>
             <p className="popup-desc">{selectedCrop.description}</p>
