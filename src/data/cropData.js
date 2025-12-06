@@ -36,4 +36,34 @@ export const crops = [
     image: potato,
     description: "Potatoes are rich, filling, and versatile."
   },
+  {
+    id: 6,
+    name: "mango",
+    image: cotton,
+    description: "mango is widely used in textiles."
+  },
+  {
+    id: 7,
+    name: "banana",
+    image: rice,
+    description: "banana feeds more than half the world."
+  },
+  {
+    id: 8,
+    name: "apple",
+    image: wheat,
+    description: "apple is used for bread, pasta, etc."
+  },
+  {
+    id: 9,
+    name: "grapes",
+    image: maize,
+    description: "grapes is a global food & feed crop."
+  },
+  {
+    id: 10,
+    name: "sugar cane",
+    image: potato,
+    description: "sugar cane are rich, filling, and versatile."
+  },
 ];
