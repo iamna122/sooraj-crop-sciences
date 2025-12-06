@@ -160,7 +160,6 @@
 ========================= */
 .hamburger {
   display: none;
-  margin-left: 8px;
   cursor: pointer;
   color: #127a3a;
 }
@@ -175,9 +174,6 @@
   display: none;
 }
 
-.mobile-lang {
-  display: none;
-}
 
 /* =========================
    RESPONSIVE
@@ -200,6 +196,16 @@
     box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     z-index: 1100;
   }
+  /* =========================
+   MOBILE RIGHT CONTROLS (EN/UR + Hamburger)
+========================= */
+.mobile-right-controls {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;   /* ✅ PUSHES IT TO FAR RIGHT */
+}
+
 
   .mobile-search { display: block; padding: 0 14px; }
   .mobile-search input {
@@ -215,6 +221,12 @@
   .nav-search { display: none; }
   .desktop-lang { display: none; }
 }
+/* =========================
+   MOBILE LEFT CONTROLS (Hamburger + Language)
+========================= */
+
+
+
 
 /* =========================
    Small phones
@@ -229,3 +241,58 @@
 * { box-sizing: border-box; }
 
 body, html { margin: 0; padding: 0; }
+
+/* =========================
+   MOBILE TOP BAR CONTROLS
+   (Language + Hamburger)
+========================= */
+.mobile-left-controls {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  margin-left: auto; /* Push to the far right */
+}
+
+@media (max-width: 1100px) {
+
+  /* Show mobile controls */
+  .mobile-left-controls {
+    display: flex;
+  }
+
+  /* Show hamburger on mobile */
+  .hamburger {
+    display: block;
+    font-size: 22px;
+    color: #127a3a;
+    cursor: pointer;
+  }
+
+  /* Hide desktop search + desktop language */
+  .nav-search {
+    display: none;
+  }
+
+  .desktop-lang {
+    display: none;
+  }
+
+  /* Hide desktop nav links until opened */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    padding: 18px 12px;
+    gap: 14px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  }
+}
+

@@ -58,10 +58,14 @@ export default function Navbar({ search, setSearch }) {
           <h1 className="nav-title">Sooraj Crop Sciences</h1>
         </div>
 
-        {/* HAMBURGER */}
-        <div className="hamburger" onClick={() => setMenuOpen((s) => !s)}>
-          {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-        </div>
+        {/* MOBILE LEFT CONTROLS */}
+<div className="mobile-left-controls">
+  <LanguageToggle />
+  <div className="hamburger" onClick={() => setMenuOpen((s) => !s)}>
+    {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+  </div>
+</div>
+
 
         {/* LINKS */}
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
@@ -87,12 +91,7 @@ export default function Navbar({ search, setSearch }) {
               value={search}
               onChange={(e) => handleSearchChange(e.target.value)}
             />
-          </div>
-
-          {/* Mobile language toggle */}
-          <div className="mobile-lang">
-            <LanguageToggle />
-          </div>
+          </div> 
         </nav>
 
         {/* SEARCH (desktop) */}
