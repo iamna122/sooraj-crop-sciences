@@ -1,8 +1,13 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ fontFamily: lang === "ur" ? "Noori Nastaleeq, serif" : "'Inter', sans-serif" }}>
+
       {/* HERO SECTION */}
       <div
         style={{
@@ -20,30 +25,25 @@ export default function About() {
           textAlign: "center",
         }}
       >
-        {/* Soft overlay */}
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background:
-              "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))",
+            background: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4))",
           }}
         ></div>
 
-        {/* Title */}
         <h1
           style={{
             position: "relative",
             fontSize: "3rem",
             fontWeight: "700",
-            letterSpacing: "1px",
             marginBottom: "10px",
           }}
         >
-          About Our Company
+          {t("about.heroTitle")}
         </h1>
 
-        {/* Breadcrumb Button */}
         <div
           style={{
             position: "relative",
@@ -54,59 +54,26 @@ export default function About() {
             fontSize: "1rem",
           }}
         >
-          <a
-            href="/"
-            style={{
-              color: "#fff",
-              textDecoration: "none",
-              fontWeight: "500",
-            }}
-          >
-            Home
+          <a href="/" style={{ color: "#fff", textDecoration: "none" }}>
+            {t("Home")}
           </a>{" "}
-          <span style={{ fontSize: "1.5rem", fontWeight: "600" }}>›</span>{" "}
-          <span style={{ fontWeight: "600" }}>About Us</span>
+          › <span>{t("About")}</span>
         </div>
       </div>
 
-      {/* Company Intro */}
-      <section
-        style={{
-          width: "85%",
-          margin: "60px auto",
-          textAlign: "center",
-          lineHeight: "1.8",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2rem",
-            color: "#127a3a",
-            fontWeight: "700",
-            marginBottom: "20px",
-          }}
-        >
-          Who We Are
+      {/* WHO WE ARE */}
+      <section style={{ width: "85%", margin: "60px auto", textAlign: "center" }}>
+        <h2 style={{ fontSize: "2rem", color: "#127a3a", fontWeight: "700" }}>
+          {t("about.whoTitle")}
         </h2>
 
         <p style={{ fontSize: "1rem", color: "#555" }}>
-          Sooraj Crop Sciences is an agricultural solutions company dedicated to
-          delivering reliable, research-driven products that empower farmers to
-          achieve healthier crops, stronger yields, and long-term sustainability.
-          We specialize in <strong>fertilizers, micronutrients, pesticides, and
-          fungicides</strong>, offering a complete range of crop protection and
-          crop nutrition products trusted by farming communities across the
-          region.
+          {t("about.whoDesc")}
         </p>
       </section>
 
-      {/* Mission & Vision */}
-      <section
-        style={{
-          background: "#f5f9f6",
-          padding: "60px 0",
-        }}
-      >
+      {/* MISSION / VISION / COMMITMENT */}
+      <section style={{ background: "#f5f9f6", padding: "60px 0" }}>
         <div
           style={{
             width: "85%",
@@ -116,69 +83,26 @@ export default function About() {
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           }}
         >
-          <div
-            style={{
-              background: "#fff",
-              padding: "25px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-            }}
-          >
-            <h3
-              style={{ color: "#127a3a", fontSize: "1.4rem", marginBottom: "12px" }}
-            >
-              🌱 Our Mission
-            </h3>
-            <p style={{ color: "#555" }}>
-              To provide innovative and effective agricultural solutions that
-              improve crop health, maximize yield, and support sustainable farming
-              practices for future generations.
-            </p>
+
+          <div style={cardStyle}>
+            <h3 style={titleStyle}>🌱 {t("about.missionTitle")}</h3>
+            <p>{t("about.missionDesc")}</p>
           </div>
 
-          <div
-            style={{
-              background: "#fff",
-              padding: "25px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-            }}
-          >
-            <h3
-              style={{ color: "#127a3a", fontSize: "1.4rem", marginBottom: "12px" }}
-            >
-              🌾 Our Vision
-            </h3>
-            <p style={{ color: "#555" }}>
-              To become a trusted leader in crop sciences by offering science-backed
-              products, empowering farmers with knowledge, and contributing to a
-              resilient agricultural ecosystem.
-            </p>
+          <div style={cardStyle}>
+            <h3 style={titleStyle}>🌾 {t("about.visionTitle")}</h3>
+            <p>{t("about.visionDesc")}</p>
           </div>
 
-          <div
-            style={{
-              background: "#fff",
-              padding: "25px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-            }}
-          >
-            <h3
-              style={{ color: "#127a3a", fontSize: "1.4rem", marginBottom: "12px" }}
-            >
-              🛡️ Our Commitment
-            </h3>
-            <p style={{ color: "#555" }}>
-              We are committed to delivering high-quality, environment-friendly, and
-              highly effective crop solutions that farmers can trust season after
-              season.
-            </p>
+          <div style={cardStyle}>
+            <h3 style={titleStyle}>🛡️ {t("about.commitmentTitle")}</h3>
+            <p>{t("about.commitmentDesc")}</p>
           </div>
+
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* STATS */}
       <section
         style={{
           width: "85%",
@@ -190,46 +114,23 @@ export default function About() {
         }}
       >
         {[
-          { number: "10+", label: "Years of Experience" },
-          { number: "50+", label: "Premium Products" },
-          { number: "500+", label: "Dealers Nationwide" },
-          { number: "100k+", label: "Farmers Served" },
+          { number: "10+", label: t("about.stats.exp") },
+          { number: "50+", label: t("about.stats.products") },
+          { number: "500+", label: t("about.stats.dealers") },
+          { number: "100k+", label: t("about.stats.farmers") },
         ].map((stat, index) => (
-          <div
-            key={index}
-            style={{
-              background: "#f5f9f6",
-              padding: "30px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-            }}
-          >
-            <h2 style={{ color: "#127a3a", fontSize: "2.2rem", margin: 0 }}>
-              {stat.number}
-            </h2>
-            <p style={{ marginTop: "10px", color: "#444" }}>{stat.label}</p>
+          <div key={index} style={statStyle}>
+            <h2 style={{ color: "#127a3a", fontSize: "2.2rem" }}>{stat.number}</h2>
+            <p>{stat.label}</p>
           </div>
         ))}
       </section>
 
-      {/* Why Choose Us */}
-      <section
-        style={{
-          background: "#f0f7f2",
-          padding: "70px 0",
-        }}
-      >
+      {/* WHY CHOOSE US */}
+      <section style={{ background: "#f0f7f2", padding: "70px 0" }}>
         <div style={{ width: "85%", margin: "0 auto" }}>
-          <h2
-            style={{
-              textAlign: "center",
-              color: "#127a3a",
-              fontSize: "2rem",
-              marginBottom: "30px",
-              fontWeight: "700",
-            }}
-          >
-            Why Farmers Trust Sooraj Crop Sciences
+          <h2 style={{ textAlign: "center", color: "#127a3a", fontSize: "2rem" }}>
+            {t("about.whyTitle")}
           </h2>
 
           <ul
@@ -241,59 +142,35 @@ export default function About() {
               gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             }}
           >
-            <li
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-              }}
-            >
-              ✔️ Scientific research-based formulations  
-            </li>
-            <li
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-              }}
-            >
-              ✔️ Complete crop protection + nutrition  
-            </li>
-            <li
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-              }}
-            >
-              ✔️ Reliable products trusted by farmers  
-            </li>
-            <li
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-              }}
-            >
-              ✔️ Dealer network across major agricultural regions  
-            </li>
-            <li
-              style={{
-                background: "#fff",
-                padding: "25px",
-                borderRadius: "12px",
-                boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
-              }}
-            >
-              ✔️ Focus on sustainable and modern farming  
-            </li>
+            <li style={cardStyle}>✔️ {t("about.why1")}</li>
+            <li style={cardStyle}>✔️ {t("about.why2")}</li>
+            <li style={cardStyle}>✔️ {t("about.why3")}</li>
+            <li style={cardStyle}>✔️ {t("about.why4")}</li>
+            <li style={cardStyle}>✔️ {t("about.why5")}</li>
           </ul>
         </div>
       </section>
     </div>
   );
 }
+
+const cardStyle = {
+  background: "#fff",
+  padding: "25px",
+  borderRadius: "12px",
+  boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
+  color: "#555",
+};
+
+const titleStyle = {
+  color: "#127a3a",
+  fontSize: "1.4rem",
+  marginBottom: "12px",
+};
+
+const statStyle = {
+  background: "#f5f9f6",
+  padding: "30px",
+  borderRadius: "12px",
+  boxShadow: "0 2px 10px rgba(0,0,0,0.07)",
+};

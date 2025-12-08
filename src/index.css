@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body[dir="rtl"] {
+  direction: rtl;
+  font-family: "Noto Nastaliq Urdu", serif;
+}
+
+body[dir="ltr"] {
+  direction: ltr;
+  font-family: Arial, sans-serif;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+

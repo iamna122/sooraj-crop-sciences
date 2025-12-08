@@ -6,17 +6,17 @@ const ProjectBanner = () => {
   const slides = [
     {
       id: 1,
-      image: require("../assets/main-banner.jpg"),
+      image: require("../assets/main-solgan.jpeg"),
       alt: "Main Project Banner 1",
     },
     {
       id: 2,
-      image: require("../assets/main-banner2.jpg"),
+      image: require("../assets/main-solgan1.jpeg"),
       alt: "Main Project Banner 2",
     },
     {
       id: 3,
-      image: require("../assets/main-banner3.jpg"),
+      image: require("../assets/main-solgan2.jpeg"),
       alt: "Main Project Banner 3",
     //   caption: "Explore Our Latest Achievements",
     },

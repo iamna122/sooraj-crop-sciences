@@ -3,54 +3,104 @@
 --------------------------------------------------- */
 .crop-section {
   text-align: center;
-  padding: 50px 20px;
+  padding: 60px 20px;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .crop-title {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 800;
+  color: #127a3a;
 }
 
 .crop-subtitle {
-  max-width: 600px;
-  margin: 10px auto 40px;
+  max-width: 650px;
+  margin: 12px auto 45px;
   color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 /* ---------------------------------------------------
-   GRID
+   RESPONSIVE GRID — FIXED BEAUTIFUL LAYOUT
 --------------------------------------------------- */
 .crop-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);   /* ✅ DESKTOP: 5 IN A ROW */
+  gap: 22px;
 }
 
+/* ---------------------------------------------------
+   CROP CARD
+--------------------------------------------------- */
 .crop-card {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 14px;
   cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  background: #000;
+}
+
+.crop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.15);
 }
 
 .crop-image {
   width: 100%;
-  height: 150px;
+  height: 190px;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  opacity: 0.95;
 }
 
 .crop-card:hover .crop-image {
-  transform: scale(1.1);
+  transform: scale(1.12);
+  opacity: 1;
 }
 
+/* Overlay name */
 .crop-name {
   position: absolute;
-  bottom: 10px;
-  left: 15px;
-  color: white;
-  font-weight: 700;
-  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+  text-align: left;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+  z-index: 2;
+}
+
+/* ---------------------------------------------------
+   TABLET (3 COLUMNS)
+--------------------------------------------------- */
+@media (max-width: 1100px) {
+  .crop-grid {
+    grid-template-columns: repeat(3, 1fr);  /* ✅ TABLET: 3 PER ROW */
+  }
+}
+
+/* ---------------------------------------------------
+   MOBILE (2 COLUMNS × 5 ROWS = PERFECT)
+--------------------------------------------------- */
+@media (max-width: 600px) {
+  .crop-grid {
+    grid-template-columns: repeat(2, 1fr);  /* ✅ MOBILE: 2 PER ROW */
+    gap: 16px;
+  }
+
+  .crop-image {
+    height: 150px;
+  }
+
+  .crop-title {
+    font-size: 1.9rem;
+  }
 }
 
 /* ---------------------------------------------------
@@ -59,7 +109,7 @@
 .popup-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,11 +117,11 @@
 }
 
 .popup-box {
-  width: 90%;
-  max-width: 550px;
+  width: 92%;
+  max-width: 520px;
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 22px;
+  border-radius: 16px;
   position: relative;
   text-align: center;
   animation: showPopup 0.25s ease-out;
@@ -84,37 +134,39 @@
 
 .popup-img {
   width: 100%;
-  height: 250px;
+  height: 260px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .popup-title {
-  margin: 15px 0 5px;
-  font-size: 1.8rem;
-  font-weight: 700;
+  margin: 16px 0 6px;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #127a3a;
 }
 
 .popup-desc {
   color: #444;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-size: 1rem;
 }
 
 /* Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 12px;
-  background: #d5d5d5;
+  top: 12px;
+  right: 14px;
+  background: #e0e0e0;
   border: none;
   font-size: 1.2rem;
-  font-weight: 700;
-  padding: 5px 10px;
+  font-weight: 800;
+  padding: 6px 11px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .close-btn:hover {
-  background: #bbb;
+  background: #cfcfcf;
 }
