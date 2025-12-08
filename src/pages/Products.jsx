@@ -1,35 +1,42 @@
 import React, { useState } from "react";
 import products from "../data/products";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/products.css";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-//kainat
+
 export default function Products() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
+  const lang = i18n.language === "ur" ? "ur" : "en";
 
-  const lang = i18n.language; // ✅ current language (en / ur)
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [expandedProduct, setExpandedProduct] = useState(null);
 
-  // ✅ Categories must also be language-safe
-  const categories = ["All", ...new Set(products.map((p) => p.category[lang]))];
+  // Safe categories generation with fallback
+  const categories = [
+    "All",
+    ...new Set(
+      products.map((p) => p.category?.[lang] || p.category?.en || "Unknown")
+    ),
+  ];
 
   const filteredProducts =
     selectedCategory === "All"
       ? products
-      : products.filter((p) => p.category[lang] === selectedCategory);
+      : products.filter(
+          (p) => (p.category?.[lang] || p.category?.en) === selectedCategory
+        );
 
-  const openProductPage = (id) => {
-    navigate(`/products/${id}`);
+  const toggleDetails = (id) => {
+    setExpandedProduct(expandedProduct === id ? null : id);
   };
 
   return (
     <div className="products-container">
-      {/* ✅ Page Title Translated */}
-      <h1 className="page-title">{t("productsPage.title")}</h1>
+      <h1 className="page-title">{t("productsPage.title") || "Products"}</h1>
 
-      {/* ✅ Category Buttons */}
+      {/* CATEGORY BUTTONS */}
       <div className="category-buttons">
         {categories.map((category) => (
           <button
@@ -42,38 +49,81 @@ export default function Products() {
         ))}
       </div>
 
-      {/* ✅ Product Grid */}
+      {/* PRODUCT GRID */}
       <div className="product-grid">
-        {filteredProducts.map((p) => (
-          <motion.div
-            key={p.id}
-            className="product-card"
-            layout
-            transition={{ layout: { duration: 0.4, type: "spring" } }}
-            onClick={() => openProductPage(p.id)}
-            style={{ cursor: "pointer" }}
-          >
-            <motion.img
-              src={p.image}
-              alt={p.name[lang]} // ✅ FIXED
-              className="product-image"
+        {filteredProducts.map((p) => {
+          const isExpanded = expandedProduct === p.id;
+
+          return (
+            <motion.div
+              key={p.id}
+              className="product-card"
               layout
-            />
+              transition={{ layout: { duration: 0.4, type: "spring" } }}
+              onClick={() => navigate(`/products/${p.id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              {/* IMAGE */}
+              <motion.img
+                src={p.image}
+                alt={p.name?.[lang] || p.name?.en}
+                className="product-image"
+                layout
+              />
 
-            {/* ✅ FIXED BILINGUAL NAME */}
-            <h3 className="product-name">{p.name[lang]}</h3>
+              {/* NAME */}
+              <h3 className="product-name">{p.name?.[lang] || p.name?.en}</h3>
 
-            <div className="product-info">
-              <p className="product-brand">
-                <strong>{t("product.brand")}:</strong> {p.brand[lang]}
-              </p>
+              {/* BASIC INFO */}
+              <div className="product-info">
+                <p>
+                  <strong>{t("product.brand") || "Brand"}:</strong>{" "}
+                  {p.brand?.[lang] || p.brand?.en}
+                </p>
+                <p>
+                  <strong>{t("product.pack") || "Pack Size"}:</strong>{" "}
+                  {p.packSize?.[lang] || p.packSize?.en}
+                </p>
+              </div>
 
-              <p className="product-pack">
-                <strong>{t("product.pack")}:</strong> {p.packSize[lang]}
-              </p>
-            </div>
-          </motion.div>
-        ))}
+              {/* READ MORE BUTTON */}
+              <button
+                className="read-more-btn"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent card navigation
+                  toggleDetails(p.id);
+                }}
+              >
+                {isExpanded
+                  ? t("productsPage.hideDetails") || "Hide Details"
+                  : t("productsPage.readMore") || "Read More"}
+              </button>
+
+              {/* DETAILS EXPANSION */}
+              <AnimatePresence>
+                {isExpanded && (
+                  <motion.ul
+                    className="product-details"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    {p.details?.[lang]?.length > 0 ? (
+                      p.details[lang].map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))
+                    ) : (
+                      <li>
+                        {t("product.noDetails") || "No details available"}
+                      </li>
+                    )}
+                  </motion.ul>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
