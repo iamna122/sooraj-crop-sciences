@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import "../styles/products.css";
 import { useTranslation } from "react-i18next";
-
+//kainat
 export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const navigate = useNavigate();
