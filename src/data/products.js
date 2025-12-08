@@ -162,7 +162,7 @@ const products = [
         "فصل کی مجموعی صحت بہتر بناتا ہے۔"
       ]
     }
-  }
+  },
 ];
 
 export default products;
