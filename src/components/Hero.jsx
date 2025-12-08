@@ -1,30 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import img1 from "../assets/main-banner.jpg";
+import img2 from "../assets/main-banner2.jpg";
+import img3 from "../assets/main-banner3.jpg";
+import { useTranslation } from "react-i18next";
+import "./Hero.css";
 
-export default function Hero({ search, setSearch }) {
+const Hero = () => {
+  const { t } = useTranslation();
+
+  const images = [img1, img2, img3];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section style={{ background: "rgba(18,122,58,0.08)", padding: "40px 0" }}>
-      <div style={{ textAlign: "center" }}>
-        <h2 style={{ color: "#127a3a", marginBottom: 10 }}>
-          Welcome to Sooraj Crop Sciences
-        </h2>
-        <p style={{ color: "#555", marginBottom: 20 }}>
-          Search our agricultural products
-        </p>
+    <section className="hero-section">
+      {/* LEFT TEXT */}
+      <div className="hero-text">
+        <h2>{t("heroTitle")}</h2>
+        <p>{t("heroPara1")}</p>
+        <p>{t("heroPara2")}</p>
+      </div>
 
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search products..."
-          style={{
-            padding: "10px 16px",
-            width: "80%",
-            maxWidth: "400px",
-            border: "1px solid #ccc",
-            borderRadius: 8,
-          }}
-        />
+      {/* HERO IMAGE SLIDER */}
+      <div className="hero-carousel">
+        <img key={index} src={images[index]} alt="Hero" />
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
