@@ -13,18 +13,18 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedProduct, setExpandedProduct] = useState(null);
 
-  // FINAL FIXED CATEGORY LIST (NO DUPLICATES)
+  // FINAL FIXED CATEGORY LIST (NO DUPLICATES + TRANSLATIONS)
   const categories = [
-    "All",
+    t("product.all", "All"),
     ...new Set([
       ...products.map((p) => p.category?.[lang] || p.category?.en || "Unknown"),
-      "Herbicide",
-      "Fertilizer",
+      // t("product.herbicide", "Herbicide"),
+      //t("product.fertilizer", "Fertilizer"),
     ]),
   ];
 
   const filteredProducts =
-    selectedCategory === "All"
+    selectedCategory === t("product.all", "All")
       ? products
       : products.filter((p) => {
           const cat = p.category?.[lang] || p.category?.en;
@@ -40,7 +40,7 @@ export default function Products() {
 
   return (
     <div className="products-container">
-      <h1 className="page-title">{t("productsPage.title") || "Products"}</h1>
+      <h1 className="page-title">{t("product.title") || "Products"}</h1>
 
       {/* CATEGORY BUTTONS */}
       <div className="category-buttons">
@@ -83,16 +83,16 @@ export default function Products() {
               {/* BASIC INFO */}
               <div className="product-info">
                 <p>
-                  <strong>{t("product.brand") || "Brand"}:</strong>{" "}
+                  <strong>{t("product.brand", "Brand")}:</strong>{" "}
                   {p.brand?.[lang] || p.brand?.en}
                 </p>
                 <p>
-                  <strong>{t("product.pack") || "Pack Size"}:</strong>{" "}
+                  <strong>{t("product.pack", "Pack Size")}:</strong>{" "}
                   {p.packSize?.[lang] || p.packSize?.en}
                 </p>
               </div>
 
-              {/* READ MORE BUTTON */}
+              {/* READ MORE / HIDE DETAILS BUTTON */}
               <button
                 className="read-more-btn"
                 onClick={(e) => {
@@ -101,8 +101,8 @@ export default function Products() {
                 }}
               >
                 {isExpanded
-                  ? t("productsPage.hideDetails") || "Hide Details"
-                  : "Read more"}
+                  ? t("product.hideDetails", "Hide Details")
+                  : t("product.readMore", "Read more")}
               </button>
 
               {/* DETAILS PREVIEW */}
@@ -120,9 +120,7 @@ export default function Products() {
                         <li key={index}>{item}</li>
                       ))
                     ) : (
-                      <li>
-                        {t("product.noDetails") || "No details available"}
-                      </li>
+                      <li>{t("product.noDetails", "No details available")}</li>
                     )}
                   </motion.ul>
                 )}
