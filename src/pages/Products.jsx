@@ -13,20 +13,26 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedProduct, setExpandedProduct] = useState(null);
 
-  // Safe categories generation with fallback
+  // FINAL FIXED CATEGORY LIST (NO DUPLICATES)
   const categories = [
     "All",
-    ...new Set(
-      products.map((p) => p.category?.[lang] || p.category?.en || "Unknown")
-    ),
+    ...new Set([
+      ...products.map((p) => p.category?.[lang] || p.category?.en || "Unknown"),
+      "Herbicide",
+      "Fertilizer",
+    ]),
   ];
 
   const filteredProducts =
     selectedCategory === "All"
       ? products
-      : products.filter(
-          (p) => (p.category?.[lang] || p.category?.en) === selectedCategory
-        );
+      : products.filter((p) => {
+          const cat = p.category?.[lang] || p.category?.en;
+          return (
+            cat &&
+            cat.toString().toLowerCase() === selectedCategory.toLowerCase()
+          );
+        });
 
   const toggleDetails = (id) => {
     setExpandedProduct(expandedProduct === id ? null : id);
@@ -38,9 +44,9 @@ export default function Products() {
 
       {/* CATEGORY BUTTONS */}
       <div className="category-buttons">
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <button
-            key={category}
+            key={index}
             onClick={() => setSelectedCategory(category)}
             className={selectedCategory === category ? "active" : ""}
           >
@@ -90,16 +96,16 @@ export default function Products() {
               <button
                 className="read-more-btn"
                 onClick={(e) => {
-                  e.stopPropagation(); // Prevent card navigation
+                  e.stopPropagation();
                   toggleDetails(p.id);
                 }}
               >
                 {isExpanded
                   ? t("productsPage.hideDetails") || "Hide Details"
-                  : t("productsPage.readMore") || "Read More"}
+                  : "Read more"}
               </button>
 
-              {/* DETAILS EXPANSION */}
+              {/* DETAILS PREVIEW */}
               <AnimatePresence>
                 {isExpanded && (
                   <motion.ul

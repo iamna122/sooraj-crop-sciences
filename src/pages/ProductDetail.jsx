@@ -9,10 +9,8 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
 
-  // Set language with fallback
   const lang = i18n.language === "ur" ? "ur" : "en";
 
-  // Find product by ID
   const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) {
@@ -46,15 +44,18 @@ export default function ProductDetail() {
               {product.brand?.[lang] || product.brand?.en}
             </p>
           )}
+
           {product.packSize && (
             <p>
               <strong>{t("product.pack") || "Pack Size"}:</strong>{" "}
               {product.packSize?.[lang] || product.packSize?.en}
             </p>
           )}
+
+          {/* CATEGORY (Heading name changed as requested) */}
           {product.category && (
             <p>
-              <strong>{t("product.category") || "Category"}:</strong>{" "}
+              <strong>Product Type:</strong>{" "}
               {product.category?.[lang] || product.category?.en}
             </p>
           )}
@@ -113,19 +114,7 @@ export default function ProductDetail() {
         </>
       )}
 
-      {/* Details */}
-      {product.details?.[lang]?.length > 0 && (
-        <>
-          <h2>{t("product.details") || "Details"}</h2>
-          <ul>
-            {product.details[lang].map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </>
-      )}
+      {/* REMOVED product.details */}
     </div>
   );
 }
-
-//kainat

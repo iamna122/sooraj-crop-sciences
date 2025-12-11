@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     name: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" },
-    brand: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" },
+    brand: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "1 KG", ur: "1 کلو" },
     image: require("../assets/products/Sulphur80WDG.jpg"),
@@ -38,13 +38,17 @@ const products = [
       ],
     },
   },
+
   {
     id: 2,
     name: {
       en: "Benziothiozolinonel 1.5% EW",
       ur: "بینزیوتھیازولینون 1.5٪ ای ڈبلیو",
     },
-    brand: { en: "NIPA", ur: "نیپا" },
+    brand: {
+      en: "Benziothiozolinonel 1.5% EW",
+      ur: "بینزیوتھیازولینون 1.5٪ ای ڈبلیو",
+    }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "200 ML", ur: "200 ملی لیٹر" },
     image: require("../assets/products/NIPA.jpg"),
@@ -82,13 +86,17 @@ const products = [
       ],
     },
   },
+
   {
     id: 3,
     name: {
       en: "Dinotifuron + Pymetrozine",
       ur: "ڈائنوٹیفیورون + پائمیٹروزین",
     },
-    brand: { en: "Rippet", ur: "ریپیٹ" },
+    brand: {
+      en: "Dinotifuron + Pymetrozine",
+      ur: "ڈائنوٹیفیورون + پائمیٹروزین",
+    }, // Swapped
     category: { en: "Insecticide", ur: "کیڑے مار" },
     packSize: { en: "100 GM", ur: "100 گرام" },
     image: require("../assets/products/Rippet.PNG"),
@@ -126,10 +134,11 @@ const products = [
       ],
     },
   },
+
   {
     id: 4,
     name: { en: "Azoxystrobin 5.4% SC", ur: "ایزوکسسٹروبن 5.4٪ ایس سی" },
-    brand: { en: "FACEUP 56% SC", ur: "فیس اپ 56٪ ایس سی" },
+    brand: { en: "Azoxystrobin 5.4% SC", ur: "ایزوکسسٹروبن 5.4٪ ایس سی" }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "250 ML", ur: "250 ملی لیٹر" },
     image: require("../assets/products/FaceUp.jpg"),
@@ -162,10 +171,11 @@ const products = [
       ],
     },
   },
+
   {
     id: 5,
     name: { en: "Crop Supplement", ur: "فصل کا غذائی سپلیمنٹ" },
-    brand: { en: "WhatsApp (Zinc)", ur: "واٹس ایپ (زنک)" },
+    brand: { en: "Crop Supplement", ur: "فصل کا غذائی سپلیمنٹ" }, // Swapped
     category: { en: "Micronutrients", ur: "خوردنی اجزاء" },
     packSize: { en: "4 KG", ur: "4 کلو" },
     image: require("../assets/products/WhatsApp.jpg"),
@@ -198,7 +208,58 @@ const products = [
       ],
     },
   },
-  // Add remaining products here in the same pattern
+
+  // -----------------------------------------------------
+  // NEW PRODUCT 6: Herbicide
+  // -----------------------------------------------------
+  {
+    id: 6,
+    name: { en: "Winsta 30% WP", ur: "ونسٹا 30٪ ڈبلیو پی" },
+    brand: { en: "Winsta 30% WP", ur: "ونسٹا 30٪ ڈبلیو پی" },
+    category: { en: "Herbicide", ur: "جڑی بوٹی مار" },
+    packSize: { en: "100 GM", ur: "100 گرام" },
+    image: require("../assets/products/winsta.png"), // Replace if you have image
+    composition: [
+      {
+        en: "Bispyribac Sodium + Bensulfuron Methyl 30% WP",
+        ur: "بسپیریبک سوڈیم + بینسلفیورون میتھائل 30٪ ڈبلیو پی",
+      },
+    ],
+    crops: { en: "Rice", ur: "چاول" },
+    usage: {
+      en: ["Use as per recommended dose.", "Spray uniformly on field."],
+      ur: ["تجویز کردہ مقدار استعمال کریں۔", "کھیت میں یکساں سپرے کریں۔"],
+    },
+    season: { en: "Kharif", ur: "خریف" },
+    problems: {
+      en: "Weeds in rice fields",
+      ur: "چاول کی کھیتی میں جڑی بوٹیاں",
+    },
+    details: { en: [], ur: [] },
+  },
+
+  // -----------------------------------------------------
+  // NEW PRODUCT 7: Fertilizer
+  // -----------------------------------------------------
+  {
+    id: 7,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
 ];
 
 export default products;
