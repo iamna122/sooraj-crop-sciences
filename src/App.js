@@ -1,44 +1,113 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
+
+import "./i18n";
+import "./App.css";
+
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import FAQs from "./pages/Faqs";
+import Career from "./pages/Career";
 import Products from "./pages/Products";
-import "./App.css"; 
+import ProductDetail from "./pages/ProductDetail";
 
-function App() {
+import TopHeader from "./components/TopHeader";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+import products from "./data/products";
+
+// ✅ Search result dropdown
+function SearchResults({ search }) {
+  const navigate = useNavigate();
+
+  const filtered = products.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  if (!search || filtered.length === 0) return null;
+
   return (
-    <Router>
-      <header className="header">
-        <div className="logo-section">
-          <img
-            src={`${process.env.PUBLIC_URL}/sooraj-logo.PNG`}
-            alt="Sooraj Logo"
-            className="logo"
-          />
-          <h1 className="site-title">Sooraj Crop Sciences</h1>
+    <div
+      style={{
+        position: "absolute",
+        top: "85px",
+        right: "80px",
+        backgroundColor: "#fff",
+        boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+        borderRadius: "8px",
+        zIndex: 999,
+        width: "260px",
+        padding: "8px 0",
+      }}
+    >
+      {filtered.map((item) => (
+        <div
+          key={item.id}
+          onClick={() => navigate(`/products/${item.id}`)}
+          style={{
+            padding: "10px 16px",
+            cursor: "pointer",
+            borderBottom: "1px solid #eee",
+          }}
+        >
+          {item.name}
         </div>
-
-        <nav className="nav-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/Products" className="nav-link">Products</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/FAQs" className="nav-link">FAQs</Link>
-          
-        </nav>
-      </header>
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/FAQs" element={<FAQs />} />
-      </Routes>
-    </Router>
+      ))}
+    </div>
   );
 }
 
-export default App;
+export default function App() {
+  const [search, setSearch] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  // ✅ Proper viewport height fix
+  useEffect(() => {
+    const setVH = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    setVH();
+    window.addEventListener("resize", setVH);
+    return () => window.removeEventListener("resize", setVH);
+  }, []);
+
+  return (
+    <Router>
+      <TopHeader />
+
+      {/* ✅ SINGLE NAVBAR ONLY */}
+      <Navbar
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        search={search}
+        setSearch={setSearch}
+      />
+
+      {/* ✅ SEARCH DROPDOWN */}
+      {isOpen && <SearchResults search={search} />}
+
+      {/* ✅ ROUTES */}
+      <Routes>
+        <Route
+          path="/"
+          element={<Home search={search} setSearch={setSearch} />}
+        />
+        <Route path="/About" element={<About />} />
+        <Route path="/Products" element={<Products />} />
+        <Route path="/Products/:id" element={<ProductDetail />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Career" element={<Career />} />
+        <Route path="*" element={<Products />} />
+      </Routes>
+
+      <Footer />
+    </Router>
+  );
+}
