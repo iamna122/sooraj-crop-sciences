@@ -1,8 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-//import react
-=======
->>>>>>> main
 import { useTranslation } from "react-i18next";
 import "./../styles/CareerPage.css";
 
