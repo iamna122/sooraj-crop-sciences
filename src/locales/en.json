@@ -91,9 +91,19 @@
   "email": "Your Email",
   "message": "Your Message",
   "send": "Send Message",
-  "location": "Our Office Location",
-  "thankYou": "Thank you, {{name}}! Your message has been sent."
-},
+  "thankYou": "Thank you, {{name}}! Your message has been sent.",
+
+  "infoTitle": "Contact Information",
+  "emailLabel": "Email",
+  "whatsapp": "WhatsApp",
+  "chatNow": "Chat Now",
+  "phone": "Phone",
+  "office": "Office Location",
+  "address": "Apartment 01 Floor 02 Almeezan Arcade, Khayaban-e-Ameen, Lahore",
+  "hours": "Working Hours",
+  "timing": "Mon – Sat: 9:00 AM – 6:00 PM"
+}
+,
 "career": {
   "heroTitle": "Be part of our mission",
   "heroText": "At Sooraj Crop Sciences, we empower farmers with innovation. Join our mission to improve agriculture with sustainable crop solutions.",

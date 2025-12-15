@@ -1,171 +1,41 @@
-// import React, { useState } from "react";
-// import { useTranslation } from "react-i18next";
-// import contactImg from "../assets/products/NIPA.jpg";
-
-// export default function Contact() {
-//   const { t } = useTranslation();
-
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     email: "",
-//     message: "",
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData((prev) => ({ ...prev, [name]: value }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     alert(t("contact.thankYou", { name: formData.name }));
-//     setFormData({ name: "", email: "", message: "" });
-//   };
-
-//   return (
-//     <section
-//       style={{
-//         padding: "60px 5%",
-//         backgroundColor: "#f7f9f8",
-//       }}
-//     >
-//       <h2
-//         style={{
-//           color: "#127a3a",
-//           marginBottom: "40px",
-//           textAlign: "center",
-//           fontSize: "2rem",
-//           fontWeight: "bold",
-//         }}
-//       >
-//         {t("contact.title")}
-//       </h2>
-
-//       <div
-//         style={{
-//           display: "flex",
-//           flexWrap: "wrap",
-//           alignItems: "center",
-//           justifyContent: "center",
-//           gap: "40px",
-//         }}
-//       >
-//         <div
-//           style={{
-//             flex: "1 1 400px",
-//             textAlign: "center",
-//           }}
-//         >
-//           <img
-//             src={contactImg}
-//             alt="Contact Us"
-//             style={{
-//               width: "100%",
-//               maxWidth: "500px",
-//               borderRadius: "12px",
-//               boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-//             }}
-//           />
-//         </div>
-
-//         <div
-//           style={{
-//             flex: "1 1 400px",
-//             background: "white",
-//             padding: "30px",
-//             borderRadius: "12px",
-//             boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-//           }}
-//         >
-//           <h2
-//             style={{
-//               color: "#127a3a",
-//               marginBottom: "20px",
-//               textAlign: "center",
-//             }}
-//           >
-//             {t("contact.sendMessage")}
-//           </h2>
-
-//           <form
-//             onSubmit={handleSubmit}
-//             style={{
-//               display: "flex",
-//               flexDirection: "column",
-//               gap: "15px",
-//             }}
-//           >
-//             <input
-//               type="text"
-//               name="name"
-//               placeholder={t("contact.name")}
-//               value={formData.name}
-//               onChange={handleChange}
-//               required
-//             />
-
-//             <input
-//               type="email"
-//               name="email"
-//               placeholder={t("contact.email")}
-//               value={formData.email}
-//               onChange={handleChange}
-//               required
-//             />
-
-//             <textarea
-//               name="message"
-//               placeholder={t("contact.message")}
-//               rows="5"
-//               value={formData.message}
-//               onChange={handleChange}
-//               required
-//             />
-
-//             <button type="submit">
-//               {t("contact.send")}
-//             </button>
-//           </form>
-//         </div>
-//       </div>
-
-//       <div
-//         style={{
-//           marginTop: "60px",
-//           textAlign: "center",
-//         }}
-//       >
-//         <h3
-//           style={{
-//             color: "#127a3a",
-//             marginBottom: "20px",
-//             fontSize: "1.5rem",
-//           }}
-//         >
-//           {t("contact.location")}
-//         </h3>
-
-//         <iframe
-//           title="office-map"
-//           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26884.02493846678!2d74.24503060741358!3d31.384411034262236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391907eecc85c783%3A0xaa4ebaade9463825!2sSooraj%20Crop%20Sciences!5e1!3m2!1sen!2s!4v1762350948029!5m2!1sen!2s"
-//           width="100%"
-//           height="500"
-//           style={{
-//             border: 0,
-//             borderRadius: "12px",
-//             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-//           }}
-//           allowFullScreen=""
-//           loading="lazy"
-//         ></iframe>
-//       </div>
-//     </section>
-//   );
-// }
 import React, { useState } from "react";
-import { FaEnvelope, FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaClock,
+} from "react-icons/fa";
+
+/* ================= STYLES ================= */
+
+const inputStyle = {
+  width: "100%",
+  padding: "14px 12px",
+  borderRadius: "8px",
+  border: "1px solid #ccc",
+  outline: "none",
+  fontSize: "0.95rem",
+  backgroundColor: "#fff",
+};
+
+const labelStyle = {
+  position: "absolute",
+  top: "-9px",
+  left: "12px",
+  background: "#fff",
+  padding: "0 6px",
+  fontSize: "0.75rem",
+  color: "#0d6a32",
+  fontWeight: "600",
+};
+
+/* ================= COMPONENT ================= */
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -179,28 +49,29 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your message has been sent.`);
+    alert(t("contact.thankYou", { name: formData.name }));
     setFormData({ name: "", email: "", message: "" });
   };
 
   return (
     <section
       style={{
-        padding: "80px 5%",
+        padding: "40px 5% 80px",
         backgroundColor: "#f4f6f8",
         minHeight: "100vh",
       }}
     >
+      {/* TITLE */}
       <h2
         style={{
           color: "#0d6a32",
           textAlign: "center",
           fontSize: "2.2rem",
           fontWeight: "700",
-          marginBottom: "50px",
+          marginBottom: "30px",
         }}
       >
-        Contact Us
+        {t("contact.title")}
       </h2>
 
       <div
@@ -211,213 +82,224 @@ export default function Contact() {
           gap: "40px",
         }}
       >
-        {/* ---------------- Left: Form ---------------- */}
+        {/* ================= FORM ================= */}
         <div
           style={{
             flex: "1 1 450px",
             background: "#ffffff",
-            padding: "40px",
-            borderRadius: "12px",
-            boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+            padding: "45px",
+            borderRadius: "14px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
           }}
         >
           <h3
             style={{
               color: "#0d6a32",
-              marginBottom: "25px",
+              marginBottom: "30px",
               fontSize: "2rem",
-              fontWeight: "bold",
+              fontWeight: "700",
               textAlign: "center",
             }}
           >
-            Send Us a Message
+            {t("contact.sendMessage")}
           </h3>
 
           <form
             onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+            style={{ display: "flex", flexDirection: "column", gap: "20px" }}
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                outline: "none",
-              }}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                outline: "none",
-              }}
-            />
-            <textarea
-              name="message"
-              placeholder="Your Message"
-              rows="6"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              style={{
-                padding: "12px",
-                borderRadius: "6px",
-                border: "1px solid #ccc",
-                resize: "none",
-                outline: "none",
-              }}
-            />
+            <div style={{ position: "relative" }}>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder=" "
+                style={inputStyle}
+              />
+              <label style={labelStyle}>{t("contact.name")}</label>
+            </div>
+
+            <div style={{ position: "relative" }}>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder=" "
+                style={inputStyle}
+              />
+              <label style={labelStyle}>{t("contact.email")}</label>
+            </div>
+
+            <div style={{ position: "relative" }}>
+              <textarea
+                name="message"
+                rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                placeholder=" "
+                style={{ ...inputStyle, resize: "none" }}
+              />
+              <label style={labelStyle}>{t("contact.message")}</label>
+            </div>
+
             <button
               type="submit"
               style={{
-                backgroundColor: "#2F59E6",
-                color: "white",
+                marginTop: "10px",
+                background: "linear-gradient(135deg, #00A651, #0d6a32)",
+                color: "#fff",
                 border: "none",
-                padding: "12px",
-                borderRadius: "6px",
-                fontWeight: "bold",
+                padding: "14px",
+                borderRadius: "8px",
+                fontSize: "1rem",
+                fontWeight: "700",
                 cursor: "pointer",
                 transition: "0.3s ease",
               }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#1f3ea0")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#2F59E6")}
+              onMouseOver={(e) => (e.target.style.opacity = "0.9")}
+              onMouseOut={(e) => (e.target.style.opacity = "1")}
             >
-              Send Message
+              {t("contact.send")}
             </button>
           </form>
         </div>
 
-        {/* ---------------- Right: Contact Info Container ---------------- */}
+        {/* ================= CONTACT INFO ================= */}
         <div
           style={{
             flex: "1 1 350px",
             backgroundColor: "#ffffff",
-            borderRadius: "12px",
-            boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
-            display: "flex",
-            flexDirection: "column",
+            borderRadius: "14px",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
             overflow: "hidden",
           }}
         >
-          {/* Header */}
           <div
             style={{
-              backgroundColor: "#00A651",
-              padding: "20px",
-              color: "white",
+              background: "linear-gradient(135deg, #00A651, #0d6a32)",
+              padding: "22px",
+              color: "#ffffff",
               fontWeight: "700",
-              fontSize: "1.4rem",
+              fontSize: "1.5rem",
               textAlign: "center",
             }}
           >
-            Contact Information
+            {t("contact.infoTitle")}
           </div>
 
-          {/* Info Items */}
-          <div style={{ padding: "25px", display: "flex", flexDirection: "column", gap: "20px" }}>
-            {/* Email */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <FaEnvelope size={20} color="#00A651" />
-              <div>
-                <strong>Email</strong>
-                <br />
-                <a
-                  href="mailto:SoorajCropScience@gmail.com"
-                  style={{ color: "#2F59E6", textDecoration: "underline" }}
-                >
-                  SoorajCropScience@gmail.com
-                </a>
-              </div>
-            </div>
+          <div
+            style={{
+              padding: "30px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "18px",
+            }}
+          >
+            <Info
+              icon={<FaEnvelope />}
+              title={t("contact.emailLabel")}
+              value="SoorajCropScience@gmail.com"
+              link="mailto:SoorajCropScience@gmail.com"
+            />
 
-            {/* WhatsApp */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <FaWhatsapp size={20} color="#00A651" />
-              <div>
-                <strong>WhatsApp</strong>
-                <br />
-                <a
-                  href="https://wa.me/04235111003"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ color: "#2F59E6", textDecoration: "underline" }}
-                >
-                  Chat Now
-                </a>
-              </div>
-            </div>
+            <Info
+              icon={<FaWhatsapp />}
+              title={t("contact.whatsapp")}
+              value={t("contact.chatNow")}
+              link="https://wa.me/924235111003"
+            />
 
-            {/* Phone */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <FaPhone size={20} color="#00A651" />
-              <div>
-                <strong>Phone</strong>
-                <br />
-                <a href="tel:04235111003" style={{ color: "#2F59E6", textDecoration: "underline" }}>
-                 04235111003
-                </a>
-              </div>
-            </div>
+            <Info
+              icon={<FaPhone />}
+              title={t("contact.phone")}
+              value="04235111003"
+              link="tel:04235111003"
+            />
 
-            {/* Location */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <FaMapMarkerAlt size={20} color="#00A651" />
-              <div>
-                <strong>Office Location</strong>
-                <br />
-                  Apartment 01 Floor 02 Almeezan Arcade 24-CCA, Khayaban-e-Ameen, Lahore 54770
-              </div>
-            </div>
+            <Info
+              icon={<FaMapMarkerAlt />}
+              title={t("contact.office")}
+              value={t("contact.address")}
+            />
 
-            {/* Working Hours */}
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <FaClock size={20} color="#00A651" />
-              <div>
-                <strong>Working Hours</strong>
-                <br />
-                Mon - Sat: 9:00 AM - 6:00 PM
-              </div>
-            </div>
+            <Info
+              icon={<FaClock />}
+              title={t("contact.hours")}
+              value={t("contact.timing")}
+            />
           </div>
         </div>
       </div>
 
-      {/* ---------------- Map Section ---------------- */}
-      <div
-        style={{
-          marginTop: "60px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      {/* ================= MAP ================= */}
+      <div style={{ marginTop: "60px", textAlign: "center" }}>
         <iframe
           title="office-map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26884.02493846678!2d74.24503060741358!3d31.384411034262236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391907eecc85c783%3A0xaa4ebaade9463825!2sSooraj%20Crop%20Sciences!5e1!3m2!1sen!2s!4v1762350948029!5m2!1sen!2s"
-          width="1250"
+          width="100%"
           height="350"
           style={{
             border: 0,
             borderRadius: "12px",
             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
           }}
-          allowFullScreen=""
           loading="lazy"
-        ></iframe>
+        />
       </div>
     </section>
   );
 }
-  
+
+/* ================= INFO ITEM ================= */
+
+function Info({ icon, title, value, link }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        gap: "14px",
+        padding: "14px",
+        borderRadius: "10px",
+        background: "#f8f9fa",
+      }}
+    >
+      <div
+        style={{
+          minWidth: "42px",
+          height: "42px",
+          borderRadius: "50%",
+          backgroundColor: "#00A651",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: "18px",
+        }}
+      >
+        {icon}
+      </div>
+
+      <div>
+        <div style={{ fontWeight: "700", color: "#0d6a32" }}>{title}</div>
+
+        {link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            style={{ color: "#2F59E6", textDecoration: "none" }}
+          >
+            {value}
+          </a>
+        ) : (
+          <div style={{ color: "#555" }}>{value}</div>
+        )}
+      </div>
+    </div>
+  );
+}
