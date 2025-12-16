@@ -260,6 +260,140 @@ const products = [
     problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
     details: { en: [], ur: [] },
   },
+  {
+    id: 8,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+  {
+    id: 9,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+
+  {
+    id: 10,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+  {
+    id: 11,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+  {
+    id: 12,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+  {
+    id: 13,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
+  {
+    id: 14,
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "25 KG", ur: "25 کلو" },
+    image: require("../assets/products/SOP.png"), // Replace if available
+    composition: [
+      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: ["Apply to soil during growth cycle."],
+      ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    details: { en: [], ur: [] },
+  },
 ];
 
 export default products;

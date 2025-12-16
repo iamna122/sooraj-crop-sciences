@@ -8,6 +8,12 @@
   letter-spacing: 1px;
 }
 
+.products-container {
+  padding: 0 20px; /* margin for the whole page */
+
+  margin: 0 auto;
+}
+
 /* === Category Buttons === */
 .category-buttons {
   display: flex;
@@ -143,4 +149,37 @@
 
 .product-details li {
   margin-bottom: 6px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #1a4d2e;
+  background-color: #e7f3ed;
+  color: #1a4d2e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover {
+  background-color: #1a4d2e;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination .active-page {
+  background-color: #1a4d2e;
+  color: #fff;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import products from "../data/products";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/products.css";
@@ -13,31 +13,66 @@ export default function Products() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [expandedProduct, setExpandedProduct] = useState(null);
 
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 12;
+
   // FINAL FIXED CATEGORY LIST (NO DUPLICATES + TRANSLATIONS)
   const categories = [
     t("product.all", "All"),
-    ...new Set([
-      ...products.map((p) => p.category?.[lang] || p.category?.en || "Unknown"),
-      // t("product.herbicide", "Herbicide"),
-      //t("product.fertilizer", "Fertilizer"),
-    ]),
+    ...new Set(
+      products.map((p) => p.category?.[lang] || p.category?.en || "Unknown")
+    ),
   ];
 
+  // Filter products by selected category
   const filteredProducts =
     selectedCategory === t("product.all", "All")
       ? products
       : products.filter((p) => {
           const cat = p.category?.[lang] || p.category?.en;
           return (
-            cat &&
-            cat.toString().toLowerCase() === selectedCategory.toLowerCase()
+            cat?.toString().toLowerCase() === selectedCategory.toLowerCase()
           );
         });
 
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // -------------------------------
+  // FUNCTIONS
+  // -------------------------------
+
+  // Pagination function
+  const paginate = (pageNumber) => {
+    if (pageNumber < 1 || pageNumber > totalPages) return;
+    setCurrentPage(pageNumber);
+  };
+
+  // Toggle "Read More / Hide Details"
   const toggleDetails = (id) => {
     setExpandedProduct(expandedProduct === id ? null : id);
   };
 
+  // Scroll to product grid after page or category changes
+  useEffect(() => {
+    const productGrid = document.querySelector(".product-grid");
+    if (productGrid) {
+      const offsetTop =
+        productGrid.getBoundingClientRect().top + window.scrollY - 20; // adjust for header if needed
+      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+    }
+  }, [currentPage, selectedCategory]); // triggers on page or category change
+
+  // -------------------------------
+  // JSX
+  // -------------------------------
   return (
     <div className="products-container">
       <h1 className="page-title">{t("product.title") || "Products"}</h1>
@@ -47,7 +82,10 @@ export default function Products() {
         {categories.map((category, index) => (
           <button
             key={index}
-            onClick={() => setSelectedCategory(category)}
+            onClick={() => {
+              setSelectedCategory(category);
+              setCurrentPage(1); // reset page when category changes
+            }}
             className={selectedCategory === category ? "active" : ""}
           >
             {category}
@@ -57,7 +95,7 @@ export default function Products() {
 
       {/* PRODUCT GRID */}
       <div className="product-grid">
-        {filteredProducts.map((p) => {
+        {currentProducts.map((p) => {
           const isExpanded = expandedProduct === p.id;
 
           return (
@@ -93,7 +131,7 @@ export default function Products() {
               <button
                 className="read-more-btn"
                 onClick={(e) => {
-                  e.stopPropagation();
+                  e.stopPropagation(); // prevent card click navigation
                   toggleDetails(p.id);
                 }}
               >
@@ -125,6 +163,33 @@ export default function Products() {
             </motion.div>
           );
         })}
+      </div>
+
+      {/* PAGINATION */}
+      <div className="pagination">
+        <button
+          onClick={() => paginate(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
+
+        {[...Array(totalPages)].map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => paginate(idx + 1)}
+            className={currentPage === idx + 1 ? "active-page" : ""}
+          >
+            {idx + 1}
+          </button>
+        ))}
+
+        <button
+          onClick={() => paginate(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </div>
   );
