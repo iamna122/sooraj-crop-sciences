@@ -5,7 +5,7 @@ const products = [
     brand: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "1 KG", ur: "1 کلو" },
-    image: require("../assets/products/Sulphur80WDG.jpg"),
+    image: require("../assets/products/Sulphur.png"),
     composition: [{ en: "Sulphur 80%", ur: "سلفر 80٪" }],
     crops: { en: "Wheat, Cotton, Sugarcane", ur: "گندم، کپاس، گنے" },
     usage: {
@@ -51,7 +51,7 @@ const products = [
     }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "200 ML", ur: "200 ملی لیٹر" },
-    image: require("../assets/products/NIPA.jpg"),
+    image: require("../assets/products/Nipa.png"),
     composition: [
       { en: "Benziothiozolinone 1.5%", ur: "بینزیوتھیازولینون 1.5٪" },
     ],
@@ -99,7 +99,7 @@ const products = [
     }, // Swapped
     category: { en: "Insecticide", ur: "کیڑے مار" },
     packSize: { en: "100 GM", ur: "100 گرام" },
-    image: require("../assets/products/Rippet.PNG"),
+    image: require("../assets/products/Rippet.png"),
     composition: [
       { en: "Dinotifuron + Pymetrozine", ur: "ڈائنوٹیفیورون + پائمیٹروزین" },
     ],
@@ -141,7 +141,7 @@ const products = [
     brand: { en: "Azoxystrobin 5.4% SC", ur: "ایزوکسسٹروبن 5.4٪ ایس سی" }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "250 ML", ur: "250 ملی لیٹر" },
-    image: require("../assets/products/FaceUp.jpg"),
+    image: require("../assets/products/FaceUp.png"),
     composition: [{ en: "Azoxystrobin 5.4%", ur: "ایزوکسسٹروبن 5.4٪" }],
     crops: { en: "Potato, Tomato", ur: "آلو، ٹماٹر" },
     usage: {
@@ -178,7 +178,7 @@ const products = [
     brand: { en: "Crop Supplement", ur: "فصل کا غذائی سپلیمنٹ" }, // Swapped
     category: { en: "Micronutrients", ur: "خوردنی اجزاء" },
     packSize: { en: "4 KG", ur: "4 کلو" },
-    image: require("../assets/products/WhatsApp.jpg"),
+    image: require("../assets/products/WhatsApp.png"),
     composition: [{ en: "Zinc 10%", ur: "زنک 10٪" }],
     crops: { en: "All crops", ur: "تمام فصلیں" },
     usage: {

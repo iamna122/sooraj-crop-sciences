@@ -64,17 +64,14 @@ export default function Products() {
             <motion.div
               key={p.id}
               className="product-card"
-              layout
-              transition={{ layout: { duration: 0.4, type: "spring" } }}
               onClick={() => navigate(`/products/${p.id}`)}
               style={{ cursor: "pointer" }}
             >
               {/* IMAGE */}
-              <motion.img
+              <img
                 src={p.image}
                 alt={p.name?.[lang] || p.name?.en}
                 className="product-image"
-                layout
               />
 
               {/* NAME */}
