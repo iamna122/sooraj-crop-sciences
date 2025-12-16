@@ -1,104 +1,140 @@
-/* === Main Layout === */
-.product-detail-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 20px auto;
-  padding: 0 20px;
-  color: #1a4d2e;
-  text-align: left;
+/* MAIN CONTAINER */
+.pd-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-/* === Back Button === */
-.product-detail-container button {
+/* BACK BUTTON */
+.pd-back {
   background-color: #1a4d2e;
-  color: #fff;
+  color: #ffffff;
   border: none;
-  padding: 8px 18px;
-  border-radius: 25px;
+  font-size: 0.9rem;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
+  margin-bottom: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.product-detail-container button:hover {
+.pd-back:hover {
   background-color: #2c7a4b;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
-/* === TITLE === */
-.product-detail-container h1 {
+/* TITLE */
+.pd-title {
   font-size: 2rem;
-  margin-bottom: 20px;
   font-weight: 700;
-}
-
-/* === TOP SECTION — IMAGE LEFT, INFO RIGHT === */
-.product-top-section {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+  color: #1a4d2e;
   margin-bottom: 30px;
 }
 
-/* === Image styling === */
-.product-detail-image {
-  width: 360px;
-  height: 360px;
+/* TOP SECTION */
+.pd-top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* IMAGE */
+.pd-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.pd-image {
+  width: 100%;
+  max-width: 420px; /* prevents huge image */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 14px;
+  background: #f5f5f5;
 }
 
-/* === Info Box === */
-.product-basic-info {
-  flex: 1;
+/* INFO */
+.pd-info p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
 }
 
-.product-basic-info p,
-.product-basic-info li {
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 10px;
-  line-height: 1.5;
-}
-
-.product-basic-info strong {
-  color: #1a4d2e;
-  font-weight: 700;
-}
-
-.product-basic-info ul {
-  padding-left: 20px;
-  margin-bottom: 15px;
-}
-
-/* === LOWER SECTION (HEADINGS & PARAGRAPHS) === */
-.product-detail-container h2 {
-  margin-top: 25px;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-  font-weight: 700;
+.pd-info h3 {
+  margin-top: 18px;
+  margin-bottom: 6px;
   color: #1a4d2e;
 }
 
-/* Paragraphs & list text */
-.product-detail-container p,
-.product-detail-container ul li {
-  font-size: 1rem;
-  color: #333;
+.pd-info ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+/* FULL WIDTH GREEN SECTION */
+.pd-green-section {
+  width: 100%;
+  margin-top: 60px;
+  background: rgba(9, 107, 50, 0.212);
+  /* translucent green */
+  padding: 60px 0;
+}
+
+/* CONTENT INSIDE GREEN */
+.pd-green-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.pd-green-content h2 {
+  color: #1a4d2e;
+  margin-top: 30px;
+}
+
+.pd-green-content p,
+.pd-green-content li {
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
-/* === Responsive === */
-@media (max-width: 850px) {
-  .product-top-section {
-    flex-direction: column;
+/* LOGO STRIP */
+.pd-logo-strip {
+  overflow: hidden;
+  background: #ffffff;
+  padding: 25px 0;
+}
+
+.pd-logo-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scrollLogos 20s linear infinite;
+}
+
+.pd-logo-track img {
+  height: 50px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+/* LOGO ANIMATION */
+@keyframes scrollLogos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .pd-top {
+    grid-template-columns: 1fr;
   }
 
-  .product-detail-image {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
+  .pd-title {
+    font-size: 1.6rem;
   }
 }
