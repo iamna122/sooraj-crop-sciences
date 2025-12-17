@@ -99,7 +99,7 @@ const products = [
     }, // Swapped
     category: { en: "Insecticide", ur: "کیڑے مار" },
     packSize: { en: "100 GM", ur: "100 گرام" },
-    image: require("../assets/products/Rippet.png"),
+    image: require("../assets/products/Rippet.PNG"),
     composition: [
       { en: "Dinotifuron + Pymetrozine", ur: "ڈائنوٹیفیورون + پائمیٹروزین" },
     ],

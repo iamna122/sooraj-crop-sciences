@@ -15,7 +15,7 @@ export default function Products() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const productsPerPage = 15;
 
   // FINAL FIXED CATEGORY LIST (NO DUPLICATES + TRANSLATIONS)
   const categories = [

@@ -1,10 +1,9 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import products from "../data/products";
-import "../styles/productDetail.css";
-import { useTranslation } from "react-i18next";
-import agrimoreLogo from "../assets/suppliers/Agrimore.jpeg";
-import nafeesLogo from "../assets/suppliers/nafees.jpeg";
+import { useParams, useNavigate } from "react-router-dom"; // routing
+import { useTranslation } from "react-i18next"; // translations
+import products from "../data/products"; // your products data
+import Brand from "../components/Brand.jsx"; // full-width brand component
+import "../styles/productDetail.css"; // CSS
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -20,19 +19,15 @@ export default function ProductDetail() {
 
   return (
     <>
-      {/* MAIN CONTAINER */}
-      <div className="pd-container">
+      <div className="pd-main-container">
         {/* BACK BUTTON */}
         <button className="pd-back" onClick={() => navigate(-1)}>
-          Back to Products
+          ← {t("product.backToProducts") || "Back to Products"}
         </button>
 
-        {/* PRODUCT NAME */}
-        <h1 className="pd-title">{product.name?.[lang] || product.name?.en}</h1>
-
-        {/* TOP TWO COLUMN SECTION */}
-        <div className="pd-top">
-          {/* LEFT: IMAGE */}
+        {/* TOP SECTION: IMAGE + INFO */}
+        <div className="pd-top-section">
+          {/* IMAGE */}
           <div className="pd-image-wrapper">
             <img
               src={product.image}
@@ -41,32 +36,36 @@ export default function ProductDetail() {
             />
           </div>
 
-          {/* RIGHT: PRODUCT INFO */}
-          <div className="pd-info">
-            {product.brand && (
-              <p>
-                <strong>{t("product.brand") || "Brand"}:</strong>{" "}
-                {product.brand?.[lang] || product.brand?.en}
-              </p>
-            )}
+          {/* INFO */}
+          <div className="pd-info-wrapper">
+            <h1 className="pd-title">
+              {product.name?.[lang] || product.name?.en}
+            </h1>
 
-            {product.packSize && (
-              <p>
-                <strong>{t("product.pack") || "Pack Size"}:</strong>{" "}
-                {product.packSize?.[lang] || product.packSize?.en}
-              </p>
-            )}
+            <div className="pd-basic-info">
+              {product.brand && (
+                <p>
+                  <strong>{t("product.brand") || "Brand"}:</strong>{" "}
+                  {product.brand?.[lang] || product.brand?.en}
+                </p>
+              )}
+              {product.packSize && (
+                <p>
+                  <strong>{t("product.pack") || "Pack Size"}:</strong>{" "}
+                  {product.packSize?.[lang] || product.packSize?.en}
+                </p>
+              )}
+              {product.category && (
+                <p>
+                  <strong>{t("product.category") || "Category"}:</strong>{" "}
+                  {product.category?.[lang] || product.category?.en}
+                </p>
+              )}
+            </div>
 
-            {product.category && (
-              <p>
-                <strong>Product Type:</strong>{" "}
-                {product.category?.[lang] || product.category?.en}
-              </p>
-            )}
-
-            {/* INGREDIENTS / COMPOSITION */}
+            {/* COMPOSITION */}
             {product.composition?.length > 0 && (
-              <>
+              <div className="pd-section-card">
                 <h3>
                   {t("product.composition") || "Ingredients / Composition"}
                 </h3>
@@ -75,84 +74,52 @@ export default function ProductDetail() {
                     <li key={idx}>{item?.[lang] || item?.en}</li>
                   ))}
                 </ul>
-              </>
+              </div>
             )}
 
-            {/* CROPS / TARGETED PLANTS */}
+            {/* CROPS */}
             {product.crops && (
-              <>
+              <div className="pd-section-card">
                 <h3>{t("product.crops") || "Crops / Targeted Plants"}</h3>
                 <p>{product.crops?.[lang] || product.crops?.en}</p>
-              </>
+              </div>
             )}
           </div>
         </div>
-      </div>
 
-      {/* FULL WIDTH GREEN SECTION */}
-      <section className="pd-green-section">
-        <div className="pd-green-content">
-          {/* USAGE */}
+        {/* GREEN SECTION: USAGE, SEASON, PROBLEMS */}
+        <div className="pd-green-section">
           {product.usage && (
-            <>
-              <h2>{t("product.usage") || "Usage Instructions"}</h2>
+            <div className="pd-section-card">
+              <h3>{t("product.usage") || "Usage Instructions"}</h3>
               {Array.isArray(product.usage?.[lang]) ? (
                 <ul>
-                  {product.usage[lang].map((step, index) => (
-                    <li key={index}>{step}</li>
+                  {product.usage[lang].map((step, idx) => (
+                    <li key={idx}>{step}</li>
                   ))}
                 </ul>
               ) : (
                 <p>{product.usage?.[lang] || product.usage?.en}</p>
               )}
-            </>
+            </div>
           )}
-
-          {/* SEASON */}
           {product.season && (
-            <>
-              <h2>{t("product.season") || "Season / Timing"}</h2>
+            <div className="pd-section-card">
+              <h3>{t("product.season") || "Season / Timing"}</h3>
               <p>{product.season?.[lang] || product.season?.en}</p>
-            </>
+            </div>
           )}
-
-          {/* PROBLEMS */}
           {product.problems && (
-            <>
-              <h2>{t("product.problems") || "Pest / Problem Control"}</h2>
+            <div className="pd-section-card">
+              <h3>{t("product.problems") || "Pest / Problem Control"}</h3>
               <p>{product.problems?.[lang] || product.problems?.en}</p>
-            </>
+            </div>
           )}
-        </div>
-      </section>
-
-      {/* SUPPLIER LOGO STRIP */}
-      <div className="pd-logo-strip">
-        <div className="pd-logo-track">
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-
-          {/* duplicate for seamless loop */}
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
-          <img src={agrimoreLogo} alt="Agrimore" />
-          <img src={nafeesLogo} alt="Nafees" />
         </div>
       </div>
+
+      {/* BRAND SECTION FULL WIDTH */}
+      <Brand />
     </>
   );
 }
