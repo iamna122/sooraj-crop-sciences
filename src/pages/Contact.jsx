@@ -193,7 +193,7 @@ export default function Contact() {
           </div>
 
           <div
-            style={{
+            style={{  
               padding: "30px",
               display: "flex",
               flexDirection: "column",

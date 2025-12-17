@@ -6,6 +6,8 @@ import {
   useNavigate,
 } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import "./i18n";
 import "./App.css";
 
@@ -22,7 +24,7 @@ import Footer from "./components/Footer";
 
 import products from "./data/products";
 
-// ✅ Search result dropdown
+// Search dropdown
 function SearchResults({ search }) {
   const navigate = useNavigate();
 
@@ -67,7 +69,9 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  // ✅ Proper viewport height fix
+  const { i18n } = useTranslation();
+  const isUrdu = i18n.language === "ur";
+
   useEffect(() => {
     const setVH = () => {
       const vh = window.innerHeight * 0.01;
@@ -80,34 +84,34 @@ export default function App() {
 
   return (
     <Router>
-      <TopHeader />
+      {/* ✅ ONLY FONT SWITCH — NO LAYOUT CHANGE */}
+      <div className={isUrdu ? "urdu-font" : ""}>
+        <TopHeader />
 
-      {/* ✅ SINGLE NAVBAR ONLY */}
-      <Navbar
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        search={search}
-        setSearch={setSearch}
-      />
-
-      {/* ✅ SEARCH DROPDOWN */}
-      {isOpen && <SearchResults search={search} />}
-
-      {/* ✅ ROUTES */}
-      <Routes>
-        <Route
-          path="/"
-          element={<Home search={search} setSearch={setSearch} />}
+        <Navbar
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          search={search}
+          setSearch={setSearch}
         />
-        <Route path="/About" element={<About />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/Products/:id" element={<ProductDetail />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Career" element={<Career />} />
-        <Route path="*" element={<Products />} />
-      </Routes>
 
-      <Footer />
+        {isOpen && <SearchResults search={search} />}
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Home search={search} setSearch={setSearch} />}
+          />
+          <Route path="/About" element={<About />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/Products/:id" element={<ProductDetail />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Career" element={<Career />} />
+          <Route path="*" element={<Products />} />
+        </Routes>
+
+        <Footer />
+      </div>
     </Router>
   );
 }
