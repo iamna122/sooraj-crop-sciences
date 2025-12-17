@@ -6,8 +6,12 @@ export default function About() {
   const lang = i18n.language;
 
   return (
-    <div style={{ fontFamily: lang === "ur" ? "Noori Nastaleeq, serif" : "'Inter', sans-serif" }}>
-
+    <div
+      style={{
+        fontFamily:
+          lang === "ur" ? "Noori Nastaleeq, serif" : "'Inter', sans-serif",
+      }}
+    >
       {/* HERO SECTION */}
       <div
         style={{
@@ -62,14 +66,14 @@ export default function About() {
       </div>
 
       {/* WHO WE ARE */}
-      <section style={{ width: "85%", margin: "60px auto", textAlign: "center" }}>
+      <section
+        style={{ width: "85%", margin: "60px auto", textAlign: "center" }}
+      >
         <h2 style={{ fontSize: "2rem", color: "#127a3a", fontWeight: "700" }}>
           {t("about.whoTitle")}
         </h2>
 
-        <p style={{ fontSize: "1rem", color: "#555" }}>
-          {t("about.whoDesc")}
-        </p>
+        <p style={{ fontSize: "1rem", color: "#555" }}>{t("about.whoDesc")}</p>
       </section>
 
       {/* MISSION / VISION / COMMITMENT */}
@@ -83,7 +87,6 @@ export default function About() {
             gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
           }}
         >
-
           <div style={cardStyle}>
             <h3 style={titleStyle}>🌱 {t("about.missionTitle")}</h3>
             <p>{t("about.missionDesc")}</p>
@@ -98,7 +101,6 @@ export default function About() {
             <h3 style={titleStyle}>🛡️ {t("about.commitmentTitle")}</h3>
             <p>{t("about.commitmentDesc")}</p>
           </div>
-
         </div>
       </section>
 
@@ -120,7 +122,9 @@ export default function About() {
           { number: "100k+", label: t("about.stats.farmers") },
         ].map((stat, index) => (
           <div key={index} style={statStyle}>
-            <h2 style={{ color: "#127a3a", fontSize: "2.2rem" }}>{stat.number}</h2>
+            <h2 style={{ color: "#127a3a", fontSize: "2.2rem" }}>
+              {stat.number}
+            </h2>
             <p>{stat.label}</p>
           </div>
         ))}
@@ -129,7 +133,9 @@ export default function About() {
       {/* WHY CHOOSE US */}
       <section style={{ background: "#f0f7f2", padding: "70px 0" }}>
         <div style={{ width: "85%", margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", color: "#127a3a", fontSize: "2rem" }}>
+          <h2
+            style={{ textAlign: "center", color: "#127a3a", fontSize: "2rem" }}
+          >
             {t("about.whyTitle")}
           </h2>
 

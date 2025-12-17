@@ -20,9 +20,7 @@ export default function Footer() {
         <div style={{ ...styles.column }}>
           <h2 style={styles.brand}>{t("footer.brand")}</h2>
 
-          <p style={styles.text}>
-            📍 {t("footer.address")}
-          </p>
+          <p style={styles.text}>📍 {t("footer.address")}</p>
           <p style={styles.text}>📞 {t("footer.phone")}</p>
           <p style={styles.text}>✉️ {t("footer.email")}</p>
 
@@ -60,7 +58,10 @@ export default function Footer() {
           <h3 style={styles.heading}>{t("footer.categories")}</h3>
 
           <div style={styles.links}>
-            <FooterLink label={t("categories.all")} to="/products?category=All" />
+            <FooterLink
+              label={t("categories.all")}
+              to="/products?category=All"
+            />
             <FooterLink
               label={t("categories.fungicide")}
               to="/products?category=Fungicide"

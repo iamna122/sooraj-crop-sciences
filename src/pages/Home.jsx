@@ -10,13 +10,11 @@ import TopHeader from "../components/TopHeader";
 import i18n from "../i18n";
 import { useTranslation } from "react-i18next";
 
-
 import products from "../data/products";
 
 export default function Home({ search, setSearch }) {
   const featuredProducts = products.slice(0, 4);
   const { t } = useTranslation();
-  
 
   return (
     <div>
@@ -40,19 +38,19 @@ export default function Home({ search, setSearch }) {
         }}
       >
         <h2
-  style={{
-    color: "#127a3a",
-    marginBottom: "25px",
-    fontSize: "1.6rem",
-    fontWeight: "700",
-    fontFamily: i18n.language === "ur"
-      ? "Noto Nastaliq Urdu, Noori Nastaleeq, serif"
-      : "inherit",
-  }}
->
-  {t("products.featured")}
-</h2>
-
+          style={{
+            color: "#127a3a",
+            marginBottom: "25px",
+            fontSize: "1.6rem",
+            fontWeight: "700",
+            fontFamily:
+              i18n.language === "ur"
+                ? "Noto Nastaliq Urdu, Noori Nastaleeq, serif"
+                : "inherit",
+          }}
+        >
+          {t("products.featured")}
+        </h2>
 
         <div
           style={{
@@ -81,22 +79,22 @@ export default function Home({ search, setSearch }) {
         {/* ✅ VIEW ALL BUTTON */}
         <div style={{ marginTop: "30px" }}>
           <a
-  href="/products"
-  style={{
-    background: "#127a3a",
-    color: "#fff",
-    padding: "10px 24px",
-    borderRadius: "6px",
-    textDecoration: "none",
-    fontWeight: 600,
-    fontFamily: i18n.language === "ur"
-      ? "Noto Nastaliq Urdu, Noori Nastaleeq, serif"
-      : "inherit",
-  }}
->
-  {t("products.viewAll")}
-</a>
-
+            href="/products"
+            style={{
+              background: "#127a3a",
+              color: "#fff",
+              padding: "10px 24px",
+              borderRadius: "6px",
+              textDecoration: "none",
+              fontWeight: 600,
+              fontFamily:
+                i18n.language === "ur"
+                  ? "Noto Nastaliq Urdu, Noori Nastaleeq, serif"
+                  : "inherit",
+            }}
+          >
+            {t("products.viewAll")}
+          </a>
         </div>
       </section>
     </div>

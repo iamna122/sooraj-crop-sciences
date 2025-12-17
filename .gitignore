@@ -7,3 +7,4 @@ node_modules/.bin/ansi-html.ps1
 /node_modules/.bin
 /node_modules
 node_modules/.bin/ansi-html.ps1
+/node_modules
