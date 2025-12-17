@@ -4,10 +4,10 @@ import rice from "../assets/crops/rice.jpg";
 import wheat from "../assets/crops/wheat.jpg";
 import maize from "../assets/crops/maize.jpg";
 import potato from "../assets/crops/potato.jpg";
-import WaterMelon from "../assets/crops/WaterMelon.jpg"
-import Strawberry from "../assets/crops/Strawberry.jpg"
-import Citrus from "../assets/crops/Citrus.jpg"
-import Vegetables from "../assets/crops/Vegetables.jpg"
+import WaterMelon from "../assets/crops/WaterMelon.jpg";
+import Strawberry from "../assets/crops/Strawberry.jpg";
+import Citrus from "../assets/crops/Citrus.jpg";
+import Vegetables from "../assets/crops/Vegetables.jpg";
 
 export const crops = [
   // {
@@ -20,37 +20,37 @@ export const crops = [
     id: 2,
     name: "Rice",
     image: rice,
-    description: "Rice feeds more than half the world."
+    description: "Rice feeds more than half the world.",
   },
   {
     id: 3,
     name: "Wheat",
     image: wheat,
-    description: "Wheat is used for bread, pasta, etc."
+    description: "Wheat is used for bread, pasta, etc.",
   },
   {
     id: 4,
     name: "Maize",
     image: maize,
-    description: "Maize is a global food & feed crop."
+    description: "Maize is a global food & feed crop.",
   },
   {
     id: 5,
     name: "Potato",
     image: potato,
-    description: "Potatoes are rich, filling, and versatile."
+    description: "Potatoes are rich, filling, and versatile.",
   },
   {
     id: 6,
     name: "WaterMelon",
     image: WaterMelon,
-    description: "mango is widely used in textiles."
+    description: "mango is widely used in textiles.",
   },
   {
     id: 7,
     name: "Strawberry",
     image: Strawberry,
-    description: "banana feeds more than half the world."
+    description: "banana feeds more than half the world.",
   },
   // {
   //   id: 8,
@@ -62,13 +62,13 @@ export const crops = [
     id: 9,
     name: "Citrus",
     image: Citrus,
-    description: "grapes is a global food & feed crop."
+    description: "grapes is a global food & feed crop.",
   },
   {
     id: 10,
     name: "Vegetables",
     image: Vegetables,
-    description: "sugar cane are rich, filling, and versatile."
+    description: "sugar cane are rich, filling, and versatile.",
   },
 ];
 
@@ -158,4 +158,3 @@ export const crops = [
 //     description: "Sugarcane is used to make sugar."
 //   },
 // ];
-
