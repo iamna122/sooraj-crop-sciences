@@ -37,11 +37,11 @@ export default function Home({ search, setSearch }) {
           textAlign: "center",
         }}
       >
-        <h2
+        <h4
           style={{
             color: "#127a3a",
             marginBottom: "25px",
-            fontSize: "1.6rem",
+            fontSize: "2.6rem",
             fontWeight: "700",
             fontFamily:
               i18n.language === "ur"
@@ -50,7 +50,7 @@ export default function Home({ search, setSearch }) {
           }}
         >
           {t("products.featured")}
-        </h2>
+        </h4>
 
         <div
           style={{
