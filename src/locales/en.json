@@ -95,7 +95,16 @@
     "message": "Your Message",
     "send": "Send Message",
     "location": "Our Office Location",
-    "thankYou": "Thank you, {{name}}! Your message has been sent."
+    "thankYou": "Thank you, {{name}}! Your message has been sent.",
+    "emailLabel": "Email Address",
+  "whatsapp": "WhatsApp Support",
+  "phone": "Contact Number",
+  "office": "Office Location",
+  "address": "Apartment 01, Floor 02, Almeezan Arcade, 24-CCA, Khayaban-e-Ameen, Lahore 54770",
+  "hours": "Business Hours",
+  "timing": "Monday to Friday — 9:00 AM to 6:00 PM",
+  "chatNow" :"Chat Now",
+  "infoTitle" : "Contact Now"
   },
   "career": {
     "heroTitle": "Be part of our mission",

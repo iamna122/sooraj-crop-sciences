@@ -11,7 +11,7 @@ const CropGallery = () => {
   return (
     <section className="crop-section">
       <h2 className="crop-title">{t("cropGallery.title")}</h2>
-      <p className="crop-subtitle">{t("cropGallery.subtitle")}</p>
+      <h1 className="crop-subtitle">{t("cropGallery.subtitle")}</h1>
 
       {/* GRID */}
       <div className="crop-grid">

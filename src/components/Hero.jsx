@@ -24,8 +24,8 @@ const Hero = () => {
       {/* LEFT TEXT */}
       <div className="hero-text">
         <h2>{t("heroTitle")}</h2>
-        <p>{t("heroPara1")}</p>
-        <p>{t("heroPara2")}</p>
+        <h5>{t("heroPara1")}</h5>
+        <h5>{t("heroPara2")}</h5>
       </div>
 
       {/* HERO IMAGE SLIDER */}

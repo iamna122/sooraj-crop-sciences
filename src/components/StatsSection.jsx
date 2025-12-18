@@ -139,11 +139,11 @@ export default function StatsSection() {
         direction: isUrdu ? "rtl" : "ltr",
       }}
     >
-      <motion.h2
+      <h1
         initial={{ opacity: 0, y: 18 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         style={{
-          fontSize: "1.85rem",
+          fontSize: "2.5rem",
           textAlign: "center",
           fontWeight: "800",
           color: "#0d6a32",
@@ -154,7 +154,7 @@ export default function StatsSection() {
         }}
       >
         {t("stats.title")}
-      </motion.h2>
+      </h1>
 
       <div
         style={{

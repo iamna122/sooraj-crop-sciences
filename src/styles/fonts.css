@@ -63,15 +63,15 @@
 
 /* Headings – modest, professional */
 .urdu-font h1 {
-  font-size: 1.5rem;
+  font-size:1.5rem;
 }
 
 .urdu-font h2 {
-  font-size: 1.85rem;
+  font-size: 2.85rem;
 }
 
 .urdu-font h3 {
-  font-size: 1.55rem;
+  font-size: 2rem;
 }
 
 .urdu-font p,
@@ -79,3 +79,8 @@
 .urdu-font span {
   font-size: 1em;
 }
+
+html[lang="ur"] [style*="font-size: 3rem"] {
+  font-size: 1.15rem !important;
+}
+
