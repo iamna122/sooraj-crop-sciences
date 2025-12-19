@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useNavigate } from "react-router-dom";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import aboutBanner from "../assets/about-banner.jpg";
 import aboutSideImage from "../assets/about-side.jpg";
 
-/* ===== Fix Leaflet marker icons ===== */
+/* Fix leaflet marker icons */
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -17,18 +18,9 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
 });
 
-/* ===== TEMP DEALER LOCATIONS ===== */
-const DEALERS = [
-  { city: "Lahore Dealer", lat: 31.5204, lng: 74.3587 },
-  { city: "Karachi Dealer", lat: 24.8607, lng: 67.0011 },
-  { city: "Islamabad Dealer", lat: 33.6844, lng: 73.0479 },
-  { city: "Faisalabad Dealer", lat: 31.4504, lng: 73.135 },
-  { city: "Gujranwala Dealer", lat: 32.1877, lng: 74.1945 },
-  { city: "Sialkot Dealer", lat: 32.4945, lng: 74.5229 },
-  { city: "Daska Dealer", lat: 32.3344, lng: 74.3506 },
-];
-
 export default function About() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const items = document.querySelectorAll(
       ".fade-up, .slide-left, .slide-right"
@@ -41,7 +33,7 @@ export default function About() {
       },
       { threshold: 0.15 }
     );
-    items.forEach(item => observer.observe(item));
+    items.forEach(el => observer.observe(el));
   }, []);
 
   return (
@@ -95,11 +87,12 @@ export default function About() {
           <div className="slide-right">
             <img
               src={aboutSideImage}
-              alt="Agriculture"
+              alt="Agricultural Support"
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                boxShadow: "0 25px 55px rgba(0,0,0,0.15)",
               }}
             />
           </div>
@@ -111,38 +104,39 @@ export default function About() {
         <div
           className="slide-left"
           style={{
-            background: "#e2f6ec",
-            padding: 32,
+            background: "#dff4ea",
+            padding: 34,
             borderRadius: 16,
             maxWidth: 760,
-            marginBottom: 28,
+            marginBottom: 32,
           }}
         >
-          <h2 style={{ color: "#127a3a", fontSize: "2rem" }}>
+          <h2 style={{ color: "#127a3a", fontSize: "2rem", marginBottom: 14 }}>
             Our Mission
           </h2>
           <p style={{ lineHeight: 1.8 }}>
             To deliver innovative, globally sourced crop solutions backed by
             expert advisory, digital tools, and farmer education—enhancing
-            productivity and sustainability.
+            productivity, profitability, and sustainability.
           </p>
         </div>
 
         <div
           className="slide-right"
           style={{
-            background: "#0f5132",
+            background: "#11563f",
             color: "#fff",
-            padding: 32,
+            padding: 34,
             borderRadius: 16,
             maxWidth: 760,
             marginLeft: "auto",
           }}
         >
-          <h2 style={{ fontSize: "2rem" }}>Our Vision</h2>
+          <h2 style={{ fontSize: "2rem", marginBottom: 14 }}>Our Vision</h2>
           <p style={{ lineHeight: 1.75 }}>
             To transform Pakistan’s agriculture through a unified digital-agri
-            ecosystem that strengthens food security and rural prosperity.
+            ecosystem that improves yields, strengthens food security, and drives
+            long-term rural prosperity.
           </p>
         </div>
       </section>
@@ -169,14 +163,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= MAP ================= */}
-      <section style={{ padding: "80px 10%" }}>
+      {/* ================= DEALER MAP ================= */}
+      <section style={{ padding: "70px 10%" }}>
         <h2
           style={{
-            textAlign: "center",
             fontSize: "2.6rem",
             color: "#127a3a",
-            marginBottom: 40,
+            textAlign: "center",
+            marginBottom: 30,
           }}
         >
           Where Our Dealers Are Located
@@ -185,9 +179,19 @@ export default function About() {
         <div style={{ height: 420, borderRadius: 18, overflow: "hidden" }}>
           <MapContainer center={[30.3753, 69.3451]} zoom={6} style={{ height: "100%" }}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            {DEALERS.map((d, i) => (
-              <Marker key={i} position={[d.lat, d.lng]}>
-                <Popup>{d.city}</Popup>
+
+            {dealers.map((d, i) => (
+              <Marker key={i} position={d.coords}>
+                <Popup>
+                  <strong>{d.name}</strong>
+                  <br />
+                  <span
+                    style={{ color: "#127a3a", cursor: "pointer" }}
+                    onClick={() => navigate("/contact")}
+                  >
+                    Contact this dealer
+                  </span>
+                </Popup>
               </Marker>
             ))}
           </MapContainer>
@@ -197,24 +201,26 @@ export default function About() {
       {/* ================= DEALER CTA ================= */}
       <section
         style={{
-          background: "#e7f7ee",
+          background: "#e6f6ee",
           padding: "40px 10%",
           textAlign: "center",
         }}
       >
-        <h2 style={{ fontSize: "2rem", color: "#127a3a" }}>
+        <h2 style={{ fontSize: "2rem", marginBottom: 12, color: "#127a3a" }}>
           Want to Become a Dealer?
         </h2>
-        <p style={{ maxWidth: 600, margin: "12px auto 22px" }}>
-          Join our nationwide network and grow with a trusted agricultural brand.
+        <p style={{ maxWidth: 600, margin: "0 auto 20px", lineHeight: 1.6 }}>
+          Join our growing nationwide dealer network and partner with a company
+          committed to quality, innovation, and long-term success.
         </p>
         <button
+          onClick={() => navigate("/contact")}
           style={{
             background: "#127a3a",
             color: "#fff",
             border: "none",
-            padding: "12px 28px",
-            borderRadius: 24,
+            padding: "12px 30px",
+            borderRadius: 26,
             fontWeight: 600,
             cursor: "pointer",
           }}
@@ -223,40 +229,41 @@ export default function About() {
         </button>
       </section>
 
-      {/* ================= ANIMATIONS ================= */}
+      {/* ================= STYLES ================= */}
       <style>{`
-        .fade-up,
-        .slide-left,
-        .slide-right {
+        .fade-up, .slide-left, .slide-right {
           opacity: 0;
           transition: all 0.8s ease;
         }
+
         .fade-up { transform: translateY(40px); }
         .slide-left { transform: translateX(-60px); }
         .slide-right { transform: translateX(60px); }
 
-        .fade-up.show,
-        .slide-left.show,
-        .slide-right.show {
+        .fade-up.show, .slide-left.show, .slide-right.show {
           opacity: 1;
           transform: none;
         }
 
         .service-box {
-          background: #bdebd4;
-          padding: 32px 24px;
+          background: linear-gradient(180deg, #dff4ea, #bfe8d4);
+          padding: 34px 24px;
           border-radius: 16px;
-          box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-          transition: all 0.3s ease;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .service-box:hover {
-          transform: translateY(-8px);
+          transform: translateY(-10px);
           box-shadow: 0 22px 45px rgba(0,0,0,0.12);
         }
+
         .service-box h4 {
           margin-top: 16px;
           font-size: 1.1rem;
+          font-weight: 600;
         }
+
         .service-box svg {
           width: 40px;
           height: 40px;
@@ -264,12 +271,18 @@ export default function About() {
           fill: none;
           stroke-width: 1.8;
         }
+
+        @media (max-width: 900px) {
+          section > div {
+            grid-template-columns: 1fr !important;
+          }
+        }
       `}</style>
     </div>
   );
 }
 
-/* ================= SERVICES DATA ================= */
+/* ================= DATA ================= */
 const services = [
   {
     title: "Products",
@@ -308,4 +321,14 @@ const services = [
       </svg>
     ),
   },
+];
+
+const dealers = [
+  { name: "Lahore Dealer", coords: [31.5204, 74.3587] },
+  { name: "Karachi Dealer", coords: [24.8607, 67.0011] },
+  { name: "Islamabad Dealer", coords: [33.6844, 73.0479] },
+  { name: "Faisalabad Dealer", coords: [31.4504, 73.135] },
+  { name: "Gujranwala Dealer", coords: [32.1877, 74.1945] },
+  { name: "Sialkot Dealer", coords: [32.4945, 74.5229] },
+  { name: "Daska Dealer", coords: [32.3244, 74.3539] },
 ];
