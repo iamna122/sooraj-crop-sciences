@@ -1,10 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
 import "./i18n";
 import "./App.css";
@@ -22,38 +17,42 @@ import Footer from "./components/Footer";
 
 import products from "./data/products";
 
-// ✅ Search result dropdown
+/* ===========================
+   SEARCH RESULTS DROPDOWN
+=========================== */
 function SearchResults({ search }) {
   const navigate = useNavigate();
 
-  const filtered = products.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
+  if (!search) return null;
+
+  const filtered = products.filter(product =>
+    product.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (!search || filtered.length === 0) return null;
+  if (filtered.length === 0) return null;
 
   return (
     <div
       style={{
         position: "absolute",
-        top: "85px",
-        right: "80px",
-        backgroundColor: "#fff",
+        top: 85,
+        right: 80,
+        width: 260,
+        backgroundColor: "#ffffff",
+        borderRadius: 8,
         boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
-        borderRadius: "8px",
         zIndex: 999,
-        width: "260px",
         padding: "8px 0",
       }}
     >
-      {filtered.map((item) => (
+      {filtered.map(item => (
         <div
           key={item.id}
           onClick={() => navigate(`/products/${item.id}`)}
           style={{
             padding: "10px 16px",
             cursor: "pointer",
-            borderBottom: "1px solid #eee",
+            borderBottom: "1px solid #eeeeee",
           }}
         >
           {item.name}
@@ -63,16 +62,22 @@ function SearchResults({ search }) {
   );
 }
 
+/* ===========================
+   APP ROOT
+=========================== */
 export default function App() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
-  // ✅ Proper viewport height fix
+  /* Fix mobile viewport height issues */
   useEffect(() => {
     const setVH = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
+      document.documentElement.style.setProperty(
+        "--vh",
+        `${window.innerHeight * 0.01}px`
+      );
     };
+
     setVH();
     window.addEventListener("resize", setVH);
     return () => window.removeEventListener("resize", setVH);
@@ -82,7 +87,6 @@ export default function App() {
     <Router>
       <TopHeader />
 
-      {/* ✅ SINGLE NAVBAR ONLY */}
       <Navbar
         isOpen={isOpen}
         setIsOpen={setIsOpen}
@@ -90,20 +94,20 @@ export default function App() {
         setSearch={setSearch}
       />
 
-      {/* ✅ SEARCH DROPDOWN */}
       {isOpen && <SearchResults search={search} />}
 
-      {/* ✅ ROUTES */}
       <Routes>
         <Route
           path="/"
           element={<Home search={search} setSearch={setSearch} />}
         />
-        <Route path="/About" element={<About />} />
-        <Route path="/Products" element={<Products />} />
-        <Route path="/Products/:id" element={<ProductDetail />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Career" element={<Career />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/career" element={<Career />} />
+
+        {/* Fallback */}
         <Route path="*" element={<Products />} />
       </Routes>
 
