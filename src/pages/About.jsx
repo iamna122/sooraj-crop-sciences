@@ -3,17 +3,22 @@ import aboutBanner from "../assets/about-banner.jpg";
 
 export default function About() {
   useEffect(() => {
-    const items = document.querySelectorAll(".fade-up");
+    const items = document.querySelectorAll(
+      ".fade-up, .slide-left, .slide-right"
+    );
+
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
+
     items.forEach(item => observer.observe(item));
   }, []);
 
@@ -21,31 +26,27 @@ export default function About() {
     <div style={{ fontFamily: "Inter, sans-serif", color: "#1f2937" }}>
       
       {/* ================= HERO BANNER ================= */}
-      <section className="hero-banner">
+      <section style={{ height: "80vh", overflow: "hidden" }}>
         <img
           src={aboutBanner}
-          alt="Sooraj Crop Sciences Banner"
-          className="hero-image"
+          alt="Sooraj Crop Sciences"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
+            display: "block",
+          }}
         />
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section
-        className="fade-up"
-        style={{ padding: "90px 12%", textAlign: "center" }}
-      >
+      <section className="fade-up" style={{ padding: "90px 12% 40px", textAlign: "center" }}>
         <h2 style={{ color: "#127a3a", fontSize: "2.4rem", marginBottom: 24 }}>
           Who We Are
         </h2>
 
-        <p
-          style={{
-            maxWidth: 900,
-            margin: "auto",
-            lineHeight: 1.9,
-            fontSize: "1.05rem",
-          }}
-        >
+        <p style={{ maxWidth: 900, margin: "auto", lineHeight: 1.9 }}>
           Sooraj Crop Sciences is a modern agricultural enterprise committed to
           empowering farmers across Pakistan. We combine innovative crop
           solutions, expert guidance, and a strong nationwide network to help
@@ -53,228 +54,98 @@ export default function About() {
           farming practices.
         </p>
 
-        <p
-          style={{
-            marginTop: 26,
-            fontWeight: 600,
-            color: "#127a3a",
-            fontSize: "1.05rem",
-          }}
-        >
+        <p style={{ marginTop: 26, fontWeight: 600, color: "#127a3a" }}>
           Rooted in trust. Driven by innovation. Focused on farmers.
         </p>
 
-        {/* Urdu tagline */}
-        <p
-          style={{
-            marginTop: 14,
-            fontSize: "1.15rem",
-            fontWeight: 600,
-          }}
-        >
-          کسانوں کے لیے، ترقی کے لیے
+        <p style={{ marginTop: 10, fontWeight: 600 }}>
+          کسان کی ترقی، پاکستان کی خوشحالی
         </p>
       </section>
 
-      {/* ================= STATS ================= */}
-      <section
-        className="fade-up"
-        style={{
-          padding: "70px 12%",
-          background: "#f4faf6",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))",
-          gap: 40,
-          textAlign: "center",
-        }}
-      >
-        <Stat number="15+" label="Years of Excellence" />
-        <Stat number="250+" label="Authorized Dealers" />
-        <Stat number="Nationwide" label="Coverage Across Pakistan" />
-      </section>
-
       {/* ================= MISSION & VISION ================= */}
-      <section
-        className="fade-up"
-        style={{
-          padding: "100px 12%",
-          background: "#f3fbff",
-        }}
-      >
+      <section style={{ padding: "30px 12% 80px", background: "#f3fbff" }}>
+        
+        {/* Mission */}
         <div
+          className="slide-left"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.2fr 1fr",
-            gap: 60,
-            alignItems: "center",
+            background: "#e7f4ee",
+            padding: "36px 34px",
+            borderRadius: 18,
+            maxWidth: 780,
+            marginBottom: 50,
+            boxShadow: "0 18px 40px rgba(0,0,0,0.1)",
           }}
         >
-          {/* Mission */}
-          <div>
-            <h2
-              style={{
-                fontSize: "2.2rem",
-                color: "#127a3a",
-                marginBottom: 20,
-              }}
-            >
-              Our Mission
-            </h2>
+          <h2 style={{ color: "#127a3a", fontSize: "2rem" }}>
+            Our Mission
+          </h2>
 
-            <p style={{ lineHeight: 1.9, marginBottom: 22 }}>
-              Our mission is to support farmers with reliable, science-backed
-              crop solutions that enhance productivity and protect crops
-              throughout the growing cycle.
-            </p>
+          <p style={{ lineHeight: 1.85 }}>
+            To deliver innovative, globally sourced crop solutions backed by
+            expert advisory, digital tools, and farmer education — building
+            sustainable agriculture for national uplift.
+          </p>
+        </div>
 
-            <p style={{ lineHeight: 1.9 }}>
-              Through research, strong dealer partnerships, and farmer education,
-              we aim to strengthen Pakistan’s agricultural foundation and promote
-              sustainable farming practices.
-            </p>
-          </div>
+        {/* Vision */}
+        <div
+          className="slide-right"
+          style={{
+            background: "#0b3a2a",
+            color: "#fff",
+            padding: "36px 34px",
+            borderRadius: 18,
+            maxWidth: 780,
+            marginLeft: "auto",
+            boxShadow: "0 20px 45px rgba(0,0,0,0.16)",
+          }}
+        >
+          <h2 style={{ fontSize: "2rem" }}>Our Vision</h2>
 
-          {/* Vision Card */}
-          <div
-            style={{
-              background: "#0b3a2a",
-              color: "#fff",
-              padding: "50px 45px",
-              borderRadius: 20,
-              boxShadow: "0 30px 60px rgba(0,0,0,0.18)",
-            }}
-          >
-            <h3 style={{ fontSize: "1.9rem", marginBottom: 18 }}>
-              Our Vision
-            </h3>
-
-            <p style={{ lineHeight: 1.8, marginBottom: 30 }}>
-              To become a trusted national leader in agricultural innovation by
-              delivering advanced crop solutions that empower farmers, improve
-              yields, and ensure long-term food security.
-            </p>
-
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <Pill text="Farmer Empowerment" />
-              <Pill text="Innovation" />
-              <Pill text="Sustainability" />
-            </div>
-          </div>
+          <p style={{ lineHeight: 1.75 }}>
+            To transform Pakistan’s agriculture through a unified digital-agri
+            platform delivering global-quality inputs, expert guidance, and
+            sustainable solutions.
+          </p>
         </div>
       </section>
 
-      {/* ================= CORE VALUES ================= */}
-      <section
-        className="fade-up"
-        style={{ padding: "90px 12%", textAlign: "center" }}
-      >
-        <h2 style={{ color: "#127a3a", fontSize: "2.4rem", marginBottom: 30 }}>
-          Our Core Values
-        </h2>
-
-        <div
-          style={{
-            display: "grid",
-            gap: 20,
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px,1fr))",
-          }}
-        >
-          {[
-            "Integrity & Trust",
-            "Farmer First",
-            "Innovation",
-            "Sustainability",
-            "Nationwide Impact",
-          ].map(v => (
-            <div key={v} style={valueStyle}>
-              {v}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ================= STYLES ================= */}
-      <style>{`
-        .fade-up {
-          opacity: 0;
-          transform: translateY(40px);
-          transition: all 0.8s ease;
-        }
-        .fade-up.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .hero-banner {
-          height: 80vh;
-          width: 100%;
-          overflow: hidden;
-          opacity: 0;
-          animation: heroFade 1.2s ease forwards;
-        }
-
-        .hero-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center top;
-          transform: scale(1.06);
-          animation: heroZoom 1.6s ease forwards;
-        }
-
-        @keyframes heroFade {
-          to { opacity: 1; }
-        }
-
-        @keyframes heroZoom {
-          to { transform: scale(1); }
-        }
-
-        @media (max-width: 900px) {
-          section > div {
-            grid-template-columns: 1fr !important;
+      {/* ================= CSS ================= */}
+      <style>
+        {`
+          .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
           }
-          .hero-banner {
-            height: 55vh;
+          .fade-up.show {
+            opacity: 1;
+            transform: translateY(0);
           }
-        }
-      `}</style>
+
+          .slide-left,
+          .slide-right {
+            opacity: 0;
+            transition: all 0.9s ease;
+          }
+
+          .slide-left {
+            transform: translateX(-60px);
+          }
+
+          .slide-right {
+            transform: translateX(60px);
+          }
+
+          .slide-left.show,
+          .slide-right.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        `}
+      </style>
     </div>
   );
 }
-
-/* ================= HELPERS ================= */
-
-function Stat({ number, label }) {
-  return (
-    <div>
-      <h3 style={{ fontSize: "2.4rem", color: "#127a3a", marginBottom: 8 }}>
-        {number}
-      </h3>
-      <p style={{ fontWeight: 600 }}>{label}</p>
-    </div>
-  );
-}
-
-function Pill({ text }) {
-  return (
-    <span
-      style={{
-        border: "1px solid rgba(255,255,255,0.4)",
-        padding: "8px 16px",
-        borderRadius: 30,
-        fontSize: "0.9rem",
-      }}
-    >
-      {text}
-    </span>
-  );
-}
-
-const valueStyle = {
-  background: "#fff",
-  padding: 18,
-  borderRadius: 12,
-  fontWeight: 600,
-  boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
-};
