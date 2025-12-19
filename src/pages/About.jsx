@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
 import aboutBanner from "../assets/about-banner.jpg";
+import aboutSideImage from "../assets/about-side.jpg";
 
 export default function About() {
   useEffect(() => {
     const items = document.querySelectorAll(
       ".fade-up, .slide-left, .slide-right"
     );
-
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
-            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
-
     items.forEach(item => observer.observe(item));
   }, []);
 
@@ -35,218 +33,235 @@ export default function About() {
             height: "100%",
             objectFit: "cover",
             objectPosition: "center top",
+            display: "block",
           }}
         />
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section className="fade-up" style={{ padding: "90px 12% 40px", textAlign: "center" }}>
-        <h2 style={{ color: "#127a3a", fontSize: "2.4rem", marginBottom: 24 }}>
-          Who We Are
-        </h2>
+      <section style={{ padding: "80px 10% 50px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1.1fr 1fr",
+            gap: 60,
+            alignItems: "center",
+          }}
+        >
+          <div className="slide-left">
+            <h2 style={{ color: "#127a3a", fontSize: "2.4rem", marginBottom: 22 }}>
+              Who We Are
+            </h2>
 
-        <p style={{ maxWidth: 900, margin: "auto", lineHeight: 1.9 }}>
-          Sooraj Crop Sciences is a modern agricultural enterprise committed to
-          empowering farmers across Pakistan through innovation, expert guidance,
-          and a strong nationwide dealer network.
-        </p>
+            <p style={{ lineHeight: 1.9, marginBottom: 14 }}>
+              Sooraj Crop Sciences is a modern agricultural enterprise committed
+              to empowering farmers across Pakistan through innovation, science,
+              and trusted partnerships.
+            </p>
 
-        <p style={{ marginTop: 26, fontWeight: 600, color: "#127a3a" }}>
-          Rooted in trust. Driven by innovation. Focused on farmers.
-        </p>
+            <p style={{ lineHeight: 1.9, marginBottom: 18 }}>
+              We deliver globally sourced crop solutions, expert field advisory,
+              and dealer-focused support systems that enhance productivity,
+              protect yields, and promote sustainable farming practices.
+            </p>
 
-        <p style={{ marginTop: 8, fontWeight: 600 }}>
-          کسان کی ترقی، پاکستان کی خوشحالی
-        </p>
-      </section>
+            <p style={{ fontWeight: 600, color: "#127a3a" }}>
+              Rooted in trust. Driven by innovation. Focused on farmers.
+            </p>
+          </div>
 
-      {/* ================= MISSION & VISION ================= */}
-      <section style={{ padding: "30px 12% 40px", background: "#f3fbff" }}>
-
-        <div className="slide-left mission-box">
-          <h2>Our Mission</h2>
-          <p>
-            To deliver innovative, globally sourced crop solutions supported by
-            advisory services, digital tools, and farmer education—enhancing
-            productivity and sustainability.
-          </p>
-        </div>
-
-        <div className="slide-right vision-box">
-          <h2>Our Vision</h2>
-          <p>
-            To transform Pakistan’s agriculture through a unified digital-agri
-            platform delivering quality inputs, expert guidance, and sustainable
-            growth.
-          </p>
-        </div>
-
-        {/* ================= SERVICES (MOVED HERE) ================= */}
-        <div className="fade-up services-wrapper">
-          <h2 className="services-title">The Services We Provide</h2>
-
-          <div className="services-grid">
-
-            <div className="service-card s1">
-              <div className="icon">⬛</div>
-              <h3>Products</h3>
-              <p>
-                High-quality crop protection and nutrition products to improve
-                yields and safeguard crops.
-              </p>
-            </div>
-
-            <div className="service-card s2">
-              <div className="icon">⬜</div>
-              <h3>Field Advisory Services</h3>
-              <p>
-                Professional on-ground and digital advisory helping farmers make
-                informed decisions.
-              </p>
-            </div>
-
-            <div className="service-card s3">
-              <div className="icon">▣</div>
-              <h3>Business Consultancy</h3>
-              <p>
-                Strategic guidance for dealers covering planning, growth, and
-                operational efficiency.
-              </p>
-            </div>
-
-            <div className="service-card s4">
-              <div className="icon">▢</div>
-              <h3>Household Services</h3>
-              <p>
-                Safe and effective household solutions focused on hygiene and
-                protection.
-              </p>
-            </div>
-
+          <div className="slide-right">
+            <img
+              src={aboutSideImage}
+              alt="Agricultural Support"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                boxShadow: "0 25px 55px rgba(0,0,0,0.15)",
+              }}
+            />
           </div>
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
-      <section className="cta-strip">
-        <h2>Become a Dealer</h2>
-        <p>
-          Partner with Sooraj Crop Sciences and grow with a trusted agricultural brand.
-        </p>
-        <button>Join Our Network</button>
+      {/* ================= MISSION & VISION ================= */}
+      <section style={{ padding: "40px 12% 70px", background: "#f3fbff" }}>
+        <div
+          className="slide-left"
+          style={{
+            background: "#e7f4ee",
+            padding: 34,
+            borderRadius: 16,
+            maxWidth: 760,
+            marginBottom: 32,
+          }}
+        >
+          <h2 style={{ color: "#127a3a", fontSize: "2rem", marginBottom: 14 }}>
+            Our Mission
+          </h2>
+          <p style={{ lineHeight: 1.8 }}>
+            To deliver innovative, globally sourced crop solutions backed by
+            expert advisory, digital tools, and farmer education.
+          </p>
+        </div>
+
+        <div
+          className="slide-right"
+          style={{
+            background: "#0b3a2a",
+            color: "#fff",
+            padding: 34,
+            borderRadius: 16,
+            maxWidth: 760,
+            marginLeft: "auto",
+          }}
+        >
+          <h2 style={{ fontSize: "2rem", marginBottom: 14 }}>Our Vision</h2>
+          <p style={{ lineHeight: 1.75 }}>
+            To transform Pakistan’s agriculture through a unified digital-agri
+            ecosystem that strengthens food security and rural prosperity.
+          </p>
+        </div>
       </section>
 
-      {/* ================= STYLES ================= */}
+      {/* ================= SERVICES ================= */}
+      <section style={{ padding: "80px 10%", textAlign: "center" }}>
+        <h2 style={{ color: "#127a3a", fontSize: "2.3rem", marginBottom: 50 }}>
+          The Services We Provide
+        </h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gap: 28,
+          }}
+        >
+          {services.map((s, i) => (
+            <div key={i} className="service-box fade-up">
+              {s.icon}
+              <h4>{s.title}</h4>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= DEALER CTA ================= */}
+      <section className="dealer-cta">
+        <h2>Want to Become a Dealer?</h2>
+        <p>
+          Join our nationwide dealer network and partner with a company committed
+          to quality, innovation, and long-term growth.
+        </p>
+        <button>Become a Dealer</button>
+      </section>
+
+      {/* ================= STYLES & ANIMATIONS ================= */}
       <style>{`
-        .fade-up {
+        .fade-up, .slide-left, .slide-right {
           opacity: 0;
-          transform: translateY(40px);
           transition: all 0.8s ease;
         }
-        .fade-up.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
 
-        .slide-left, .slide-right {
-          opacity: 0;
-          transition: all 0.9s ease;
-          max-width: 760px;
-          padding: 34px;
-          border-radius: 18px;
-          margin-bottom: 34px;
-        }
-
+        .fade-up { transform: translateY(40px); }
         .slide-left { transform: translateX(-60px); }
-        .slide-right { transform: translateX(60px); margin-left: auto; }
+        .slide-right { transform: translateX(60px); }
 
-        .slide-left.show, .slide-right.show {
+        .show {
           opacity: 1;
-          transform: translateX(0);
+          transform: none;
         }
 
-        .mission-box {
-          background: #e7f4ee;
-        }
-
-        .vision-box {
-          background: #0b3a2a;
-          color: #fff;
-        }
-
-        .services-wrapper {
-          margin-top: 20px;
-        }
-
-        .services-title {
-          text-align: center;
-          color: #127a3a;
-          font-size: 2.2rem;
-          margin-bottom: 40px;
-        }
-
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-          gap: 26px;
-        }
-
-        .service-card {
-          padding: 28px 24px;
-          border-radius: 16px;
+        .service-box {
+          background: linear-gradient(180deg, #f2fbf6, #e6f4ec);
+          padding: 36px 24px;
+          borderRadius: 16px;
+          box-shadow: 0 14px 30px rgba(0,0,0,0.08);
           transition: all 0.35s ease;
-          box-shadow: 0 14px 32px rgba(0,0,0,0.08);
         }
 
-        .service-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 22px 48px rgba(0,0,0,0.14);
+        .service-box:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 22px 45px rgba(0,0,0,0.15);
         }
 
-        .icon {
-          font-size: 1.6rem;
-          margin-bottom: 10px;
+        .service-box h4 {
+          margin-top: 16px;
+          font-size: 1.1rem;
+          font-weight: 600;
         }
 
-        .service-card h3 {
-          margin-bottom: 10px;
-          color: #127a3a;
-        }
-
-        /* Progressive green shades */
-        .s1 { background: #edf8f1; }
-        .s2 { background: #e0f2e8; }
-        .s3 { background: #cfe8da; }
-        .s4 { background: #b8dbc8; }
-
-        .cta-strip {
-          background: linear-gradient(135deg, #127a3a, #1f9d55);
+        .dealer-cta {
+          background: #1b8f57;
           color: #fff;
+          padding: 55px 10%;
           text-align: center;
-          padding: 70px 12%;
         }
 
-        .cta-strip h2 {
-          font-size: 2.4rem;
+        .dealer-cta h2 {
+          font-size: 2.1rem;
           margin-bottom: 14px;
         }
 
-        .cta-strip button {
-          margin-top: 24px;
-          padding: 14px 36px;
-          border-radius: 30px;
-          border: none;
-          font-size: 1rem;
-          font-weight: 600;
+        .dealer-cta p {
+          max-width: 620px;
+          margin: 0 auto 24px;
+          line-height: 1.7;
+        }
+
+        .dealer-cta button {
           background: #fff;
           color: #127a3a;
+          border: none;
+          padding: 12px 28px;
+          borderRadius: 28px;
+          font-weight: 600;
           cursor: pointer;
         }
 
-        .cta-strip button:hover {
-          background: #f1f1f1;
+        @media (max-width: 900px) {
+          section > div {
+            grid-template-columns: 1fr !important;
+          }
         }
       `}</style>
     </div>
   );
 }
+
+/* ================= SERVICES DATA ================= */
+const services = [
+  {
+    title: "Products",
+    icon: (
+      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
+        <path d="M17 3v28M3 17h28" />
+      </svg>
+    ),
+  },
+  {
+    title: "Field Advisory Services",
+    icon: (
+      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
+        <path d="M5 17l6 6 18-18" />
+      </svg>
+    ),
+  },
+  {
+    title: "Dealer Business Consultancy",
+    icon: (
+      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
+        <path d="M4 28V6h26v22" />
+      </svg>
+    ),
+  },
+  {
+    title: "Household Solutions",
+    icon: (
+      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
+        <path d="M3 15l14-12 14 12v14H3z" />
+      </svg>
+    ),
+  },
+];
