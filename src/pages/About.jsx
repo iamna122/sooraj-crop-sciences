@@ -2,6 +2,21 @@ import React, { useEffect } from "react";
 import aboutBanner from "../assets/about-banner.jpg";
 import aboutSideImage from "../assets/about-side.jpg";
 
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+
+/* Leaflet marker fix */
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png",
+  iconUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
+  shadowUrl:
+    "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
+});
+
 export default function About() {
   useEffect(() => {
     const items = document.querySelectorAll(
@@ -182,6 +197,34 @@ export default function About() {
         </button>
       </section>
 
+      {/* ================= DEALER MAP ================= */}
+      <section style={{ padding: "80px 10%" }}>
+        <h2
+          style={{
+            textAlign: "center",
+            color: "#127a3a",
+            fontSize: "2.2rem",
+            marginBottom: 30,
+          }}
+        >
+          Where Our Dealers Are Located
+        </h2>
+
+        <div style={{ height: 420, borderRadius: 16, overflow: "hidden" }}>
+          <MapContainer center={[30.3753, 69.3451]} zoom={5} style={{ height: "100%" }}>
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+
+            {dealerLocations.map((d, i) => (
+              <Marker key={i} position={[d.lat, d.lng]}>
+                <Popup>
+                  <strong>{d.city}</strong>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
+        </div>
+      </section>
+
       {/* ================= ANIMATIONS & HOVER ================= */}
       <style>{`
         .fade-up,
@@ -228,12 +271,6 @@ export default function About() {
           fill: none;
           stroke-width: 1.8;
         }
-
-        @media (max-width: 900px) {
-          section > div {
-            grid-template-columns: 1fr !important;
-          }
-        }
       `}</style>
     </div>
   );
@@ -278,4 +315,12 @@ const services = [
       </svg>
     ),
   },
+];
+
+/* ================= TEMP DEALER LOCATIONS ================= */
+const dealerLocations = [
+  { city: "Lahore", lat: 31.5204, lng: 74.3587 },
+  { city: "Karachi", lat: 24.8607, lng: 67.0011 },
+  { city: "Faisalabad", lat: 31.4504, lng: 73.135 },
+  { city: "Multan", lat: 30.1575, lng: 71.5249 },
 ];
