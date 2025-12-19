@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import aboutBanner from "../assets/about-banner.jpg"; // ✅ IMPORTANT
+import aboutBanner from "../assets/about-banner.jpg";
 
 export default function About() {
   useEffect(() => {
@@ -20,40 +20,30 @@ export default function About() {
   return (
     <div style={{ fontFamily: "Inter, sans-serif", color: "#1f2937" }}>
       
-      {/* ================= HERO BANNER ================= */}
-      <section
-        style={{
-          height: "85vh",
-          backgroundImage: `url(${aboutBanner})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "#fff",
-          textAlign: "center",
-        }}
-      >
-        {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(rgba(18,122,58,0.75), rgba(18,122,58,0.55))",
-          }}
-        />
+    {/* ================= HERO BANNER ================= */}
+<section
+  style={{
+    height: "80vh", // slightly taller banner
+    width: "100%",
+    overflow: "hidden",
+  }}
+>
+  <img
+    src={aboutBanner}
+    alt="Sooraj Crop Sciences Banner"
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      objectPosition: "center top", // ✅ bottom stays, crop from top
+      display: "block",
+    }}
+  />
+</section>
 
-        <div style={{ position: "relative", zIndex: 2 }} className="fade-up">
-          <h1 style={{ fontSize: "3.5rem", marginBottom: 16 }}>
-            Sooraj Crop Sciences
-          </h1>
-          <p style={{ fontSize: "1.25rem", opacity: 0.95 }}>
-            Empowering Agriculture • Nourishing the Future
-          </p>
-        </div>
-      </section>
+
+
+
 
       {/* ================= WHO WE ARE ================= */}
       <section
