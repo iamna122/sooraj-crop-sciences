@@ -41,7 +41,10 @@ export default function About() {
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section className="fade-up" style={{ padding: "90px 12% 40px", textAlign: "center" }}>
+      <section
+        className="fade-up"
+        style={{ padding: "90px 12% 40px", textAlign: "center" }}
+      >
         <h2 style={{ color: "#127a3a", fontSize: "2.4rem", marginBottom: 24 }}>
           Who We Are
         </h2>
@@ -54,7 +57,13 @@ export default function About() {
           farming practices.
         </p>
 
-        <p style={{ marginTop: 26, fontWeight: 600, color: "#127a3a" }}>
+        <p
+          style={{
+            marginTop: 26,
+            fontWeight: 600,
+            color: "#127a3a",
+          }}
+        >
           Rooted in trust. Driven by innovation. Focused on farmers.
         </p>
 
@@ -112,7 +121,82 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= CSS ================= */}
+      {/* ================= SERVICES ================= */}
+      <section
+        className="fade-up"
+        style={{
+          padding: "90px 12%",
+          background: "#ffffff",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "2.4rem",
+            color: "#127a3a",
+            marginBottom: 50,
+          }}
+        >
+          The Services We Provide
+        </h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: 30,
+          }}
+        >
+          {[
+            {
+              title: "Products",
+              text:
+                "High-quality, globally sourced crop protection and nutrition products designed to enhance yield, protect crops, and improve farm profitability.",
+            },
+            {
+              title: "Field Advisory Services",
+              text:
+                "On-ground and digital advisory support to guide farmers on crop planning, pest management, and best agricultural practices.",
+            },
+            {
+              title: "Business Consultancy to Dealers",
+              text:
+                "Strategic support for dealers including market insights, product planning, inventory optimization, and business growth guidance.",
+            },
+            {
+              title: "Household Services",
+              text:
+                "Safe and effective household solutions focused on hygiene, pest control, and everyday protection for healthier living environments.",
+            },
+          ].map(service => (
+            <div
+              key={service.title}
+              style={{
+                background: "#ffffff",
+                padding: "32px 26px",
+                borderRadius: 18,
+                boxShadow: "0 18px 40px rgba(0,0,0,0.08)",
+              }}
+            >
+              <h3
+                style={{
+                  color: "#127a3a",
+                  fontSize: "1.4rem",
+                  marginBottom: 14,
+                }}
+              >
+                {service.title}
+              </h3>
+
+              <p style={{ lineHeight: 1.75 }}>
+                {service.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ================= ANIMATIONS ================= */}
       <style>
         {`
           .fade-up {
