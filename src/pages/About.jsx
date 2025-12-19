@@ -102,7 +102,8 @@ export default function About() {
           </h2>
           <p style={{ lineHeight: 1.8 }}>
             To deliver innovative, globally sourced crop solutions backed by
-            expert advisory, digital tools, and farmer education.
+            expert advisory, digital tools, and farmer education—enhancing
+            productivity, profitability, and sustainability.
           </p>
         </div>
 
@@ -117,10 +118,13 @@ export default function About() {
             marginLeft: "auto",
           }}
         >
-          <h2 style={{ fontSize: "2rem", marginBottom: 14 }}>Our Vision</h2>
+          <h2 style={{ fontSize: "2rem", marginBottom: 14 }}>
+            Our Vision
+          </h2>
           <p style={{ lineHeight: 1.75 }}>
             To transform Pakistan’s agriculture through a unified digital-agri
-            ecosystem that strengthens food security and rural prosperity.
+            ecosystem that improves yields, strengthens food security, and drives
+            long-term rural prosperity.
           </p>
         </div>
       </section>
@@ -148,18 +152,41 @@ export default function About() {
       </section>
 
       {/* ================= DEALER CTA ================= */}
-      <section className="dealer-cta">
-        <h2>Want to Become a Dealer?</h2>
-        <p>
-          Join our nationwide dealer network and partner with a company committed
-          to quality, innovation, and long-term growth.
+      <section
+        style={{
+          background: "#1f9d55",
+          color: "#fff",
+          padding: "55px 10%",
+          textAlign: "center",
+        }}
+      >
+        <h2 style={{ fontSize: "2.2rem", marginBottom: 14 }}>
+          Want to Become a Dealer?
+        </h2>
+        <p style={{ maxWidth: 620, margin: "0 auto 24px", lineHeight: 1.7 }}>
+          Join our growing nationwide dealer network and partner with a company
+          committed to quality, innovation, and long-term success.
         </p>
-        <button>Become a Dealer</button>
+        <button
+          style={{
+            background: "#fff",
+            color: "#127a3a",
+            border: "none",
+            padding: "12px 30px",
+            borderRadius: 28,
+            fontWeight: 600,
+            cursor: "pointer",
+          }}
+        >
+          Become a Dealer
+        </button>
       </section>
 
-      {/* ================= STYLES & ANIMATIONS ================= */}
+      {/* ================= ANIMATIONS & HOVER ================= */}
       <style>{`
-        .fade-up, .slide-left, .slide-right {
+        .fade-up,
+        .slide-left,
+        .slide-right {
           opacity: 0;
           transition: all 0.8s ease;
         }
@@ -168,22 +195,24 @@ export default function About() {
         .slide-left { transform: translateX(-60px); }
         .slide-right { transform: translateX(60px); }
 
-        .show {
+        .fade-up.show,
+        .slide-left.show,
+        .slide-right.show {
           opacity: 1;
           transform: none;
         }
 
         .service-box {
-          background: linear-gradient(180deg, #f2fbf6, #e6f4ec);
-          padding: 36px 24px;
-          borderRadius: 16px;
-          box-shadow: 0 14px 30px rgba(0,0,0,0.08);
-          transition: all 0.35s ease;
+          background: #f0faf4;
+          padding: 34px 24px;
+          border-radius: 16px;
+          box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-box:hover {
           transform: translateY(-10px);
-          box-shadow: 0 22px 45px rgba(0,0,0,0.15);
+          box-shadow: 0 22px 45px rgba(0,0,0,0.12);
         }
 
         .service-box h4 {
@@ -192,32 +221,12 @@ export default function About() {
           font-weight: 600;
         }
 
-        .dealer-cta {
-          background: #1b8f57;
-          color: #fff;
-          padding: 55px 10%;
-          text-align: center;
-        }
-
-        .dealer-cta h2 {
-          font-size: 2.1rem;
-          margin-bottom: 14px;
-        }
-
-        .dealer-cta p {
-          max-width: 620px;
-          margin: 0 auto 24px;
-          line-height: 1.7;
-        }
-
-        .dealer-cta button {
-          background: #fff;
-          color: #127a3a;
-          border: none;
-          padding: 12px 28px;
-          borderRadius: 28px;
-          font-weight: 600;
-          cursor: pointer;
+        .service-box svg {
+          width: 40px;
+          height: 40px;
+          stroke: #127a3a;
+          fill: none;
+          stroke-width: 1.8;
         }
 
         @media (max-width: 900px) {
@@ -235,32 +244,37 @@ const services = [
   {
     title: "Products",
     icon: (
-      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
-        <path d="M17 3v28M3 17h28" />
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2l4 4-4 4-4-4z" />
+        <path d="M2 12l4-4 4 4-4 4z" />
+        <path d="M12 14l4-4 4 4-4 4z" />
       </svg>
     ),
   },
   {
     title: "Field Advisory Services",
     icon: (
-      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
-        <path d="M5 17l6 6 18-18" />
+      <svg viewBox="0 0 24 24">
+        <path d="M3 12h18" />
+        <path d="M12 3v18" />
       </svg>
     ),
   },
   {
     title: "Dealer Business Consultancy",
     icon: (
-      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
-        <path d="M4 28V6h26v22" />
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M7 8h10M7 12h6" />
       </svg>
     ),
   },
   {
     title: "Household Solutions",
     icon: (
-      <svg width="34" height="34" fill="none" stroke="#127a3a" strokeWidth="2">
-        <path d="M3 15l14-12 14 12v14H3z" />
+      <svg viewBox="0 0 24 24">
+        <path d="M3 12l9-9 9 9" />
+        <path d="M9 21V9h6v12" />
       </svg>
     ),
   },
