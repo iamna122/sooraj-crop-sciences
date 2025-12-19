@@ -90,7 +90,7 @@ export default function About() {
         <div
           className="slide-left"
           style={{
-            background: "#e7f4ee",
+            background: "#b1ebd0ff",
             padding: 34,
             borderRadius: 16,
             maxWidth: 760,
@@ -110,7 +110,7 @@ export default function About() {
         <div
           className="slide-right"
           style={{
-            background: "#0b3a2a",
+            background: "#11563fff",
             color: "#fff",
             padding: 34,
             borderRadius: 16,
@@ -131,7 +131,7 @@ export default function About() {
 
       {/* ================= SERVICES ================= */}
       <section style={{ padding: "80px 10%", textAlign: "center" }}>
-        <h2 style={{ color: "#127a3a", fontSize: "2.3rem", marginBottom: 50 }}>
+        <h2 style={{ color: "#10582aff", fontSize: "2.3rem", marginBottom: 50 }}>
           The Services We Provide
         </h2>
 
@@ -170,7 +170,7 @@ export default function About() {
         <button
           style={{
             background: "#fff",
-            color: "#127a3a",
+            color: "#37975cff",
             border: "none",
             padding: "12px 30px",
             borderRadius: 28,
@@ -203,7 +203,7 @@ export default function About() {
         }
 
         .service-box {
-          background: #f0faf4;
+          background: #a9debeff;
           padding: 34px 24px;
           border-radius: 16px;
           box-shadow: 0 15px 35px rgba(0,0,0,0.08);
@@ -224,7 +224,7 @@ export default function About() {
         .service-box svg {
           width: 40px;
           height: 40px;
-          stroke: #127a3a;
+          stroke: #057030ff;
           fill: none;
           stroke-width: 1.8;
         }
