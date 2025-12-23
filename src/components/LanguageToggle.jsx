@@ -17,7 +17,7 @@ export default function LanguageToggle() {
           cursor: "pointer",
         }}
       >
-        EN
+        ENG
       </button>
 
       <button
@@ -31,7 +31,7 @@ export default function LanguageToggle() {
           cursor: "pointer",
         }}
       >
-        UR
+        ار
       </button>
     </div>
   );

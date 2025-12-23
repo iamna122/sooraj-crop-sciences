@@ -54,18 +54,17 @@ export default function Navbar({ search, setSearch }) {
       <div className="nav-container">
         {/* LEFT — Logo */}
         <Link to="/" className="nav-left" style={{ textDecoration: "none" }}>
-  <img src={logo} alt="Sooraj Logo" className="nav-logo" />
-  <h1 className="nav-title">Sooraj Crop Sciences</h1>
-</Link>
+          <img src={logo} alt="Sooraj Logo" className="nav-logo" />
+          <h1 className="nav-title">Sooraj Crop Sciences</h1>
+        </Link>
 
         {/* MOBILE LEFT CONTROLS */}
-<div className="mobile-left-controls">
-  <LanguageToggle />
-  <div className="hamburger" onClick={() => setMenuOpen((s) => !s)}>
-    {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
-  </div>
-</div>
-
+        <div className="mobile-left-controls">
+          <LanguageToggle />
+          <div className="hamburger" onClick={() => setMenuOpen((s) => !s)}>
+            {menuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+          </div>
+        </div>
 
         {/* LINKS */}
         <nav className={`nav-links ${menuOpen ? "nav-open" : ""}`}>
@@ -91,7 +90,7 @@ export default function Navbar({ search, setSearch }) {
               value={search}
               onChange={(e) => handleSearchChange(e.target.value)}
             />
-          </div> 
+          </div>
         </nav>
 
         {/* SEARCH (desktop) */}

@@ -29,3 +29,13 @@
     height: 45vh; /* smaller for mobile */
   }
 }
+
+
+html[lang="ur"] .hero-text h2 {
+  font-size: 4.2rem;
+}
+
+html[lang="ur"] .hero-text p {
+  font-size: 3.2rem;
+  line-height: 2.2;
+}

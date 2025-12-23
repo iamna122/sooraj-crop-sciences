@@ -163,3 +163,8 @@ iframe {
     aspect-ratio: 16/10;
   }
 }
+
+html[lang="ur"] .videoTitle {
+  font-size: 1.25rem;
+  line-height: 2;
+}

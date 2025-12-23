@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 import "./i18n";
 import "./App.css";
 
@@ -85,7 +87,9 @@ export default function App() {
 
   return (
     <Router>
-      <TopHeader />
+      {/* ✅ ONLY FONT SWITCH — NO LAYOUT CHANGE */}
+      <div className={isUrdu ? "urdu-font" : ""}>
+        <TopHeader />
 
       <Navbar
         isOpen={isOpen}
@@ -111,7 +115,23 @@ export default function App() {
         <Route path="*" element={<Products />} />
       </Routes>
 
-      <Footer />
+        {isOpen && <SearchResults search={search} />}
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Home search={search} setSearch={setSearch} />}
+          />
+          <Route path="/About" element={<About />} />
+          <Route path="/Products" element={<Products />} />
+          <Route path="/Products/:id" element={<ProductDetail />} />
+          <Route path="/Contact" element={<Contact />} />
+          <Route path="/Career" element={<Career />} />
+          <Route path="*" element={<Products />} />
+        </Routes>
+
+        <Footer />
+      </div>
     </Router>
   );
 }

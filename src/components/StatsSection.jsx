@@ -1,35 +1,49 @@
-// Stats Section with Urdu + English
+// Stats Section — Smooth Professional Version
 import React, { useEffect, useRef } from "react";
-import { motion, useMotionValue, useTransform, animate, useInView } from "framer-motion";
-import { useTranslation } from "react-i18next"; // ✅ TRANSLATION HOOK
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useInView,
+} from "framer-motion";
+import { useTranslation } from "react-i18next";
 
-// --------------------------------------------
-// 📌 ICONS
-// --------------------------------------------
+/* ===============================
+   ICONS — BALANCED SIZE
+================================ */
+const IconWrap = ({ children }) => (
+  <div style={{ marginBottom: "10px" }}>{children}</div>
+);
+
 const UsersIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
     <circle cx="12" cy="7" r="4.2" stroke="#4CAF50" strokeWidth="2" />
-    <path d="M4.8 21v-2.2a7.2 7.2 0 0 1 14.4 0V21" stroke="#4CAF50" strokeWidth="2" />
+    <path d="M5 21v-2a7 7 0 0 1 14 0v2" stroke="#4CAF50" strokeWidth="2" />
   </svg>
 );
 
 const RocketIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2C16.4 3.2 19.5 6.9 20 12C14 12.5 10.2 9.4 9 5L12 2Z" stroke="#76FF03" strokeWidth="2" />
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M12 2C16.5 3.6 19.5 7.4 20 12C14.2 12.4 10.5 9.2 9.2 5.4L12 2Z"
+      stroke="#76FF03"
+      strokeWidth="2"
+    />
   </svg>
 );
 
 const ClientsIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="7" r="4.3" stroke="#2E7D32" strokeWidth="2" />
-    <path d="M5 21v-1.3a7.4 7.4 0 0 1 14 0V21" stroke="#2E7D32" strokeWidth="2" />
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="7" r="4.2" stroke="#2E7D32" strokeWidth="2" />
+    <path d="M5 21v-1.5a7 7 0 0 1 14 0V21" stroke="#2E7D32" strokeWidth="2" />
   </svg>
 );
 
 const AwardIcon = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="7" r="4.5" stroke="#7CB342" strokeWidth="2" />
-    <path d="M7 14h10l1.6 8-6-2-6 2 1.4-8z" stroke="#7CB342" strokeWidth="2" />
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="7" r="4.2" stroke="#7CB342" strokeWidth="2" />
+    <path d="M7 14h10l1.4 7-6-2-6 2 1.6-7z" stroke="#7CB342" strokeWidth="2" />
   </svg>
 );
 
@@ -40,44 +54,57 @@ const ICONS = {
   awards: <AwardIcon />,
 };
 
-// --------------------------------------------
-// 📌 STAT CARD
-// --------------------------------------------
+/* ===============================
+   STAT CARD — SMOOTH & CLEAN
+================================ */
 function StatCard({ icon, label, target, index, isInView }) {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (v) => Math.floor(v));
 
   useEffect(() => {
     if (isInView) {
-      const controls = animate(count, target, { duration: 3 });
+      const controls = animate(count, target, {
+        duration: 2.6,
+        ease: "easeOut",
+      });
       return () => controls.stop();
     }
   }, [isInView]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.15 }}
+      whileHover={{ y: -4 }}
       style={{
-        background: "#ffffffcc",
+        background: "#ffffff",
         borderRadius: "14px",
-        padding: "40px 20px",
+        padding: "24px 18px",
         textAlign: "center",
+        boxShadow: "0 10px 26px rgba(0,0,0,0.08)",
       }}
     >
-      {ICONS[icon]}
+      <IconWrap>{ICONS[icon]}</IconWrap>
 
-      <div style={{ fontSize: "2.4rem", fontWeight: "800", color: "#0c6b2c" }}>
+      <div
+        style={{
+          fontSize: "1.9rem",
+          fontWeight: "800",
+          color: "#0c6b2c",
+          lineHeight: "1.2",
+        }}
+      >
         <motion.span>{rounded}</motion.span>+
       </div>
 
       <p
         style={{
-          marginTop: "8px",
-          fontSize: "1rem",
+          marginTop: "6px",
+          fontSize: "0.95rem",
           fontWeight: "600",
-          fontFamily: "Noto Nastaliq Urdu, Noori Nastaleeq, serif", // ✅ URDU FONT
+          fontFamily: "Noto Nastaliq Urdu, Noori Nastaleeq, serif",
+          color: "#333",
         }}
       >
         {label}
@@ -86,15 +113,15 @@ function StatCard({ icon, label, target, index, isInView }) {
   );
 }
 
-// --------------------------------------------
-// ✅ MAIN STATS SECTION WITH TRANSLATION
-// --------------------------------------------
+/* ===============================
+   MAIN SECTION — POLISHED SIZE
+================================ */
 export default function StatsSection() {
-  const { t, i18n } = useTranslation(); // ✅
+  const { t, i18n } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const isUrdu = i18n.language === "ur"; // ✅ For RTL + Nastaleeq
+  const isUrdu = i18n.language === "ur";
 
   const stats = [
     { label: t("stats.members"), target: 1200, icon: "users" },
@@ -107,39 +134,44 @@ export default function StatsSection() {
     <section
       ref={ref}
       style={{
-        padding: "60px 0",
-        background: "#f0fff4",
-        direction: isUrdu ? "rtl" : "ltr", // ✅ RTL SUPPORT
+        padding: "38px 0", // ✅ slightly bigger but still tight
+        background: "#f4fff7",
+        direction: isUrdu ? "rtl" : "ltr",
       }}
     >
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
+      <h1
+        initial={{ opacity: 0, y: 18 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         style={{
-          fontSize: "2.3rem",
+          fontSize: "2.5rem",
           textAlign: "center",
           fontWeight: "800",
           color: "#0d6a32",
-          marginBottom: "35px",
+          marginBottom: "24px",
           fontFamily: isUrdu
             ? "Noto Nastaliq Urdu, Noori Nastaleeq, serif"
             : "inherit",
         }}
       >
         {t("stats.title")}
-      </motion.h2>
+      </h1>
 
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(230px, 1fr))",
-          gap: "30px",
-          width: "85%",
+          gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+          gap: "20px",
+          width: "88%",
           margin: "0 auto",
         }}
       >
         {stats.map((item, index) => (
-          <StatCard key={index} index={index} {...item} isInView={isInView} />
+          <StatCard
+            key={index}
+            index={index}
+            {...item}
+            isInView={isInView}
+          />
         ))}
       </div>
     </section>

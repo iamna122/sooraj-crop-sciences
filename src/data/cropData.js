@@ -1,17 +1,21 @@
 // src/data/cropData.js
 import cotton from "../assets/crops/cotton.jpg";
-import rice from "../assets/crops/wheat.jpg";
-import wheat from "../assets/crops/cotton.jpg";
-import maize from "../assets/crops/wheat.jpg";
-import potato from "../assets/crops/cotton.jpg";
+import rice from "../assets/crops/rice.jpg";
+import wheat from "../assets/crops/wheat.jpg";
+import maize from "../assets/crops/maize.jpg";
+import potato from "../assets/crops/potato.jpg";
+import WaterMelon from "../assets/crops/WaterMelon.jpg"
+import Strawberry from "../assets/crops/Strawberry.jpg"
+import Citrus from "../assets/crops/Citrus.jpg"
+import Vegetables from "../assets/crops/Vegetables.jpg"
 
 export const crops = [
-  {
-    id: 1,
-    name: "Cotton",
-    image: cotton,
-    description: "Cotton is widely used in textiles."
-  },
+  // {
+  //   id: 1,
+  //   name: "Cotton",
+  //   image: cotton,
+  //   description: "Cotton is widely used in textiles."
+  // },
   {
     id: 2,
     name: "Rice",
@@ -38,32 +42,32 @@ export const crops = [
   },
   {
     id: 6,
-    name: "mango",
-    image: cotton,
+    name: "WaterMelon",
+    image: WaterMelon,
     description: "mango is widely used in textiles."
   },
   {
     id: 7,
-    name: "banana",
-    image: rice,
+    name: "Strawberry",
+    image: Strawberry,
     description: "banana feeds more than half the world."
   },
-  {
-    id: 8,
-    name: "apple",
-    image: wheat,
-    description: "apple is used for bread, pasta, etc."
-  },
+  // {
+  //   id: 8,
+  //   name: "Strawberry",
+  //   image: wheat,
+  //   description: "apple is used for bread, pasta, etc."
+  // },
   {
     id: 9,
-    name: "grapes",
-    image: maize,
+    name: "Citrus",
+    image: Citrus,
     description: "grapes is a global food & feed crop."
   },
   {
     id: 10,
-    name: "sugar cane",
-    image: potato,
+    name: "Vegetables",
+    image: Vegetables,
     description: "sugar cane are rich, filling, and versatile."
   },
 ];
