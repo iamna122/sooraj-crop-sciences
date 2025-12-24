@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import "./i18n";
@@ -27,7 +31,7 @@ function SearchResults({ search }) {
 
   if (!search) return null;
 
-  const filtered = products.filter(product =>
+  const filtered = products.filter((product) =>
     product.name.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -47,7 +51,7 @@ function SearchResults({ search }) {
         padding: "8px 0",
       }}
     >
-      {filtered.map(item => (
+      {filtered.map((item) => (
         <div
           key={item.id}
           onClick={() => navigate(`/products/${item.id}`)}
@@ -70,6 +74,8 @@ function SearchResults({ search }) {
 export default function App() {
   const [search, setSearch] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const { i18n } = useTranslation(); // ✅ get i18n here
+  const isUrdu = i18n.language === "ur"; // ✅ check if language is Urdu
 
   /* Fix mobile viewport height issues */
   useEffect(() => {
@@ -87,33 +93,16 @@ export default function App() {
 
   return (
     <Router>
-      {/* ✅ ONLY FONT SWITCH — NO LAYOUT CHANGE */}
+      {/* ✅ Apply Urdu font if needed */}
       <div className={isUrdu ? "urdu-font" : ""}>
         <TopHeader />
 
-      <Navbar
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        search={search}
-        setSearch={setSearch}
-      />
-
-      {isOpen && <SearchResults search={search} />}
-
-      <Routes>
-        <Route
-          path="/"
-          element={<Home search={search} setSearch={setSearch} />}
+        <Navbar
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          search={search}
+          setSearch={setSearch}
         />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/career" element={<Career />} />
-
-        {/* Fallback */}
-        <Route path="*" element={<Products />} />
-      </Routes>
 
         {isOpen && <SearchResults search={search} />}
 
@@ -122,11 +111,11 @@ export default function App() {
             path="/"
             element={<Home search={search} setSearch={setSearch} />}
           />
-          <Route path="/About" element={<About />} />
-          <Route path="/Products" element={<Products />} />
-          <Route path="/Products/:id" element={<ProductDetail />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Career" element={<Career />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/career" element={<Career />} />
           <Route path="*" element={<Products />} />
         </Routes>
 
