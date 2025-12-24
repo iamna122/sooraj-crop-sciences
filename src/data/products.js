@@ -800,6 +800,50 @@ const products = [
       ],
     },
   },
+  {
+    id: 20, // unique ID
+    name: { en: "Sooraj N.P", ur: "سورج این۔پی" },
+    brand: {
+      en: "Nitrogen 15% + Phosphorus 10%",
+      ur: "نائٹروجن 15٪ + فاسفورس 10٪",
+    },
+    category: { en: "Fertilizer", ur: "کھاد" },
+    packSize: { en: "50 KG", ur: "50 کلو" },
+    image: require("../assets/products/NP.png"), // add actual image
+    composition: [
+      { en: "Nitrogen 15% + Phosphorus 10%", ur: "نائٹروجن 15٪ + فاسفورس 10٪" },
+    ],
+    crops: { en: "All crops", ur: "تمام فصلیں" },
+    usage: {
+      en: [
+        "Apply to soil during the growth cycle according to recommended dose.",
+        "Ensure even mixing with soil for proper nutrient absorption.",
+      ],
+      ur: [
+        "بڑھوتری کے دوران تجویز کردہ مقدار کے مطابق مٹی میں لگائیں۔",
+        "صحیح غذائی جذب کے لیے مٹی میں یکساں مکس کریں۔",
+      ],
+    },
+    season: { en: "All year", ur: "تمام سال" },
+    problems: {
+      en: "Nitrogen and Phosphorus deficiency",
+      ur: "نائٹروجن اور فاسفورس کی کمی",
+    },
+    details: {
+      en: [
+        "Balanced fertilizer providing essential nitrogen and phosphorus.",
+        "Supports healthy plant growth and strong root development.",
+        "Enhances overall crop yield and quality.",
+        "Store in a cool, dry place.",
+      ],
+      ur: [
+        "اہم نائٹروجن اور فاسفورس فراہم کرنے والی متوازن کھاد۔",
+        "صحت مند پودوں کی بڑھوتری اور مضبوط جڑوں کی نشوونما میں مدد دیتی ہے۔",
+        "مجموعی فصل کی پیداوار اور معیار کو بہتر بناتی ہے۔",
+        "ٹھنڈی، خشک جگہ پر اسٹور کریں۔",
+      ],
+    },
+  },
 ];
 
 export default products;
