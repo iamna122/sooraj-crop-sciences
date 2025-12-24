@@ -47,7 +47,9 @@ export default function CareerPage() {
 
           <div className="tags">
             {tags.map((tag) => (
-              <button key={tag} className="tag">{tag}</button>
+              <button key={tag} className="tag">
+                {tag}
+              </button>
             ))}
           </div>
         </div>
