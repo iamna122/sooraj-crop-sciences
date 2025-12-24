@@ -242,14 +242,14 @@ const products = [
   // NEW PRODUCT 7: Fertilizer
   // -----------------------------------------------------
   {
-    id: 7,
-    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
-    brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    id: 8, // make sure this ID is unique
+    name: { en: "BABBAR SHER SULPHER (10KG)", ur: "ببر شیر سلفر (10 کلو)" },
+    brand: { en: "NITROGEN 11% SULPHER 75%", ur: "نائٹروجن 11%، سلفر 75%" },
     category: { en: "Fertilizer", ur: "کھاد" },
-    packSize: { en: "25 KG", ur: "25 کلو" },
-    image: require("../assets/products/SOP.png"), // Replace if available
+    packSize: { en: "10 KG", ur: "10 کلو" },
+    image: require("../assets/products/BabbarShair.png"),
     composition: [
-      { en: "Sulphate of Potassium (50:18)", ur: "سلفیٹ آف پوٹاشیم (50:18)" },
+      { en: "Nitrogen 11%, Sulphur 75%", ur: "نائٹروجن 11٪، سلفر 75٪" },
     ],
     crops: { en: "All crops", ur: "تمام فصلیں" },
     usage: {
@@ -257,13 +257,16 @@ const products = [
       ur: ["بڑھوتری کے دوران مٹی میں شامل کریں۔"],
     },
     season: { en: "All year", ur: "تمام سال" },
-    problems: { en: "Potassium deficiency", ur: "پوٹاشیم کی کمی" },
+    problems: {
+      en: "Nitrogen and Sulphur deficiency",
+      ur: "نائٹروجن اور سلفر کی کمی",
+    },
     details: { en: [], ur: [] },
   },
   {
     id: 8,
-    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
     brand: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
+    name: { en: "Major SOP G (50:18)", ur: "میجر ایس او پی جی (50:18)" },
     category: { en: "Fertilizer", ur: "کھاد" },
     packSize: { en: "25 KG", ur: "25 کلو" },
     image: require("../assets/products/SOP.png"), // Replace if available

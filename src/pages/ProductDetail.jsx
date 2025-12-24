@@ -21,8 +21,18 @@ export default function ProductDetail() {
     <>
       <div className="pd-main-container">
         {/* BACK BUTTON */}
-        <button className="pd-back" onClick={() => navigate(-1)}>
-          ← {t("product.backToProducts") || "Back to Products"}
+        <button
+          className="pd-back"
+          onClick={() => navigate(-1)}
+          style={{
+            color: "#fff",
+            border: "none",
+            padding: "10px 20px",
+            borderRadius: "50px",
+            cursor: "pointer",
+          }}
+        >
+          {t("Back to Products") || "product.backToProducts"}
         </button>
 
         {/* TOP SECTION: IMAGE + INFO */}

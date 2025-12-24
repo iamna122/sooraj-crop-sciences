@@ -9,9 +9,9 @@
 
 /* BACK BUTTON */
 .pd-back {
-  background: none;
+  background: #1a4d2e;
   border: none;
-  color: #127a3a;
+  color: white;
   font-size: 0.95rem;
   margin-bottom: 15px;
   cursor: pointer;
