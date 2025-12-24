@@ -47,18 +47,18 @@
   "product": {
     "notFound": "Product not found",
     "back": "Back to Products",
-    "brand": "Brand",
     "pack": "Pack Size",
     "composition": "Composition / Ingredients",
     "crops": "Crops / Targeted Plants",
     "usage": "Usage Instructions",
     "season": "Season / Timing",
     "problems": "Pest / Problem Control",
+    "category": "Category",
+    "ourSuppliers": "Our Suppliers",
     "title": "Our Products",
     "readMore": "Read more",
     "hideDetails": "Hide Details"
   },
-
   "about": {
     "whoTitle": "Who We Are",
     "whoPara1": "Sooraj Crop Sciences is a modern agricultural enterprise committed to empowering farmers across Pakistan through innovation, science, and trusted partnerships.",

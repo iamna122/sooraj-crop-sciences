@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     name: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" },
-    brand: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" }, // Swapped
+    chemical: { en: "Sulphur 80% WDG", ur: "سلفر 80٪ ڈبلیو ڈی جی" }, // Swapped
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "1 KG", ur: "1 کلو" },
     image: require("../assets/products/Sulphur.png"),
@@ -45,7 +45,7 @@ const products = [
       en: "NIPA",
       ur: "نیپا",
     },
-    brand: {
+    chemical: {
       en: "Benziothiozolinone 1.5% EW",
       ur: " بینزیوتھیازولینون 1.5٪ ای ڈبلیو",
     },
@@ -101,7 +101,7 @@ const products = [
       en: "Rippet",
       ur: "رِپٹ",
     },
-    brand: {
+    chemical: {
       en: "Dinotifuron + Pymetrozine",
       ur: " ڈائنوٹیفیورون + پائمیٹروزین",
     },
@@ -145,7 +145,7 @@ const products = [
   {
     id: 4,
     name: { en: "FACEUP 56 %SC", ur: "فیس اپ 56 فیصد ایس سی" },
-    brand: { en: "Azoxystrobin 5.4% SC", ur: "ایزوکسسٹروبن 5.4٪ ایس سی" },
+    chemical: { en: "Azoxystrobin 5.4% SC", ur: "ایزوکسسٹروبن 5.4٪ ایس سی" },
     category: { en: "Fungicide", ur: "فنگس کش" },
     packSize: { en: "250 ML", ur: "250 ملی لیٹر" },
     image: require("../assets/products/FaceUp.png"),
@@ -182,7 +182,7 @@ const products = [
   {
     id: 5,
     name: { en: "Whats App (Zinc)", ur: "واٹس ایپ (زنک)" },
-    brand: { en: "Crop Supplement", ur: "کراپ سپلیمنٹ" },
+    chemical: { en: "Crop Supplement", ur: "کراپ سپلیمنٹ" },
     category: { en: "Micronutrient", ur: "مائیکرو نیوٹرینٹ" },
     packSize: { en: "4 KG", ur: "4 کلو" },
     image: require("../assets/products/WhatsApp.png"), // use existing image if same
@@ -229,7 +229,7 @@ const products = [
       en: "Winsta 30% WP",
       ur: "ونسٹا 30٪ ڈبلیو پی",
     },
-    brand: {
+    chemical: {
       en: "Bispyribac Sodium + Bensulfuron Methyl 30% WP",
       ur: " بسپیریبک سوڈیم + بینسلفیورون میتھائل 30٪ ڈبلیو پی",
     },
@@ -288,7 +288,7 @@ const products = [
   {
     id: 7, // make sure this ID is unique
     name: { en: "BABBAR SHER SULPHER (10KG)", ur: "ببر شیر سلفر (10 کلو)" },
-    brand: { en: "NITROGEN 11% SULPHER 75%", ur: "نائٹروجن 11%، سلفر 75%" },
+    chemical: { en: "NITROGEN 11% SULPHER 75%", ur: "نائٹروجن 11%، سلفر 75%" },
     category: { en: "Fertilizer", ur: "کھاد" },
     packSize: { en: "10 KG", ur: "10 کلو" },
     image: require("../assets/products/BabbarShair.png"),
@@ -309,7 +309,7 @@ const products = [
   },
   {
     id: 8,
-    brand: { en: "Crestor", ur: "کریسٹر" },
+    chemical: { en: "Crestor", ur: "کریسٹر" },
     name: { en: "Crestor Potassium Humate", ur: "کریسٹر پوٹاشیم ہیومیٹ" },
     category: { en: "Micronutrient", ur: "مائیکرو نیوٹرینٹ" },
     packSize: { en: "4 KG", ur: "4 کلو" },
@@ -344,7 +344,7 @@ const products = [
   },
   {
     id: 9,
-    brand: { en: "Duo + Star", ur: "ڈیو پلس اسٹار" },
+    chemical: { en: "Duo + Star", ur: "ڈیو پلس اسٹار" },
     name: { en: "Duo + Star", ur: "ڈیو پلس اسٹار" },
     category: { en: "Herbicide", ur: "جڑی بوٹی مار دوا" },
     packSize: { en: "600 ML", ur: "600 ملی لیٹر" },
@@ -395,7 +395,7 @@ const products = [
   {
     id: 10,
     name: { en: "Fertera Plus", ur: "فیرٹرا پلس" },
-    brand: { en: "CTPR+ChaIothinadin", ur: "CTPR+چالو تھیناڈن" },
+    chemical: { en: "CTPR+ChaIothinadin", ur: "CTPR+چالو تھیناڈن" },
     category: { en: "Granule", ur: "گرانول" },
     packSize: { en: "6 KG", ur: "6 کلو" },
     image: require("../assets/products/FerteraPlus.png"), // Replace with actual image
@@ -425,7 +425,7 @@ const products = [
   {
     id: 11,
     name: { en: "Mister", ur: "مسٹر" },
-    brand: {
+    chemical: {
       en: "Dinotifuron + Bifenthrine",
       ur: "ڈائنوٹیفیورون + بائیفین تھرین",
     },
@@ -471,7 +471,7 @@ const products = [
   {
     id: 12,
     name: { en: "Monomehyp 05% G", ur: "مونومہائپ 05٪ جی" },
-    brand: { en: "Monomehyp 05% G", ur: "مونومہائپ 05٪ جی" },
+    chemical: { en: "Monomehyp 05% G", ur: "مونومہائپ 05٪ جی" },
     category: { en: "Granule", ur: "گرانول" },
     packSize: { en: "1 KG", ur: "1 کلو" },
     image: require("../assets/products/Monomehype.png"),
@@ -510,7 +510,7 @@ const products = [
   {
     id: 13,
     name: { en: "Multi-KClasic Potash 30%", ur: "ملٹی-کے کلازک پوٹاش 30٪" },
-    brand: { en: "Multi-KClasic", ur: "ملٹی-کے کلازک" },
+    chemical: { en: "Multi-KClasic", ur: "ملٹی-کے کلازک" },
     category: { en: "Micronutrient", ur: "مائیکرو نیوٹرینٹ" },
     packSize: { en: "1 Ltr", ur: "1 لٹر" },
     image: require("../assets/products/Multi-K.png"),
@@ -550,7 +550,7 @@ const products = [
       en: "Multi-KClasic Potash 30% (Fertigation)",
       ur: "ملٹی-کے کلازک پوٹاش 30٪ (فرٹیگیشن)",
     },
-    brand: { en: "Multi-KClasic", ur: "ملٹی-کے کلازک" },
+    chemical: { en: "Multi-KClasic", ur: "ملٹی-کے کلازک" },
     category: { en: "Micronutrient", ur: "مائیکرو نیوٹرینٹ" },
     packSize: { en: "3 Ltr", ur: "3 لٹر" },
     image: require("../assets/products/Multi-K.png"),
@@ -587,7 +587,7 @@ const products = [
   {
     id: 15,
     name: { en: "Round-Up 48% SL", ur: "راؤنڈ-اپ 48٪ ایس ایل" },
-    brand: { en: "Glyphosate 48% SL", ur: "گلیفوسیت 48٪ ایس ایل" },
+    chemical: { en: "Glyphosate 48% SL", ur: "گلیفوسیت 48٪ ایس ایل" },
     category: { en: "Herbicide", ur: "جڑی بوٹی مار" },
     packSize: { en: "1000 ML", ur: "1000 ملی لیٹر" },
     image: require("../assets/products/RoundUp.png"), // add actual image
@@ -628,7 +628,7 @@ const products = [
   {
     id: 16,
     name: { en: "Atrazine 38% SC", ur: "ایٹرازین 38٪ ایس سی" },
-    brand: { en: "Atrazine 38% SC", ur: "ایٹرازین 38٪ ایس سی" },
+    chemical: { en: "Atrazine 38% SC", ur: "ایٹرازین 38٪ ایس سی" },
     category: { en: "Herbicide", ur: "جڑی بوٹی مار" },
     packSize: { en: "500 ML", ur: "500 ملی لیٹر" },
     image: require("../assets/products/Atrazine.png"), // add actual image
@@ -669,7 +669,7 @@ const products = [
   {
     id: 17,
     name: { en: "Wolf 25% OD", ur: "وولف 25٪ او ڈی" },
-    brand: {
+    chemical: {
       en: "TRIULTRA (Mesosulfuron Methyl 0.9% + Florasulam 0.6% + MACP 23.5%)",
       ur: "ٹرائی الٹرا (میسوسلفورون میتھائل 0.9٪ + فلوراسولم 0.6٪ + میکاپ 23.5٪)",
     },
@@ -718,7 +718,7 @@ const products = [
   {
     id: 18, // unique ID
     name: { en: "Ceedo 20% SC", ur: "سیڈو 20٪ ایس سی" },
-    brand: { en: "Clothianidin 20% SC", ur: "کلوٹھیانڈین 20٪ ایس سی" },
+    chemical: { en: "Clothianidin 20% SC", ur: "کلوٹھیانڈین 20٪ ایس سی" },
     category: { en: "Insecticide", ur: "کیڑے مار" },
     packSize: { en: "ISO ML", ur: "آئی ایس او ملی لیٹر" },
     image: require("../assets/products/Seedo.png"), // add actual image
@@ -759,7 +759,7 @@ const products = [
   {
     id: 19,
     name: { en: "Sooraj Champion", ur: "سورج چیمپئن" },
-    brand: {
+    chemical: {
       en: "Nitrogen 17% + Phosphorus 44%",
       ur: "نائٹروجن 17٪ + فاسفورس 44٪",
     },
@@ -801,9 +801,9 @@ const products = [
     },
   },
   {
-    id: 20, // unique ID
+    id: 20,
     name: { en: "Sooraj N.P", ur: "سورج این۔پی" },
-    brand: {
+    chemical: {
       en: "Nitrogen 15% + Phosphorus 10%",
       ur: "نائٹروجن 15٪ + فاسفورس 10٪",
     },

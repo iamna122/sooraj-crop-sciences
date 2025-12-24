@@ -117,7 +117,7 @@ export default function Products() {
 
               {/* BASIC INFO */}
               <div className="product-info">
-                <p>{p.brand?.[lang] || p.brand?.en}</p>
+                <p>{p.chemical?.[lang] || p.chemical?.en}</p>
 
                 <p>
                   <strong>{t("product.pack", "Pack Size")}:</strong>{" "}
