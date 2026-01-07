@@ -512,7 +512,11 @@ const products = [
     name: { en: "Multi-KClasic Potash 30%", ur: "ملٹی-کے کلازک پوٹاش 30٪" },
     chemical: { en: "Multi-KClasic", ur: "ملٹی-کے کلازک" },
     category: { en: "Micronutrient", ur: "مائیکرو نیوٹرینٹ" },
-    packSize: { en: "1 Ltr", ur: "1 لٹر" },
+    packSize: {
+      en: "1 Ltr, 3 Ltr, 20 Ltr, 200 Ltr",
+      ur: "1 لٹر، 3 لٹر، 20 لٹر، 200 لٹر",
+    },
+
     image: require("../assets/products/Multi-K.png"),
     composition: [{ en: "Potash 30%", ur: "پوٹاش 30٪" }],
     crops: { en: "All crops", ur: "تمام فصلیں" },
